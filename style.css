@@ -1,18 +1,23 @@
-
 :root{
   --bg:#0b0806;
   --cream:#eadfce;
   --icon:#d7bea1;
   --line:rgba(215,190,161,.42);
 }
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   color:var(--cream);
   background:#0b0806;
   font-family:"Noto Serif JP",serif;
 }
+
 body:before{
   content:"";
   position:fixed;
@@ -22,8 +27,13 @@ body:before{
   background:radial-gradient(circle at 50% 42%, #26170f 0, #130d09 34%, #0b0806 70%);
   z-index:-1;
 }
+
+/* ===========================
+   Header
+=========================== */
+
 header{
-  height:100px;
+  height:90px;
   position:absolute;
   inset:0 0 auto 0;
   padding:0 42px;
@@ -31,6 +41,7 @@ header{
   justify-content:flex-end;
   align-items:center;
 }
+
 .menu{
   color:var(--cream);
   text-decoration:none;
@@ -40,81 +51,149 @@ header{
   column-gap:18px;
   align-items:center;
   font-family:"EB Garamond",serif;
-  letter-spacing:.16em;
   font-size:17px;
+  letter-spacing:.16em;
 }
-.menu span{grid-row:1/4}
-.menu b{display:block;width:40px;height:1px;background:var(--cream);font-weight:400}
+
+.menu span{
+  grid-row:1/4;
+}
+
+.menu b{
+  width:40px;
+  height:1px;
+  background:var(--cream);
+  display:block;
+}
+
+/* ===========================
+   Hero
+=========================== */
 
 .hero{
-  min-height:1020px;
+  min-height:100svh;
   display:flex;
   flex-direction:column;
+  justify-content:center;
   align-items:center;
   text-align:center;
-  padding:300px 24px 50px;
+
+  /* ←ここだけかなり調整 */
+  padding:150px 24px 40px;
 }
+
 .brand{
   display:flex;
   align-items:baseline;
   gap:18px;
   white-space:nowrap;
-  margin-bottom:118px;
+
+  margin-bottom:70px;
 }
-.kissa{font-size:31px;letter-spacing:.06em}
-.mame{font-size:70px;letter-spacing:-.11em;line-height:1}
-.zuzu{font-family:"EB Garamond",serif;font-size:32px;letter-spacing:.13em}
+
+.kissa{
+  font-size:31px;
+  letter-spacing:.06em;
+}
+
+.mame{
+  font-size:70px;
+  letter-spacing:-.11em;
+  line-height:1;
+}
+
+.zuzu{
+  font-family:"EB Garamond",serif;
+  font-size:32px;
+  letter-spacing:.13em;
+}
+
 .mascot{
-  width:182px;
+  width:125px;
   height:auto;
-  margin:0 0 72px;
   display:block;
-  /* IMPORTANT: no CSS rotation. The approved slight angle is baked into this exact asset. */
+
+  margin-bottom:34px;
 }
+
 .intro{
   margin:0;
   font-size:21px;
   line-height:2.05;
   letter-spacing:.08em;
 }
-.short-line{width:54px;height:1px;background:var(--line);margin:34px 0}
-.tag{margin:0;font-size:21px;letter-spacing:.1em}
+
+.short-line{
+  width:54px;
+  height:1px;
+  background:var(--line);
+  margin:22px 0;
+}
+
+.tag{
+  margin:0 0 36px;
+  font-size:21px;
+  letter-spacing:.1em;
+}
+
+/* ===========================
+   Links
+=========================== */
+
 .links{
   width:min(520px,calc(100% - 44px));
-  margin:0 auto 75px;
+  margin:0 auto 70px;
 }
+
 .links a{
-  min-height:112px;
-  border-bottom:1px solid var(--line);
+  min-height:88px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   color:var(--cream);
   text-decoration:none;
+
+  border-bottom:1px solid var(--line);
+
+  transition:.25s;
 }
-.links a:first-child{border-top:0}
+
+.links a:hover{
+  opacity:.75;
+}
+
 .links span{
   font-family:"EB Garamond",serif;
   font-size:31px;
   letter-spacing:.22em;
 }
+
 .links img{
-  width:50px;
-  height:50px;
+  width:46px;
+  height:46px;
   object-fit:contain;
 }
+
 .links a:first-child img{
-  width:48px;
-  height:48px;
+  width:44px;
+  height:44px;
 }
+
+/* ===========================
+   Placeholder
+=========================== */
+
 .placeholder{
   width:min(520px,calc(100% - 44px));
-  margin:80px auto 120px;
+  margin:70px auto 120px;
   text-align:center;
   color:#9c8e7e;
   font-family:"EB Garamond",serif;
   letter-spacing:.1em;
 }
+
 footer{
   text-align:center;
   padding:0 20px 45px;
@@ -124,20 +203,88 @@ footer{
   color:#cdbda8;
 }
 
+/* ===========================
+   Mobile
+=========================== */
+
 @media(max-width:650px){
-  header{height:82px;padding:0 20px}
-  .menu{grid-template-columns:auto 30px;font-size:14px}
-  .menu b{width:30px}
-  .hero{min-height:880px;padding-top:230px}
-  .brand{gap:10px;margin-bottom:90px}
-  .kissa{font-size:21px}
-  .mame{font-size:52px}
-  .zuzu{font-size:21px}
-  .mascot{width:140px;margin-bottom:60px}
-  .intro,.tag{font-size:16px}
-  .links{margin-bottom:60px}
-  .links a{min-height:92px}
-  .links span{font-size:25px}
-  .links img{width:38px;height:38px}
-  .links a:first-child img{width:37px;height:37px}
+
+header{
+  height:78px;
+  padding:0 20px;
+}
+
+.menu{
+  grid-template-columns:auto 30px;
+  font-size:14px;
+}
+
+.menu b{
+  width:30px;
+}
+
+.hero{
+  min-height:100svh;
+
+  /* ここだけかなり詰めた */
+  padding:105px 24px 20px;
+}
+
+.brand{
+  gap:10px;
+  margin-bottom:45px;
+}
+
+.kissa{
+  font-size:21px;
+}
+
+.mame{
+  font-size:52px;
+}
+
+.zuzu{
+  font-size:21px;
+}
+
+.mascot{
+  width:108px;
+  margin-bottom:26px;
+}
+
+.intro{
+  font-size:16px;
+}
+
+.short-line{
+  margin:18px 0;
+}
+
+.tag{
+  font-size:16px;
+  margin-bottom:24px;
+}
+
+.links{
+  margin-bottom:45px;
+}
+
+.links a{
+  min-height:70px;
+}
+
+.links span{
+  font-size:23px;
+}
+
+.links img{
+  width:34px;
+  height:34px;
+}
+
+.links a:first-child img{
+  width:32px;
+  height:32px;
+}
+
 }
