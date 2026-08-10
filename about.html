@@ -35,32 +35,37 @@
 
   <link
     rel="stylesheet"
-    href="style.css?v=20260811-04"
+    href="./style.css?v=20260811-final02"
   >
 
   <script
-    src="site.js?v=20260811-04"
+    src="./site.js?v=20260811-final02"
     defer
   ></script>
 
 </head>
 
 
-<body>
+<body class="sub-body">
 
 
 <header class="site-header">
 
-  <details class="site-menu">
+  <div class="site-nav">
 
-    <summary>
+    <button
+      class="nav-trigger"
+      type="button"
+      aria-expanded="false"
+      aria-controls="global-menu"
+    >
 
-      <span class="menu-word">
+      <span class="nav-word">
         menu
       </span>
 
       <span
-        class="hamburger"
+        class="nav-lines"
         aria-hidden="true"
       >
         <i></i>
@@ -68,11 +73,12 @@
         <i></i>
       </span>
 
-    </summary>
+    </button>
 
 
     <nav
-      class="menu-dropdown"
+      id="global-menu"
+      class="nav-menu"
       aria-label="メインメニュー"
     >
 
@@ -94,7 +100,7 @@
 
     </nav>
 
-  </details>
+  </div>
 
 </header>
 
