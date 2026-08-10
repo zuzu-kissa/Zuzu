@@ -32,6 +32,12 @@ body{
 }
 
 
+button,
+a{
+  font:inherit;
+}
+
+
 body:before{
   content:"";
 
@@ -77,7 +83,7 @@ body:before{
 
   justify-content:flex-end;
 
-  z-index:1000;
+  z-index:9999;
 
   pointer-events:none;
 }
@@ -88,15 +94,33 @@ body:before{
    GLOBAL MENU
 ================================================== */
 
-.site-menu{
+.site-nav{
   position:relative;
 
   pointer-events:auto;
 }
 
 
-.site-menu summary{
-  list-style:none;
+/* trigger */
+
+.nav-trigger{
+  appearance:none;
+
+  -webkit-appearance:none;
+
+  border:0;
+
+  border-radius:0;
+
+  outline:0;
+
+  margin:0;
+
+  padding:9px 0;
+
+  background:transparent;
+
+  color:var(--cream);
 
   display:flex;
 
@@ -104,29 +128,13 @@ body:before{
 
   gap:16px;
 
-  padding:9px 0;
-
-  color:var(--cream);
-
   cursor:pointer;
-
-  user-select:none;
 
   font-family:"EB Garamond",serif;
 }
 
 
-.site-menu summary::-webkit-details-marker{
-  display:none;
-}
-
-
-.site-menu summary::marker{
-  content:"";
-}
-
-
-.menu-word{
+.nav-word{
   font-size:16px;
 
   line-height:1;
@@ -135,7 +143,7 @@ body:before{
 }
 
 
-.hamburger{
+.nav-lines{
   width:36px;
 
   display:flex;
@@ -146,28 +154,34 @@ body:before{
 }
 
 
-.hamburger i{
+.nav-lines i{
   display:block;
 
   width:36px;
 
   height:1px;
 
+  margin:0;
+
+  padding:0;
+
   background:var(--cream);
+
+  border:0;
 }
 
 
 
 /* dropdown */
 
-.menu-dropdown{
+.nav-menu{
   position:absolute;
 
-  top:100%;
+  top:40px;
 
   right:0;
 
-  width:138px;
+  width:142px;
 
   padding:7px 12px;
 
@@ -180,18 +194,36 @@ body:before{
 
   box-shadow:
     0 12px 28px
-    rgba(0,0,0,.25);
+    rgba(0,0,0,.28);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transform:
+    translateY(-4px);
+
+  transition:
+    opacity .16s ease,
+    visibility .16s ease,
+    transform .16s ease;
 }
 
 
-.menu-dropdown a,
-.menu-dropdown a:link,
-.menu-dropdown a:visited{
+.nav-menu a,
+.nav-menu a:link,
+.nav-menu a:visited{
   display:block;
+
+  margin:0;
 
   padding:7px 2px;
 
   color:var(--cream);
+
+  background:transparent;
 
   text-decoration:none;
 
@@ -207,29 +239,41 @@ body:before{
 }
 
 
-.menu-dropdown a:hover{
+.nav-menu a:hover{
   opacity:.55;
 }
 
 
-/*
-  detailsが閉じている時は
-  dropdownを表示しない
-*/
 
-.site-menu:not([open]) .menu-dropdown{
-  display:none;
+/* tap / click */
+
+.site-nav.is-open .nav-menu{
+  opacity:1;
+
+  visibility:visible;
+
+  pointer-events:auto;
+
+  transform:
+    translateY(0);
 }
 
 
-/*
-  PCではhoverだけで表示
-*/
+
+/* PC hover */
 
 @media(hover:hover){
 
-  .site-menu:not([open]):hover .menu-dropdown{
-    display:block;
+  .site-nav:hover .nav-menu,
+  .site-nav:focus-within .nav-menu{
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+    transform:
+      translateY(0);
   }
 
 }
@@ -352,6 +396,7 @@ body:before{
   12%{
     transform:
       translateX(-3px)
+      translateY(0)
       rotate(-6deg);
   }
 
@@ -383,6 +428,7 @@ body:before{
   75%{
     transform:
       translateX(-2px)
+      translateY(0)
       rotate(-13deg);
   }
 
@@ -390,12 +436,15 @@ body:before{
   86%{
     transform:
       translateX(1px)
+      translateY(0)
       rotate(6deg);
   }
 
 
   94%{
     transform:
+      translateX(0)
+      translateY(0)
       rotate(-2deg);
   }
 
@@ -522,8 +571,17 @@ body:before{
 
 
 /* ==================================================
-   BEANS PAGE
+   BEANS
 ================================================== */
+
+.beans-body{
+  min-height:100svh;
+
+  display:flex;
+
+  flex-direction:column;
+}
+
 
 .beans-page{
   width:
@@ -532,6 +590,8 @@ body:before{
       calc(100% - 60px)
     );
 
+  flex:1;
+
   margin:
     0
     auto;
@@ -539,14 +599,17 @@ body:before{
   padding:
     76px
     0
-    14px;
+    12px;
+
+  display:flex;
+
+  flex-direction:column;
 }
 
 
-
-/* header */
-
 .beans-head{
+  flex:0 0 auto;
+
   margin-bottom:10px;
 
   padding-bottom:9px;
@@ -617,6 +680,10 @@ body:before{
 /* products */
 
 .beans-products{
+  flex:1;
+
+  min-height:0;
+
   display:grid;
 
   grid-template-columns:
@@ -630,9 +697,9 @@ body:before{
 
 
 .bean-product{
-  height:380px;
-
   min-width:0;
+
+  min-height:0;
 
   display:grid;
 
@@ -807,8 +874,17 @@ body:before{
 
 
 /* ==================================================
-   SUB PAGE
+   ABOUT / CONTACT
 ================================================== */
+
+.sub-body{
+  min-height:100svh;
+
+  display:flex;
+
+  flex-direction:column;
+}
+
 
 .sub-page{
   width:
@@ -817,8 +893,7 @@ body:before{
       calc(100% - 44px)
     );
 
-  min-height:
-    calc(100svh - 28px);
+  flex:1;
 
   margin:
     0
@@ -886,9 +961,7 @@ body:before{
 
 
 
-/* ==================================================
-   ABOUT
-================================================== */
+/* ABOUT */
 
 .about-content{
   width:
@@ -994,9 +1067,7 @@ body:before{
 
 
 
-/* ==================================================
-   CONTACT
-================================================== */
+/* CONTACT */
 
 .contact-content{
   width:
@@ -1087,6 +1158,8 @@ body:before{
 ================================================== */
 
 footer{
+  flex:0 0 auto;
+
   text-align:center;
 
   padding:
@@ -1123,7 +1196,7 @@ footer{
   }
 
 
-  .site-menu summary{
+  .nav-trigger{
     gap:10px;
 
     padding:
@@ -1132,24 +1205,26 @@ footer{
   }
 
 
-  .menu-word{
+  .nav-word{
     font-size:14px;
   }
 
 
-  .hamburger{
+  .nav-lines{
     width:29px;
 
     gap:5px;
   }
 
 
-  .hamburger i{
+  .nav-lines i{
     width:29px;
   }
 
 
-  .menu-dropdown{
+  .nav-menu{
+    top:35px;
+
     width:120px;
 
     padding:
@@ -1158,9 +1233,9 @@ footer{
   }
 
 
-  .menu-dropdown a,
-  .menu-dropdown a:link,
-  .menu-dropdown a:visited{
+  .nav-menu a,
+  .nav-menu a:link,
+  .nav-menu a:visited{
     padding:
       6px
       1px;
@@ -1170,7 +1245,7 @@ footer{
 
 
 
-  /* home */
+  /* HOME */
 
   .hero{
     padding:
@@ -1263,31 +1338,20 @@ footer{
 
 
 
-  /* beans */
+  /* BEANS */
 
   .beans-page{
     width:
       calc(100% - 20px);
 
-    height:
-      calc(100svh - 20px);
-
-    min-height:500px;
-
     padding:
       56px
       0
       6px;
-
-    display:flex;
-
-    flex-direction:column;
   }
 
 
   .beans-head{
-    flex:0 0 auto;
-
     margin-bottom:5px;
 
     padding-bottom:5px;
@@ -1322,10 +1386,6 @@ footer{
 
 
   .beans-products{
-    flex:1;
-
-    min-height:0;
-
     grid-template-columns:1fr;
 
     grid-template-rows:
@@ -1339,10 +1399,6 @@ footer{
 
 
   .bean-product{
-    height:auto;
-
-    min-height:0;
-
     grid-template-columns:
       29%
       71%;
@@ -1427,14 +1483,11 @@ footer{
 
 
 
-  /* about / contact */
+  /* ABOUT / CONTACT */
 
   .sub-page{
     width:
       calc(100% - 28px);
-
-    min-height:
-      calc(100svh - 22px);
 
     padding:
       58px
@@ -1544,6 +1597,20 @@ footer{
     padding-bottom:6px;
 
     font-size:9px;
+  }
+
+}
+
+
+
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+  .mascot.is-falling{
+    animation:none;
   }
 
 }
