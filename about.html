@@ -46,36 +46,65 @@
 
 <header>
 
-  <a
-    class="menu"
-    href="#links"
-    aria-label="メニューへ移動"
-  >
+  <div class="menu-wrap">
 
-    <span>menu</span>
+    <button
+      class="menu"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+    >
 
-    <b></b>
-    <b></b>
-    <b></b>
+      <span>menu</span>
 
-  </a>
+      <i>
+        <b></b>
+        <b></b>
+        <b></b>
+      </i>
+
+    </button>
+
+
+    <nav
+      class="menu-panel"
+      aria-label="サイトメニュー"
+    >
+
+      <a href="index.html">
+        home
+      </a>
+
+      <a href="beans.html">
+        beans
+      </a>
+
+      <a href="about.html">
+        about
+      </a>
+
+      <a href="contact.html">
+        contact
+      </a>
+
+    </nav>
+
+  </div>
 
 </header>
 
 
 
-<main class="sub-page">
+<main class="compact-page">
 
 
-  <section class="page-hero">
+  <section class="compact-hero">
 
     <a
       class="mini-brand"
       href="index.html"
     >
-
       喫茶 豆豆 ~zu-zu~
-
     </a>
 
     <h1>
@@ -92,7 +121,7 @@
 
 
 
-  <section class="about-content">
+  <section class="about-compact">
 
     <p>
 
@@ -107,88 +136,38 @@
 
     <p>
 
-      目指しているのは、<br>
-
-      ただ苦いだけではない深煎り。
-
-    </p>
-
-
-    <p>
+      ただ苦いだけではない深煎り。<br>
 
       しっかりとしたコクの中に、<br>
 
-      じんわりと甘さが残るような<br>
-
-      珈琲をつくっています。
+      じんわり甘さが残る珈琲を。
 
     </p>
 
-  </section>
 
-
-
-  <nav
-    id="links"
-    class="links sub-links"
-  >
-
-    <a href="index.html">
-
-      <span>
-        home
-      </span>
-
-      <img
-        src="assets/zuzu-daruma-approved.png"
-        alt=""
-      >
-
-    </a>
-
-
-    <a href="beans.html">
-
-      <span>
-        beans
-      </span>
-
-      <img
-        src="assets/icon-beans-approved.png"
-        alt=""
-      >
-
-    </a>
-
-
-    <a href="about.html">
-
-      <span>
-        about
-      </span>
+    <a
+      class="instagram-guide"
+      href="https://www.instagram.com/"
+      target="_blank"
+      rel="noopener"
+    >
 
       <img
         src="assets/icon-instagram.svg"
         alt=""
       >
 
-    </a>
-
-
-    <a href="contact.html">
-
       <span>
-        contact
+        instagram
       </span>
 
-      <img
-        src="assets/icon-contact.svg"
-        alt=""
-      >
+      <small>
+        焙煎や豆豆の日々はこちら
+      </small>
 
     </a>
 
-  </nav>
+  </section>
 
 
 </main>
@@ -200,6 +179,55 @@
   © 2026 zuzu coffee
 
 </footer>
+
+
+
+<script>
+
+  const menuWrap =
+    document.querySelector(".menu-wrap");
+
+  const menuButton =
+    document.querySelector(".menu");
+
+
+  menuButton.addEventListener(
+    "click",
+    function () {
+
+      const isOpen =
+        menuWrap.classList.toggle("is-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+    }
+  );
+
+
+  document.addEventListener(
+    "click",
+    function (event) {
+
+      if (!menuWrap.contains(event.target)) {
+
+        menuWrap.classList.remove(
+          "is-open"
+        );
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
+
+</script>
 
 
 </body>
