@@ -264,6 +264,10 @@
       document.querySelector('.mascot');
 
 
+    /*
+      だるまを1回転がす関数
+    */
+
     function rollDaruma(){
 
       if(!daruma){
@@ -272,9 +276,8 @@
 
 
       /*
-        一度クラスを外すことで、
-        何回でもアニメーションを
-        最初から再生できる
+        すでに動いている場合でも
+        最初から再生できるようにする
       */
 
       daruma.classList.remove(
@@ -284,14 +287,14 @@
 
       /*
         ブラウザに一度状態を
-        読み込ませる
+        確定させる
       */
 
       void daruma.offsetWidth;
 
 
       /*
-        転がるアニメーション開始
+        アニメーション開始
       */
 
       daruma.classList.add(
@@ -305,20 +308,84 @@
     if(daruma){
 
 
-      /*
-        PC：クリック
-        スマホ：タップ
-      */
+      /* =====================================
+         サイトを開いた最初に1回だけ転ぶ
+      ===================================== */
 
-      daruma.addEventListener(
-        'click',
-        rollDaruma
+      window.addEventListener(
+        'load',
+        function(){
+
+          /*
+            ページが表示されてから
+            ほんの少し待って転ぶ
+          */
+
+          setTimeout(
+            function(){
+
+              rollDaruma();
+
+            },
+            550
+          );
+
+        }
       );
 
 
-      /*
-        キーボード操作にも対応
-      */
+      /* =====================================
+         PC
+         カーソルが触れたら転ぶ
+      ===================================== */
+
+      if(
+        window.matchMedia(
+          '(hover: hover) and (pointer: fine)'
+        ).matches
+      ){
+
+        daruma.addEventListener(
+          'mouseenter',
+          function(){
+
+            rollDaruma();
+
+          }
+        );
+
+      }
+
+
+      /* =====================================
+         スマホ・タブレット
+         タップしたら転ぶ
+      ===================================== */
+
+      if(
+        window.matchMedia(
+          '(hover: none), (pointer: coarse)'
+        ).matches
+      ){
+
+        daruma.addEventListener(
+          'touchstart',
+          function(){
+
+            rollDaruma();
+
+          },
+          {
+            passive:true
+          }
+        );
+
+      }
+
+
+      /* =====================================
+         キーボード
+      ===================================== */
 
       daruma.addEventListener(
         'keydown',
@@ -339,10 +406,9 @@
       );
 
 
-      /*
-        アニメーション終了後に
-        クラスを削除
-      */
+      /* =====================================
+         動き終わったら元に戻す
+      ===================================== */
 
       daruma.addEventListener(
         'animationend',
