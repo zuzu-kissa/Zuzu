@@ -46,38 +46,67 @@
 
 <header>
 
-  <a
-    class="menu"
-    href="#links"
-    aria-label="メニューへ移動"
-  >
+  <div class="menu-wrap">
 
-    <span>menu</span>
+    <button
+      class="menu"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+    >
 
-    <b></b>
-    <b></b>
-    <b></b>
+      <span>menu</span>
 
-  </a>
+      <i>
+        <b></b>
+        <b></b>
+        <b></b>
+      </i>
+
+    </button>
+
+
+    <nav
+      class="menu-panel"
+      aria-label="サイトメニュー"
+    >
+
+      <a href="index.html">
+        home
+      </a>
+
+      <a href="beans.html">
+        beans
+      </a>
+
+      <a href="about.html">
+        about
+      </a>
+
+      <a href="contact.html">
+        contact
+      </a>
+
+    </nav>
+
+  </div>
 
 </header>
 
 
 
-<main class="sub-page">
+<main class="compact-page">
 
 
-  <!-- PAGE TITLE -->
+  <!-- PAGE HEADER -->
 
-  <section class="page-hero">
+  <section class="compact-hero">
 
     <a
       class="mini-brand"
       href="index.html"
     >
-
       喫茶 豆豆 ~zu-zu~
-
     </a>
 
     <h1>
@@ -94,261 +123,129 @@
 
 
 
-  <!-- BEAN 01 -->
+  <!-- PRODUCTS -->
 
-  <article class="bean">
-
-    <div class="bean-photo-placeholder">
-
-      <span>
-        photo
-      </span>
-
-    </div>
+  <section class="beans-grid">
 
 
-    <div class="bean-content">
+    <!-- 01 -->
 
-      <p class="bean-number">
-        01
-      </p>
+    <article class="bean-card">
 
-      <h2>
-        たゆたいぶれんど
-      </h2>
+      <div class="bean-card-photo">
 
-      <p class="bean-en">
-        tayutai blend
-      </p>
+        <span>
+          photo
+        </span>
+
+      </div>
 
 
-      <p class="bean-copy">
+      <div class="bean-card-body">
 
-        深く、まろやかに。<br>
+        <p class="bean-number">
+          01
+        </p>
 
-        苦みの奥にじんわり残る甘さ。<br>
+        <h2>
+          たゆたいぶれんど
+        </h2>
 
-        ゆっくり過ごしたい時間のための珈琲です。
+        <p class="bean-en">
+          tayutai blend
+        </p>
 
-      </p>
+
+        <p class="bean-short-copy">
+          深く、まろやかに。<br>
+          苦みの奥に残る甘さ。
+        </p>
 
 
-      <dl class="bean-data">
+        <div class="bean-mini-data">
 
-        <div>
-
-          <dt>
-            roast
-          </dt>
-
-          <dd>
+          <p>
+            <span>roast</span>
             dark
-          </dd>
+          </p>
+
+          <p>
+            <span>taste</span>
+            cacao / sweet
+          </p>
 
         </div>
 
 
-        <div>
+        <p class="bean-price">
+          ¥ --- / 100g
+        </p>
 
-          <dt>
-            taste
-          </dt>
+      </div>
 
-          <dd>
-            cacao / sweet / mellow
-          </dd>
-
-        </div>
-
-
-        <div>
-
-          <dt>
-            weight
-          </dt>
-
-          <dd>
-            100g
-          </dd>
-
-        </div>
-
-      </dl>
-
-
-      <p class="bean-price">
-        ¥ --- / 100g
-      </p>
-
-      <p class="bean-coming">
-        coming soon.
-      </p>
-
-    </div>
-
-  </article>
+    </article>
 
 
 
-  <!-- BEAN 02 -->
+    <!-- 02 -->
 
-  <article class="bean">
+    <article class="bean-card">
 
-    <div class="bean-photo-placeholder">
+      <div class="bean-card-photo">
 
-      <span>
-        photo
-      </span>
+        <span>
+          photo
+        </span>
 
-    </div>
-
-
-    <div class="bean-content">
-
-      <p class="bean-number">
-        02
-      </p>
-
-      <h2>
-        はじらいぶれんど
-      </h2>
-
-      <p class="bean-en">
-        hajirai blend
-      </p>
+      </div>
 
 
-      <p class="bean-copy">
+      <div class="bean-card-body">
 
-        華やかな香りと、やわらかな酸味。<br>
+        <p class="bean-number">
+          02
+        </p>
 
-        果実のような余韻を残す、<br>
+        <h2>
+          はじらいぶれんど
+        </h2>
 
-        少し軽やかな珈琲です。
+        <p class="bean-en">
+          hajirai blend
+        </p>
 
-      </p>
+
+        <p class="bean-short-copy">
+          華やかな香りと、<br>
+          果実のような余韻。
+        </p>
 
 
-      <dl class="bean-data">
+        <div class="bean-mini-data">
 
-        <div>
-
-          <dt>
-            roast
-          </dt>
-
-          <dd>
+          <p>
+            <span>roast</span>
             medium dark
-          </dd>
+          </p>
+
+          <p>
+            <span>taste</span>
+            fruity / sweet
+          </p>
 
         </div>
 
 
-        <div>
+        <p class="bean-price">
+          ¥ --- / 100g
+        </p>
 
-          <dt>
-            taste
-          </dt>
+      </div>
 
-          <dd>
-            fruity / floral / sweet
-          </dd>
-
-        </div>
+    </article>
 
 
-        <div>
-
-          <dt>
-            weight
-          </dt>
-
-          <dd>
-            100g
-          </dd>
-
-        </div>
-
-      </dl>
-
-
-      <p class="bean-price">
-        ¥ --- / 100g
-      </p>
-
-      <p class="bean-coming">
-        coming soon.
-      </p>
-
-    </div>
-
-  </article>
-
-
-
-  <!-- LINKS -->
-
-  <nav
-    id="links"
-    class="links sub-links"
-  >
-
-    <a href="index.html">
-
-      <span>
-        home
-      </span>
-
-      <img
-        src="assets/zuzu-daruma-approved.png"
-        alt=""
-      >
-
-    </a>
-
-
-    <a href="beans.html">
-
-      <span>
-        beans
-      </span>
-
-      <img
-        src="assets/icon-beans-approved.png"
-        alt=""
-      >
-
-    </a>
-
-
-    <a href="about.html">
-
-      <span>
-        about
-      </span>
-
-      <img
-        src="assets/icon-instagram.svg"
-        alt=""
-      >
-
-    </a>
-
-
-    <a href="contact.html">
-
-      <span>
-        contact
-      </span>
-
-      <img
-        src="assets/icon-contact.svg"
-        alt=""
-      >
-
-    </a>
-
-  </nav>
+  </section>
 
 
 </main>
@@ -360,6 +257,55 @@
   © 2026 zuzu coffee
 
 </footer>
+
+
+
+<script>
+
+  const menuWrap =
+    document.querySelector(".menu-wrap");
+
+  const menuButton =
+    document.querySelector(".menu");
+
+
+  menuButton.addEventListener(
+    "click",
+    function () {
+
+      const isOpen =
+        menuWrap.classList.toggle("is-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+    }
+  );
+
+
+  document.addEventListener(
+    "click",
+    function (event) {
+
+      if (!menuWrap.contains(event.target)) {
+
+        menuWrap.classList.remove(
+          "is-open"
+        );
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
+
+</script>
 
 
 </body>
