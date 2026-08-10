@@ -312,26 +312,21 @@
          サイトを開いた最初に1回だけ転ぶ
       ===================================== */
 
-      window.addEventListener(
-        'load',
-        function(){
+      document.addEventListener(
+  'DOMContentLoaded',
+  function(){
 
-          /*
-            ページが表示されてから
-            ほんの少し待って転ぶ
-          */
+    setTimeout(
+      function(){
 
-          setTimeout(
-            function(){
+        rollDaruma();
 
-              rollDaruma();
+      },
+      500
+    );
 
-            },
-            550
-          );
-
-        }
-      );
+  }
+);
 
 
       /* =====================================
