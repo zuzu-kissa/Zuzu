@@ -41,7 +41,7 @@ body:before{
 ========================= */
 
 header{
-  height:90px;
+  height:76px;
   position:absolute;
   inset:0 0 auto 0;
   padding:0 42px;
@@ -81,18 +81,16 @@ header{
 ========================= */
 
 .hero{
-  min-height:auto;
+  height:auto !important;
+  min-height:0 !important;
+
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;
+  justify-content:flex-start !important;
   align-items:center;
   text-align:center;
 
-  /*
-    PC：
-    hero全体を上へ詰める
-  */
-  padding:100px 24px 20px;
+  padding:105px 24px 0 !important;
 }
 
 
@@ -105,11 +103,7 @@ header{
   align-items:baseline;
   gap:18px;
   white-space:nowrap;
-
-  /*
-    タイトル → キャラ
-  */
-  margin-bottom:42px;
+  margin-bottom:38px;
 }
 
 .kissa{
@@ -138,11 +132,137 @@ header{
   width:115px;
   height:auto;
   display:block;
+  margin:0 0 22px;
 
   /*
-    キャラ → 文章
+    だるまの底付近を回転軸にする
   */
-  margin:0 0 24px;
+  transform-origin:50% 88%;
+
+  /*
+    スマホでタップした際の
+    青いハイライトなどを消す
+  */
+  -webkit-tap-highlight-color:transparent;
+
+  /*
+    「触れるもの」と分かるように
+    PCではカーソルを変更
+  */
+  cursor:pointer;
+
+  /*
+    画像のドラッグを防止
+  */
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+
+/* =========================
+   DARUMA ANIMATION
+========================= */
+
+/*
+  JavaScriptによって
+  .is-falling が付いたときだけ動く
+*/
+
+.mascot.is-falling{
+  animation:daruma-korori 1.65s cubic-bezier(.45,.05,.25,1);
+}
+
+@keyframes daruma-korori{
+
+  /*
+    いつもの状態
+  */
+  0%{
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(0deg);
+  }
+
+  /*
+    一瞬、左へ溜める
+  */
+  12%{
+    transform:
+      translateX(-3px)
+      translateY(0)
+      rotate(-6deg);
+  }
+
+  /*
+    右へ傾き始める
+  */
+  28%{
+    transform:
+      translateX(4px)
+      translateY(1px)
+      rotate(18deg);
+  }
+
+  /*
+    コロン
+  */
+  43%{
+    transform:
+      translateX(18px)
+      translateY(8px)
+      rotate(76deg);
+  }
+
+  /*
+    転んだ状態で少し止まる
+  */
+  58%{
+    transform:
+      translateX(18px)
+      translateY(8px)
+      rotate(76deg);
+  }
+
+  /*
+    起き上がる
+  */
+  75%{
+    transform:
+      translateX(-2px)
+      translateY(0)
+      rotate(-13deg);
+  }
+
+  /*
+    起き上がった反動
+  */
+  86%{
+    transform:
+      translateX(1px)
+      translateY(0)
+      rotate(6deg);
+  }
+
+  /*
+    ちょっと揺れる
+  */
+  94%{
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(-2deg);
+  }
+
+  /*
+    元通り
+  */
+  100%{
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(0deg);
+  }
 }
 
 
@@ -153,7 +273,7 @@ header{
 .intro{
   margin:0;
   font-size:21px;
-  line-height:2.05;
+  line-height:1.8;
   letter-spacing:.08em;
 }
 
@@ -161,11 +281,7 @@ header{
   width:54px;
   height:1px;
   background:var(--line);
-
-  /*
-    文章 → 横線 → キャッチコピー
-  */
-  margin:18px 0;
+  margin:15px 0;
 }
 
 .tag{
@@ -181,15 +297,12 @@ header{
 
 .links{
   width:min(520px,calc(100% - 44px));
-
-  /*
-    上余白は0
-  */
-  margin:0 auto 55px;
+  margin:0 auto 45px !important;
+  padding-top:0 !important;
 }
 
 .links a{
-  min-height:78px;
+  min-height:72px;
   border-bottom:1px solid var(--line);
 
   display:flex;
@@ -198,12 +311,6 @@ header{
 
   color:var(--cream);
   text-decoration:none;
-
-  transition:opacity .25s;
-}
-
-.links a:hover{
-  opacity:.75;
 }
 
 .links a:first-child{
@@ -217,14 +324,14 @@ header{
 }
 
 .links img{
-  width:46px;
-  height:46px;
+  width:42px;
+  height:42px;
   object-fit:contain;
 }
 
 .links a:first-child img{
-  width:44px;
-  height:44px;
+  width:40px;
+  height:40px;
 }
 
 
@@ -234,7 +341,7 @@ header{
 
 .placeholder{
   width:min(520px,calc(100% - 44px));
-  margin:60px auto 100px;
+  margin:35px auto 70px;
   text-align:center;
   color:#9c8e7e;
   font-family:"EB Garamond",serif;
@@ -248,7 +355,7 @@ header{
 
 footer{
   text-align:center;
-  padding:0 20px 35px;
+  padding:0 20px 30px;
   font-family:"EB Garamond",serif;
   letter-spacing:.16em;
   font-size:13px;
@@ -258,14 +365,13 @@ footer{
 
 /* ==================================================
    SMARTPHONE
-   650px以下
 ================================================== */
 
 @media(max-width:650px){
 
   header{
-    height:64px;
-    padding:0 20px;
+    height:58px;
+    padding:0 18px;
   }
 
   .menu{
@@ -283,13 +389,18 @@ footer{
   ========================= */
 
   .hero{
-    min-height:auto;
-    justify-content:flex-start;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+
+    justify-content:flex-start !important;
 
     /*
-      スマホではさらに上へ
+      menu → タイトル
     */
-    padding:72px 20px 12px;
+    padding:68px 18px 0 !important;
+
+    margin:0 !important;
   }
 
 
@@ -298,20 +409,20 @@ footer{
   ========================= */
 
   .brand{
-    gap:10px;
-    margin-bottom:28px;
+    gap:9px;
+    margin:0 0 24px !important;
   }
 
   .kissa{
-    font-size:21px;
+    font-size:19px;
   }
 
   .mame{
-    font-size:52px;
+    font-size:48px;
   }
 
   .zuzu{
-    font-size:21px;
+    font-size:19px;
   }
 
 
@@ -320,8 +431,8 @@ footer{
   ========================= */
 
   .mascot{
-    width:92px;
-    margin:0 0 18px;
+    width:88px;
+    margin:0 0 16px !important;
   }
 
 
@@ -330,17 +441,18 @@ footer{
   ========================= */
 
   .intro{
-    font-size:16px;
-    line-height:1.8;
+    margin:0 !important;
+    font-size:15px;
+    line-height:1.7;
   }
 
   .short-line{
-    margin:12px 0;
+    margin:10px 0 !important;
   }
 
   .tag{
-    font-size:16px;
-    margin-bottom:12px;
+    margin:0 0 12px !important;
+    font-size:15px;
   }
 
 
@@ -349,26 +461,36 @@ footer{
   ========================= */
 
   .links{
-    width:calc(100% - 44px);
-    margin:0 auto 35px;
+    width:calc(100% - 36px);
+    margin:0 auto 25px !important;
+    padding:0 !important;
   }
 
   .links a{
-    min-height:58px;
+    min-height:54px;
   }
 
   .links span{
-    font-size:23px;
+    font-size:21px;
   }
 
   .links img{
-    width:34px;
-    height:34px;
+    width:31px;
+    height:31px;
   }
 
   .links a:first-child img{
-    width:32px;
-    height:32px;
+    width:29px;
+    height:29px;
+  }
+
+
+  /* =========================
+     PLACEHOLDER - MOBILE
+  ========================= */
+
+  .placeholder{
+    margin:25px auto 50px;
   }
 
 
@@ -377,6 +499,24 @@ footer{
   ========================= */
 
   footer{
-    padding-bottom:25px;
+    padding-bottom:20px;
   }
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+/*
+  「アニメーションを減らす」を
+  OSで設定している人には動かさない
+*/
+
+@media(prefers-reduced-motion:reduce){
+
+  .mascot.is-falling{
+    animation:none;
+  }
+
 }
