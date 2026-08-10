@@ -35,13 +35,18 @@
 
   <link
     rel="stylesheet"
-    href="style.css?v=20260811-05"
+    href="./style.css?v=20260811-final02"
   >
+
+  <script
+    src="./site.js?v=20260811-final02"
+    defer
+  ></script>
 
 </head>
 
 
-<body>
+<body class="home-body">
 
 
 <!-- =========================
@@ -50,16 +55,21 @@
 
 <header class="site-header">
 
-  <details class="site-menu">
+  <div class="site-nav">
 
-    <summary>
+    <button
+      class="nav-trigger"
+      type="button"
+      aria-expanded="false"
+      aria-controls="global-menu"
+    >
 
-      <span class="menu-word">
+      <span class="nav-word">
         menu
       </span>
 
       <span
-        class="hamburger"
+        class="nav-lines"
         aria-hidden="true"
       >
         <i></i>
@@ -67,11 +77,12 @@
         <i></i>
       </span>
 
-    </summary>
+    </button>
 
 
     <nav
-      class="menu-dropdown"
+      id="global-menu"
+      class="nav-menu"
       aria-label="メインメニュー"
     >
 
@@ -93,7 +104,7 @@
 
     </nav>
 
-  </details>
+  </div>
 
 </header>
 
@@ -236,121 +247,6 @@
   © 2026 zuzu coffee
 
 </footer>
-
-
-
-<script>
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-      const mascot =
-        document.querySelector(".mascot");
-
-
-      if (!mascot) {
-        return;
-      }
-
-
-      function rollDaruma() {
-
-        /*
-          毎回アニメーションを
-          最初から再生できるようにする
-        */
-
-        mascot.classList.remove(
-          "is-falling"
-        );
-
-        void mascot.offsetWidth;
-
-        mascot.classList.add(
-          "is-falling"
-        );
-
-      }
-
-
-
-      /* =========================
-         SITE OPEN
-      ========================== */
-
-      window.setTimeout(
-        rollDaruma,
-        450
-      );
-
-
-
-      /* =========================
-         HOVER
-      ========================== */
-
-      mascot.addEventListener(
-        "mouseenter",
-        rollDaruma
-      );
-
-
-
-      /* =========================
-         CLICK / TAP
-      ========================== */
-
-      mascot.addEventListener(
-        "click",
-        rollDaruma
-      );
-
-
-
-      /* =========================
-         KEYBOARD
-      ========================== */
-
-      mascot.addEventListener(
-        "keydown",
-        function (event) {
-
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
-
-            event.preventDefault();
-
-            rollDaruma();
-
-          }
-
-        }
-      );
-
-
-
-      /* =========================
-         CLEAN UP
-      ========================== */
-
-      mascot.addEventListener(
-        "animationend",
-        function () {
-
-          mascot.classList.remove(
-            "is-falling"
-          );
-
-        }
-      );
-
-    }
-  );
-
-</script>
 
 
 </body>
