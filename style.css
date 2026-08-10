@@ -3,156 +3,356 @@
   --cream:#eadfce;
   --icon:#d7bea1;
   --line:rgba(215,190,161,.42);
+  --muted:#a99680;
 }
+
 
 *{
   box-sizing:border-box;
 }
 
+
 html{
   scroll-behavior:smooth;
 }
 
+
 body{
   margin:0;
+
   color:var(--cream);
-  background:#0b0806;
+
+  background:var(--bg);
+
   font-family:"Noto Serif JP",serif;
 }
 
+
 body:before{
+
   content:"";
+
   position:fixed;
+
   inset:0;
+
   pointer-events:none;
+
   opacity:.13;
-  background:radial-gradient(
-    circle at 50% 42%,
-    #26170f 0,
-    #130d09 34%,
-    #0b0806 70%
-  );
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #26170f 0,
+      #130d09 34%,
+      #0b0806 70%
+    );
+
   z-index:-1;
+
 }
 
 
-/* =========================
-   HEADER
-========================= */
+
+/* ==================================================
+   HEADER / MENU
+================================================== */
 
 header{
+
   height:76px;
+
   position:absolute;
+
   inset:0 0 auto 0;
+
   padding:0 42px;
+
   display:flex;
+
   justify-content:flex-end;
+
   align-items:center;
-  z-index:10;
+
+  z-index:100;
+
 }
+
+
+.menu-wrap{
+
+  position:relative;
+
+  padding-bottom:8px;
+
+}
+
 
 .menu{
+
+  border:0;
+
+  padding:0;
+
+  margin:0;
+
+  background:none;
+
   color:var(--cream);
-  text-decoration:none;
-  display:grid;
-  grid-template-columns:auto 40px;
-  grid-template-rows:repeat(3,7px);
-  column-gap:18px;
-  align-items:center;
-  font-family:"EB Garamond",serif;
-  font-size:17px;
-  letter-spacing:.16em;
-}
-
-.menu span{
-  grid-row:1/4;
-}
-
-.menu b{
-  display:block;
-  width:40px;
-  height:1px;
-  background:var(--cream);
-  font-weight:400;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  height:auto !important;
-  min-height:0 !important;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start !important;
-  align-items:center;
-  text-align:center;
-
-  padding:105px 24px 0 !important;
-}
-
-
-/* =========================
-   BRAND
-========================= */
-
-.brand{
-  display:flex;
-  align-items:baseline;
-  gap:18px;
-  white-space:nowrap;
-  margin-bottom:38px;
-}
-
-.kissa{
-  font-size:31px;
-  letter-spacing:.06em;
-}
-
-.mame{
-  font-size:70px;
-  letter-spacing:-.11em;
-  line-height:1;
-}
-
-.zuzu{
-  font-family:"EB Garamond",serif;
-  font-size:32px;
-  letter-spacing:.13em;
-}
-
-
-/* =========================
-   MASCOT
-========================= */
-
-.mascot{
-  width:115px;
-  height:auto;
-  display:block;
-  margin:0 0 22px;
-
-  transform-origin:50% 88%;
 
   cursor:pointer;
 
-  -webkit-tap-highlight-color:transparent;
+  display:flex;
+
+  align-items:center;
+
+  gap:18px;
+
+  font-family:"EB Garamond",serif;
+
+  font-size:17px;
+
+  letter-spacing:.16em;
+
+}
+
+
+.menu i{
+
+  width:40px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:6px;
+
+  font-style:normal;
+
+}
+
+
+.menu b{
+
+  display:block;
+
+  width:40px;
+
+  height:1px;
+
+  background:var(--cream);
+
+  font-weight:400;
+
+  transition:
+    transform .25s ease,
+    opacity .25s ease;
+
+}
+
+
+
+/* MENU PANEL */
+
+.menu-panel{
+
+  position:absolute;
+
+  top:38px;
+
+  right:0;
+
+  min-width:150px;
+
+  padding:12px 16px;
+
+  background:
+    rgba(11,8,6,.96);
+
+  border:
+    1px solid
+    var(--line);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transform:
+    translateY(-6px);
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease,
+    visibility .2s;
+
+}
+
+
+.menu-panel a{
+
+  display:block;
+
+  padding:8px 4px;
+
+  color:var(--cream);
+
+  text-decoration:none;
+
+  text-align:right;
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:18px;
+
+  letter-spacing:.14em;
+
+}
+
+
+.menu-panel a:hover{
+
+  opacity:.55;
+
+}
+
+
+/* PC HOVER */
+
+.menu-wrap:hover .menu-panel,
+.menu-wrap:focus-within .menu-panel,
+.menu-wrap.is-open .menu-panel{
+
+  opacity:1;
+
+  visibility:visible;
+
+  transform:
+    translateY(0);
+
+}
+
+
+
+/* ==================================================
+   HOME HERO
+================================================== */
+
+.hero{
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:flex-start;
+
+  align-items:center;
+
+  text-align:center;
+
+  padding:
+    105px
+    24px
+    0;
+
+}
+
+
+
+/* BRAND */
+
+.brand{
+
+  display:flex;
+
+  align-items:baseline;
+
+  gap:18px;
+
+  white-space:nowrap;
+
+  margin-bottom:38px;
+
+}
+
+
+.kissa{
+
+  font-size:31px;
+
+  letter-spacing:.06em;
+
+}
+
+
+.mame{
+
+  font-size:70px;
+
+  letter-spacing:-.11em;
+
+  line-height:1;
+
+}
+
+
+.zuzu{
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:32px;
+
+  letter-spacing:.13em;
+
+}
+
+
+
+/* ==================================================
+   DARUMA
+================================================== */
+
+.mascot{
+
+  width:115px;
+
+  height:auto;
+
+  display:block;
+
+  margin:
+    0
+    0
+    22px;
+
+  transform-origin:
+    50%
+    88%;
+
+  cursor:pointer;
 
   user-select:none;
+
   -webkit-user-select:none;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
 }
 
-
-/* =========================
-   DARUMA ANIMATION
-========================= */
 
 .mascot.is-falling{
-  animation:daruma-korori 1.55s cubic-bezier(.45,.05,.25,1);
+
+  animation:
+    daruma-korori
+    1.55s
+    cubic-bezier(.45,.05,.25,1);
+
 }
+
 
 @keyframes daruma-korori{
 
@@ -166,7 +366,6 @@ header{
   12%{
     transform:
       translateX(-3px)
-      translateY(0)
       rotate(-6deg);
   }
 
@@ -194,21 +393,17 @@ header{
   75%{
     transform:
       translateX(-2px)
-      translateY(0)
       rotate(-13deg);
   }
 
   86%{
     transform:
       translateX(1px)
-      translateY(0)
       rotate(6deg);
   }
 
   94%{
     transform:
-      translateX(0)
-      translateY(0)
       rotate(-2deg);
   }
 
@@ -218,351 +413,707 @@ header{
       translateY(0)
       rotate(0deg);
   }
+
 }
 
-
-/* =========================
-   TEXT
-========================= */
-
-.intro{
-  margin:0;
-  font-size:21px;
-  line-height:1.8;
-  letter-spacing:.08em;
-}
-
-.short-line{
-  display:block;
-  width:54px;
-  height:1px;
-  background:var(--line);
-  margin:15px auto;
-}
-
-.tag{
-  margin:0 0 6px;
-  font-size:21px;
-  letter-spacing:.1em;
-}
-
-
-/* =========================
-   LINKS
-========================= */
-
-.links{
-  width:min(520px,calc(100% - 44px));
-  margin:0 auto 45px !important;
-  padding:0 !important;
-}
-
-.links a{
-  min-height:72px;
-  border-bottom:1px solid var(--line);
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  color:var(--cream);
-  text-decoration:none;
-}
-
-.links a:first-child{
-  border-top:0;
-}
-
-.links span{
-  font-family:"EB Garamond",serif;
-  font-size:31px;
-  letter-spacing:.22em;
-}
-
-.links img{
-  width:42px;
-  height:42px;
-  object-fit:contain;
-}
-
-.links a:first-child img{
-  width:40px;
-  height:40px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-  text-align:center;
-  padding:0 20px 30px;
-  font-family:"EB Garamond",serif;
-  letter-spacing:.16em;
-  font-size:13px;
-  color:#cdbda8;
-}
 
 
 /* ==================================================
-   SUB PAGES
+   HOME TEXT
 ================================================== */
 
-.sub-page{
-  width:min(920px,calc(100% - 44px));
-  margin:0 auto;
-  padding:110px 0 50px;
-}
+.intro{
 
-
-/* =========================
-   PAGE HERO
-========================= */
-
-.page-hero{
-  text-align:center;
-  margin-bottom:95px;
-}
-
-.mini-brand{
-  display:inline-block;
-  margin-bottom:48px;
-
-  color:#b7a690;
-  text-decoration:none;
-
-  font-size:13px;
-  letter-spacing:.12em;
-}
-
-.page-hero h1{
   margin:0;
 
-  font-family:"EB Garamond",serif;
-  font-size:90px;
-  font-weight:400;
-  line-height:1;
-  letter-spacing:.12em;
+  font-size:21px;
+
+  line-height:1.8;
+
+  letter-spacing:.08em;
+
 }
 
-.page-hero .short-line{
-  margin:30px auto 22px;
+
+.short-line{
+
+  display:block;
+
+  width:54px;
+
+  height:1px;
+
+  margin:
+    15px
+    auto;
+
+  background:
+    var(--line);
+
 }
 
-.page-hero p{
-  margin:0;
-  font-size:15px;
+
+.tag{
+
+  margin:
+    0
+    0
+    6px;
+
+  font-size:21px;
+
   letter-spacing:.1em;
+
 }
 
 
-/* =========================
-   BEANS PAGE
-========================= */
 
-.bean{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:70px;
-  align-items:center;
+/* ==================================================
+   HOME LINKS
+================================================== */
 
-  padding:80px 0;
+.links{
 
-  border-top:1px solid var(--line);
-}
+  width:
+    min(
+      520px,
+      calc(100% - 44px)
+    );
 
-.bean:last-of-type{
-  border-bottom:1px solid var(--line);
-}
+  margin:
+    0
+    auto
+    45px;
 
-.bean-photo-placeholder{
-  width:100%;
-  aspect-ratio:4 / 5;
-
-  border:1px solid var(--line);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.bean-photo-placeholder span{
-  font-family:"EB Garamond",serif;
-  font-size:16px;
-  letter-spacing:.18em;
-  color:#776b5d;
-}
-
-.bean-number{
-  margin:0 0 18px;
-
-  font-family:"EB Garamond",serif;
-  font-size:13px;
-  letter-spacing:.16em;
-
-  color:#aa9884;
-}
-
-.bean-content h2{
-  margin:0;
-  font-size:29px;
-  font-weight:400;
-  letter-spacing:.08em;
-}
-
-.bean-en{
-  margin:8px 0 0;
-
-  font-family:"EB Garamond",serif;
-  font-size:17px;
-  letter-spacing:.14em;
-
-  color:#aa9884;
-}
-
-.bean-copy{
-  margin:35px 0 0;
-
-  font-size:14px;
-  line-height:2.1;
-  letter-spacing:.07em;
-}
-
-.bean-data{
-  margin:35px 0 0;
-}
-
-.bean-data div{
-  display:grid;
-  grid-template-columns:82px 1fr;
-
-  padding:9px 0;
-
-  border-bottom:1px solid var(--line);
-}
-
-.bean-data div:first-child{
-  border-top:1px solid var(--line);
-}
-
-.bean-data dt,
-.bean-data dd{
-  margin:0;
-
-  font-family:"EB Garamond",serif;
-  font-size:13px;
-  letter-spacing:.08em;
-}
-
-.bean-data dt{
-  color:#aa9884;
-}
-
-.bean-price{
-  margin:26px 0 0;
-
-  font-family:"EB Garamond",serif;
-  font-size:16px;
-  letter-spacing:.1em;
-}
-
-.bean-coming{
-  margin:14px 0 0;
-
-  font-family:"EB Garamond",serif;
-  font-size:14px;
-  letter-spacing:.14em;
-
-  color:#aa9884;
 }
 
 
-/* =========================
-   ABOUT PAGE
-========================= */
+.links a{
 
-.about-content{
-  width:min(560px,100%);
-  margin:0 auto 110px;
-  text-align:center;
-}
-
-.about-content p{
-  margin:0 0 50px;
-
-  font-size:16px;
-  line-height:2.4;
-  letter-spacing:.08em;
-}
-
-
-/* =========================
-   CONTACT PAGE
-========================= */
-
-.contact-content{
-  width:min(520px,100%);
-  margin:0 auto 110px;
-
-  text-align:center;
-}
-
-.contact-content > p{
-  margin:0 0 45px;
-
-  font-size:15px;
-  line-height:2.2;
-  letter-spacing:.08em;
-}
-
-.contact-link{
   min-height:72px;
 
-  border-top:1px solid var(--line);
+  border-bottom:
+    1px solid
+    var(--line);
 
   display:flex;
+
   align-items:center;
-  justify-content:space-between;
+
+  justify-content:
+    space-between;
+
+  color:
+    var(--cream);
+
+  text-decoration:none;
+
+}
+
+
+.links span{
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:31px;
+
+  letter-spacing:.22em;
+
+}
+
+
+.links img{
+
+  display:block;
+
+  width:42px !important;
+
+  height:42px !important;
+
+  max-width:42px !important;
+
+  max-height:42px !important;
+
+  object-fit:contain;
+
+}
+
+
+.links a:first-child img{
+
+  width:40px !important;
+
+  height:40px !important;
+
+}
+
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer{
+
+  text-align:center;
+
+  padding:
+    0
+    20px
+    22px;
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  letter-spacing:.16em;
+
+  font-size:12px;
+
+  color:#cdbda8;
+
+}
+
+
+
+/* ==================================================
+   COMPACT SUB PAGE
+================================================== */
+
+.compact-page{
+
+  width:
+    min(
+      980px,
+      calc(100% - 44px)
+    );
+
+  margin:
+    0
+    auto;
+
+  padding:
+    88px
+    0
+    22px;
+
+}
+
+
+.compact-hero{
+
+  text-align:center;
+
+  margin-bottom:28px;
+
+}
+
+
+.mini-brand{
+
+  display:inline-block;
+
+  margin-bottom:15px;
+
+  color:#b7a690;
+
+  text-decoration:none;
+
+  font-size:12px;
+
+  letter-spacing:.13em;
+
+}
+
+
+.compact-hero h1{
+
+  margin:0;
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:58px;
+
+  font-weight:400;
+
+  line-height:.95;
+
+  letter-spacing:.13em;
+
+}
+
+
+.compact-hero .short-line{
+
+  margin:
+    16px
+    auto
+    12px;
+
+}
+
+
+.compact-hero > p{
+
+  margin:0;
+
+  font-size:13px;
+
+  letter-spacing:.11em;
+
+}
+
+
+
+/* ==================================================
+   BEANS
+================================================== */
+
+.beans-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:20px;
+
+  border-top:
+    1px solid
+    var(--line);
+
+  padding-top:22px;
+
+}
+
+
+.bean-card{
+
+  min-width:0;
+
+  display:grid;
+
+  grid-template-columns:
+    38%
+    62%;
+
+  min-height:280px;
+
+  border:
+    1px solid
+    var(--line);
+
+}
+
+
+.bean-card-photo{
+
+  min-width:0;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-right:
+    1px solid
+    var(--line);
+
+  color:#796c5e;
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:13px;
+
+  letter-spacing:.15em;
+
+}
+
+
+.bean-card-body{
+
+  min-width:0;
+
+  padding:20px;
+
+}
+
+
+.bean-number{
+
+  margin:
+    0
+    0
+    9px;
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:11px;
+
+  letter-spacing:.16em;
+
+  color:var(--muted);
+
+}
+
+
+.bean-card h2{
+
+  margin:0;
+
+  font-size:21px;
+
+  font-weight:400;
+
+  line-height:1.3;
+
+  letter-spacing:.06em;
+
+}
+
+
+.bean-en{
+
+  margin:
+    5px
+    0
+    0;
+
+  color:var(--muted);
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:14px;
+
+  letter-spacing:.1em;
+
+}
+
+
+.bean-short-copy{
+
+  margin:
+    18px
+    0
+    14px;
+
+  font-size:12px;
+
+  line-height:1.8;
+
+  letter-spacing:.05em;
+
+}
+
+
+.bean-mini-data{
+
+  border-top:
+    1px solid
+    var(--line);
+
+}
+
+
+.bean-mini-data p{
+
+  display:grid;
+
+  grid-template-columns:
+    58px
+    1fr;
+
+  margin:0;
+
+  padding:
+    5px
+    0;
+
+  border-bottom:
+    1px solid
+    var(--line);
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:11px;
+
+  letter-spacing:.05em;
+
+}
+
+
+.bean-mini-data span{
+
+  color:var(--muted);
+
+}
+
+
+.bean-price{
+
+  margin:
+    12px
+    0
+    0;
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:13px;
+
+  letter-spacing:.1em;
+
+}
+
+
+
+/* ==================================================
+   ABOUT
+================================================== */
+
+.about-compact{
+
+  width:
+    min(
+      540px,
+      100%
+    );
+
+  margin:
+    0
+    auto;
+
+  text-align:center;
+
+}
+
+
+.about-compact > p{
+
+  margin:
+    0
+    0
+    22px;
+
+  font-size:14px;
+
+  line-height:2;
+
+  letter-spacing:.07em;
+
+}
+
+
+.instagram-guide{
+
+  width:
+    min(
+      360px,
+      100%
+    );
+
+  margin:
+    28px
+    auto
+    0;
+
+  padding:
+    13px
+    16px;
+
+  border-top:
+    1px solid
+    var(--line);
+
+  border-bottom:
+    1px solid
+    var(--line);
+
+  display:grid;
+
+  grid-template-columns:
+    32px
+    1fr;
+
+  column-gap:15px;
+
+  align-items:center;
 
   color:var(--cream);
+
   text-decoration:none;
+
+  text-align:left;
+
 }
 
-.contact-link:last-child{
-  border-bottom:1px solid var(--line);
+
+.instagram-guide img{
+
+  grid-row:
+    1 / 3;
+
+  display:block;
+
+  width:30px !important;
+
+  height:30px !important;
+
+  max-width:30px !important;
+
+  max-height:30px !important;
+
+  object-fit:contain;
+
 }
 
-.contact-link span{
-  font-family:"EB Garamond",serif;
-  font-size:27px;
+
+.instagram-guide span{
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:20px;
+
+  letter-spacing:.15em;
+
+}
+
+
+.instagram-guide small{
+
+  margin-top:2px;
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  letter-spacing:.08em;
+
+}
+
+
+
+/* ==================================================
+   CONTACT
+================================================== */
+
+.contact-compact{
+
+  width:
+    min(
+      430px,
+      100%
+    );
+
+  margin:
+    0
+    auto;
+
+}
+
+
+.contact-intro{
+
+  margin:
+    0
+    0
+    20px;
+
+  text-align:center;
+
+  font-size:13px;
+
+  line-height:1.9;
+
+  letter-spacing:.06em;
+
+}
+
+
+.contact-row{
+
+  min-height:62px;
+
+  padding:
+    0
+    10px;
+
+  border-top:
+    1px solid
+    var(--line);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:
+    space-between;
+
+  color:var(--cream);
+
+  text-decoration:none;
+
+}
+
+
+.contact-row:last-child{
+
+  border-bottom:
+    1px solid
+    var(--line);
+
+}
+
+
+.contact-row img{
+
+  display:block !important;
+
+  width:34px !important;
+
+  height:34px !important;
+
+  max-width:34px !important;
+
+  max-height:34px !important;
+
+  min-width:34px !important;
+
+  min-height:34px !important;
+
+  object-fit:contain !important;
+
+}
+
+
+.contact-row span{
+
+  font-family:
+    "EB Garamond",
+    serif;
+
+  font-size:21px;
+
   letter-spacing:.18em;
+
 }
 
-.contact-link img{
-  width:38px;
-  height:38px;
-  object-fit:contain;
-}
-
-
-/* =========================
-   SUB LINKS
-========================= */
-
-.sub-links{
-  margin-top:70px !important;
-}
-
-.sub-links a:first-child{
-  border-top:1px solid var(--line);
-}
-
-.sub-links a:first-child img{
-  width:40px;
-  height:40px;
-  object-fit:contain;
-}
 
 
 /* ==================================================
@@ -571,218 +1122,478 @@ footer{
 
 @media(max-width:650px){
 
+
   header{
+
     height:58px;
-    padding:0 18px;
+
+    padding:
+      0
+      18px;
+
   }
+
+
+  .menu-wrap{
+
+    padding-bottom:5px;
+
+  }
+
 
   .menu{
-    grid-template-columns:auto 30px;
+
+    gap:13px;
+
     font-size:14px;
+
   }
+
+
+  .menu i{
+
+    width:30px;
+
+    gap:5px;
+
+  }
+
 
   .menu b{
+
     width:30px;
+
   }
 
 
-  /* HERO */
+  .menu-panel{
+
+    top:31px;
+
+    min-width:125px;
+
+    padding:
+      8px
+      12px;
+
+  }
+
+
+  .menu-panel a{
+
+    padding:
+      7px
+      2px;
+
+    font-size:16px;
+
+  }
+
+
+
+  /* HOME */
 
   .hero{
-    height:auto !important;
-    min-height:0 !important;
-    max-height:none !important;
 
-    justify-content:flex-start !important;
+    padding:
+      68px
+      18px
+      0;
 
-    padding:68px 18px 0 !important;
-    margin:0 !important;
   }
 
-
-  /* BRAND */
 
   .brand{
+
     gap:9px;
-    margin:0 0 24px !important;
+
+    margin-bottom:24px;
+
   }
+
 
   .kissa{
+
     font-size:19px;
+
   }
+
 
   .mame{
+
     font-size:48px;
+
   }
+
 
   .zuzu{
+
     font-size:19px;
+
   }
 
-
-  /* MASCOT */
 
   .mascot{
+
     width:88px;
-    margin:0 0 16px !important;
+
+    margin-bottom:16px;
+
   }
 
-
-  /* TEXT */
 
   .intro{
-    margin:0 !important;
+
     font-size:15px;
+
     line-height:1.7;
+
   }
+
 
   .short-line{
-    margin:10px auto !important;
+
+    margin:
+      10px
+      auto;
+
   }
+
 
   .tag{
-    margin:0 0 12px !important;
+
+    margin-bottom:12px;
+
     font-size:15px;
+
   }
 
-
-  /* LINKS */
 
   .links{
-    width:calc(100% - 36px);
-    margin:0 auto 25px !important;
-    padding:0 !important;
+
+    width:
+      calc(100% - 36px);
+
+    margin-bottom:25px;
+
   }
+
 
   .links a{
+
     min-height:54px;
+
   }
+
 
   .links span{
+
     font-size:21px;
+
   }
+
 
   .links img{
-    width:31px;
-    height:31px;
+
+    width:31px !important;
+
+    height:31px !important;
+
+    max-width:31px !important;
+
+    max-height:31px !important;
+
   }
+
 
   .links a:first-child img{
-    width:29px;
-    height:29px;
+
+    width:29px !important;
+
+    height:29px !important;
+
   }
 
-
-  /* FOOTER */
-
-  footer{
-    padding-bottom:20px;
-  }
 
 
   /* SUB PAGE */
 
-  .sub-page{
-    width:calc(100% - 36px);
-    padding:76px 0 40px;
+  .compact-page{
+
+    width:
+      calc(100% - 28px);
+
+    padding:
+      62px
+      0
+      12px;
+
   }
 
-  .page-hero{
-    margin-bottom:58px;
+
+  .compact-hero{
+
+    margin-bottom:14px;
+
   }
+
 
   .mini-brand{
-    margin-bottom:35px;
-    font-size:11px;
+
+    margin-bottom:8px;
+
+    font-size:9px;
+
   }
 
-  .page-hero h1{
-    font-size:55px;
+
+  .compact-hero h1{
+
+    font-size:38px;
+
   }
 
-  .page-hero .short-line{
-    margin:22px auto 16px !important;
+
+  .compact-hero .short-line{
+
+    width:36px;
+
+    margin:
+      10px
+      auto
+      8px;
+
   }
 
-  .page-hero p{
-    font-size:13px;
+
+  .compact-hero > p{
+
+    font-size:10px;
+
   }
+
 
 
   /* BEANS */
 
-  .bean{
-    display:block;
-    padding:52px 0;
+  .beans-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:8px;
+
+    padding-top:10px;
+
   }
 
-  .bean-content{
-    margin-top:32px;
+
+  .bean-card{
+
+    grid-template-columns:
+      28%
+      72%;
+
+    min-height:0;
+
+    height:auto;
+
   }
 
-  .bean-content h2{
-    font-size:24px;
+
+  .bean-card-body{
+
+    padding:
+      10px
+      12px;
+
   }
 
-  .bean-copy{
-    margin-top:27px;
-    font-size:13px;
-    line-height:2;
+
+  .bean-number{
+
+    margin-bottom:3px;
+
+    font-size:8px;
+
   }
 
-  .bean-data{
-    margin-top:27px;
+
+  .bean-card h2{
+
+    font-size:15px;
+
+    line-height:1.2;
+
   }
+
+
+  .bean-en{
+
+    margin-top:2px;
+
+    font-size:10px;
+
+  }
+
+
+  .bean-short-copy{
+
+    margin:
+      7px
+      0;
+
+    font-size:9px;
+
+    line-height:1.45;
+
+  }
+
+
+  .bean-mini-data p{
+
+    grid-template-columns:
+      43px
+      1fr;
+
+    padding:
+      2px
+      0;
+
+    font-size:8px;
+
+  }
+
+
+  .bean-price{
+
+    margin-top:5px;
+
+    font-size:9px;
+
+  }
+
 
 
   /* ABOUT */
 
-  .about-content{
-    margin-bottom:75px;
+  .about-compact > p{
+
+    margin-bottom:14px;
+
+    font-size:11px;
+
+    line-height:1.8;
+
   }
 
-  .about-content p{
-    margin-bottom:40px;
-    font-size:14px;
-    line-height:2.25;
+
+  .instagram-guide{
+
+    margin-top:18px;
+
+    padding:
+      9px
+      10px;
+
+    grid-template-columns:
+      27px
+      1fr;
+
   }
+
+
+  .instagram-guide img{
+
+    width:25px !important;
+
+    height:25px !important;
+
+  }
+
+
+  .instagram-guide span{
+
+    font-size:16px;
+
+  }
+
+
+  .instagram-guide small{
+
+    font-size:8px;
+
+  }
+
 
 
   /* CONTACT */
 
-  .contact-content{
-    margin-bottom:75px;
+  .contact-intro{
+
+    margin-bottom:14px;
+
+    font-size:10px;
+
+    line-height:1.7;
+
   }
 
-  .contact-content > p{
-    font-size:13px;
-    margin-bottom:35px;
+
+  .contact-row{
+
+    min-height:48px;
+
   }
 
-  .contact-link{
-    min-height:58px;
+
+  .contact-row img{
+
+    width:26px !important;
+
+    height:26px !important;
+
+    max-width:26px !important;
+
+    max-height:26px !important;
+
+    min-width:26px !important;
+
+    min-height:26px !important;
+
   }
 
-  .contact-link span{
-    font-size:21px;
+
+  .contact-row span{
+
+    font-size:17px;
+
   }
 
-  .contact-link img{
-    width:31px;
-    height:31px;
+
+  footer{
+
+    padding-bottom:12px;
+
+    font-size:10px;
+
   }
 
 }
 
 
-/* =========================
+
+/* ==================================================
    ACCESSIBILITY
-========================= */
+================================================== */
 
 @media(prefers-reduced-motion:reduce){
 
   .mascot.is-falling{
+
     animation:none;
+
   }
 
 }
