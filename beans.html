@@ -7,7 +7,7 @@
 
   <meta
     name="viewport"
-    content="width=device-width,initial-scale=1"
+    content="width=device-width, initial-scale=1"
   >
 
   <meta
@@ -46,32 +46,24 @@
 
 <header>
 
-  <div class="menu-wrap">
+  <details class="site-menu">
 
-    <button
-      class="menu"
-      type="button"
-      aria-label="メニューを開く"
-      aria-expanded="false"
-    >
+    <summary>
 
-      <span>menu</span>
-
-      <span class="menu-lines">
-
-        <b></b>
-        <b></b>
-        <b></b>
-
+      <span class="menu-word">
+        menu
       </span>
 
-    </button>
+      <span class="hamburger">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+
+    </summary>
 
 
-    <nav
-      class="menu-panel"
-      aria-label="サイトメニュー"
-    >
+    <nav class="menu-dropdown">
 
       <a href="index.html">
         home
@@ -91,7 +83,7 @@
 
     </nav>
 
-  </div>
+  </details>
 
 </header>
 
@@ -100,18 +92,19 @@
 <main class="beans-page">
 
 
-  <!-- SMALL TITLE -->
+  <!-- SMALL HEADER -->
 
-  <section class="beans-top">
+  <section class="beans-head">
 
     <a
-      class="beans-brand"
+      class="beans-home"
       href="index.html"
     >
       喫茶 豆豆 ~zu-zu~
     </a>
 
-    <div class="beans-title-row">
+
+    <div class="beans-heading">
 
       <h1>
         beans
@@ -131,15 +124,15 @@
 
   <!-- PRODUCTS -->
 
-  <section class="product-grid">
+  <section class="beans-products">
 
 
-    <!-- 01 -->
+    <!-- PRODUCT 01 -->
 
-    <article class="product-card">
+    <article class="bean-product">
 
 
-      <div class="product-photo">
+      <div class="bean-photo">
 
         <span>
           photo
@@ -148,58 +141,76 @@
       </div>
 
 
-      <div class="product-info">
+      <div class="bean-info">
 
-        <div class="product-heading">
-
-          <p class="product-number">
-            01
-          </p>
-
-          <div>
-
-            <h2>
-              たゆたいぶれんど
-            </h2>
-
-            <p class="product-en">
-              tayutai blend
-            </p>
-
-          </div>
-
-        </div>
+        <p class="bean-no">
+          01
+        </p>
 
 
-        <p class="product-copy">
+        <h2>
+          たゆたいぶれんど
+        </h2>
+
+
+        <p class="bean-en">
+          tayutai blend
+        </p>
+
+
+        <p class="bean-description">
 
           深く、まろやかに。<br>
+
           苦みの奥にじんわり残る甘さ。
 
         </p>
 
 
-        <div class="product-data">
+        <dl class="bean-spec">
 
-          <p>
-            <span>roast</span>
-            dark
-          </p>
+          <div>
 
-          <p>
-            <span>taste</span>
-            cacao / sweet / mellow
-          </p>
+            <dt>
+              roast
+            </dt>
 
-          <p>
-            <span>weight</span>
-            100g
-          </p>
+            <dd>
+              dark
+            </dd>
 
-        </div>
+          </div>
 
 
-        <p class="product-price">
+          <div>
+
+            <dt>
+              taste
+            </dt>
+
+            <dd>
+              cacao / sweet / mellow
+            </dd>
+
+          </div>
+
+
+          <div>
+
+            <dt>
+              weight
+            </dt>
+
+            <dd>
+              100g
+            </dd>
+
+          </div>
+
+        </dl>
+
+
+        <p class="bean-price">
           ¥ --- / 100g
         </p>
 
@@ -210,12 +221,12 @@
 
 
 
-    <!-- 02 -->
+    <!-- PRODUCT 02 -->
 
-    <article class="product-card">
+    <article class="bean-product">
 
 
-      <div class="product-photo">
+      <div class="bean-photo">
 
         <span>
           photo
@@ -224,58 +235,76 @@
       </div>
 
 
-      <div class="product-info">
+      <div class="bean-info">
 
-        <div class="product-heading">
-
-          <p class="product-number">
-            02
-          </p>
-
-          <div>
-
-            <h2>
-              はじらいぶれんど
-            </h2>
-
-            <p class="product-en">
-              hajirai blend
-            </p>
-
-          </div>
-
-        </div>
+        <p class="bean-no">
+          02
+        </p>
 
 
-        <p class="product-copy">
+        <h2>
+          はじらいぶれんど
+        </h2>
+
+
+        <p class="bean-en">
+          hajirai blend
+        </p>
+
+
+        <p class="bean-description">
 
           華やかな香りと、やわらかな酸味。<br>
+
           果実のような甘い余韻。
 
         </p>
 
 
-        <div class="product-data">
+        <dl class="bean-spec">
 
-          <p>
-            <span>roast</span>
-            medium dark
-          </p>
+          <div>
 
-          <p>
-            <span>taste</span>
-            fruity / floral / sweet
-          </p>
+            <dt>
+              roast
+            </dt>
 
-          <p>
-            <span>weight</span>
-            100g
-          </p>
+            <dd>
+              medium dark
+            </dd>
 
-        </div>
+          </div>
 
 
-        <p class="product-price">
+          <div>
+
+            <dt>
+              taste
+            </dt>
+
+            <dd>
+              fruity / floral / sweet
+            </dd>
+
+          </div>
+
+
+          <div>
+
+            <dt>
+              weight
+            </dt>
+
+            <dd>
+              100g
+            </dd>
+
+          </div>
+
+        </dl>
+
+
+        <p class="bean-price">
           ¥ --- / 100g
         </p>
 
@@ -297,53 +326,6 @@
   © 2026 zuzu coffee
 
 </footer>
-
-
-
-<script>
-
-  const menuWrap =
-    document.querySelector(".menu-wrap");
-
-  const menuButton =
-    document.querySelector(".menu");
-
-
-  menuButton.addEventListener(
-    "click",
-    function () {
-
-      const opened =
-        menuWrap.classList.toggle("is-open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        opened
-      );
-
-    }
-  );
-
-
-  document.addEventListener(
-    "click",
-    function (event) {
-
-      if (!menuWrap.contains(event.target)) {
-
-        menuWrap.classList.remove("is-open");
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      }
-
-    }
-  );
-
-</script>
 
 
 </body>
