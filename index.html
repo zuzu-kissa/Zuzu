@@ -18,9 +18,6 @@
     content="手廻しロースターによる自家焙煎コーヒー豆の通販です。深煎りの中の甘さを。"
   >
 
-
-  <!-- Google Fonts -->
-
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -37,9 +34,6 @@
     rel="stylesheet"
   >
 
-
-  <!-- CSS -->
-
   <link
     rel="stylesheet"
     href="style.css"
@@ -51,9 +45,7 @@
 <body>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header>
 
@@ -75,16 +67,10 @@
 
 
 
-  <!-- =========================
-       MAIN
-  ========================== -->
-
   <main>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -154,9 +140,7 @@
 
 
 
-    <!-- =========================
-         LINKS
-    ========================== -->
+    <!-- LINKS -->
 
     <nav
       id="links"
@@ -222,9 +206,7 @@
 
 
 
-    <!-- =========================
-         BEANS PLACEHOLDER
-    ========================== -->
+    <!-- BEANS PLACEHOLDER -->
 
     <section
       id="beans"
@@ -242,9 +224,7 @@
 
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -254,169 +234,184 @@
 
 
 
-  <!-- =========================
-       DARUMA SCRIPT
-  ========================== -->
+  <!-- DARUMA SCRIPT -->
 
   <script>
 
-    const daruma =
-      document.querySelector('.mascot');
-
-
-    /*
-      だるまを1回転がす関数
-    */
-
-    function rollDaruma(){
-
-      if(!daruma){
-        return;
-      }
-
-
-      /*
-        すでに動いている場合でも
-        最初から再生できるようにする
-      */
-
-      daruma.classList.remove(
-        'is-falling'
-      );
-
-
-      /*
-        ブラウザに一度状態を
-        確定させる
-      */
-
-      void daruma.offsetWidth;
-
-
-      /*
-        アニメーション開始
-      */
-
-      daruma.classList.add(
-        'is-falling'
-      );
-
-    }
-
-
-
-    if(daruma){
-
-
-      /* =====================================
-         サイトを開いた最初に1回だけ転ぶ
-      ===================================== */
-
-      document.addEventListener(
-  'DOMContentLoaded',
-  function(){
-
-    setTimeout(
+    document.addEventListener(
+      'DOMContentLoaded',
       function(){
 
-        rollDaruma();
-
-      },
-      500
-    );
-
-  }
-);
+        const daruma =
+          document.querySelector('.mascot');
 
 
-      /* =====================================
-         PC
-         カーソルが触れたら転ぶ
-      ===================================== */
-
-      if(
-        window.matchMedia(
-          '(hover: hover) and (pointer: fine)'
-        ).matches
-      ){
-
-        daruma.addEventListener(
-          'mouseenter',
-          function(){
-
-            rollDaruma();
-
-          }
-        );
-
-      }
-
-
-      /* =====================================
-         スマホ・タブレット
-         タップしたら転ぶ
-      ===================================== */
-
-      if(
-        window.matchMedia(
-          '(hover: none), (pointer: coarse)'
-        ).matches
-      ){
-
-        daruma.addEventListener(
-          'touchstart',
-          function(){
-
-            rollDaruma();
-
-          },
-          {
-            passive:true
-          }
-        );
-
-      }
-
-
-      /* =====================================
-         キーボード
-      ===================================== */
-
-      daruma.addEventListener(
-        'keydown',
-        function(event){
-
-          if(
-            event.key === 'Enter' ||
-            event.key === ' '
-          ){
-
-            event.preventDefault();
-
-            rollDaruma();
-
-          }
-
+        if(!daruma){
+          return;
         }
-      );
 
 
-      /* =====================================
-         動き終わったら元に戻す
-      ===================================== */
+        /*
+          だるまを転がす
+        */
 
-      daruma.addEventListener(
-        'animationend',
-        function(){
+        function rollDaruma(){
+
+          /*
+            動いている途中なら
+            一度リセット
+          */
 
           daruma.classList.remove(
             'is-falling'
           );
 
-        }
-      );
 
-    }
+          /*
+            アニメーションを
+            最初から再生できるようにする
+          */
+
+          void daruma.offsetWidth;
+
+
+          /*
+            動かす
+          */
+
+          daruma.classList.add(
+            'is-falling'
+          );
+
+        }
+
+
+
+        /*
+          ==================================
+          サイトを開いた時
+
+          0.7秒後に自動で1回転ぶ
+          ==================================
+        */
+
+        setTimeout(
+          function(){
+
+            rollDaruma();
+
+          },
+          700
+        );
+
+
+
+        /*
+          ==================================
+          PC
+
+          カーソルがだるまに入ったら転ぶ
+          ==================================
+        */
+
+        daruma.addEventListener(
+          'mouseenter',
+          function(){
+
+            /*
+              アニメーション中は
+              連続発火させない
+            */
+
+            if(
+              !daruma.classList.contains(
+                'is-falling'
+              )
+            ){
+
+              rollDaruma();
+
+            }
+
+          }
+        );
+
+
+
+        /*
+          ==================================
+          スマホ
+
+          タップしたら転ぶ
+          ==================================
+        */
+
+        daruma.addEventListener(
+          'click',
+          function(){
+
+            if(
+              !daruma.classList.contains(
+                'is-falling'
+              )
+            ){
+
+              rollDaruma();
+
+            }
+
+          }
+        );
+
+
+
+        /*
+          ==================================
+          キーボード
+          ==================================
+        */
+
+        daruma.addEventListener(
+          'keydown',
+          function(event){
+
+            if(
+              event.key === 'Enter' ||
+              event.key === ' '
+            ){
+
+              event.preventDefault();
+
+              rollDaruma();
+
+            }
+
+          }
+        );
+
+
+
+        /*
+          ==================================
+          動き終わったら
+          次に備えてクラスを外す
+          ==================================
+        */
+
+        daruma.addEventListener(
+          'animationend',
+          function(){
+
+            daruma.classList.remove(
+              'is-falling'
+            );
+
+          }
+        );
+
+
+      }
+    );
 
   </script>
 
