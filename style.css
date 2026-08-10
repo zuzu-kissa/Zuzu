@@ -135,25 +135,20 @@ header{
   margin:0 0 22px;
 
   /*
-    だるまの底付近を回転軸にする
+    だるまの下側を支点にして転がす
   */
   transform-origin:50% 88%;
 
   /*
-    スマホでタップした際の
-    青いハイライトなどを消す
-  */
-  -webkit-tap-highlight-color:transparent;
-
-  /*
-    「触れるもの」と分かるように
-    PCではカーソルを変更
+    クリックできることをPCで示す
   */
   cursor:pointer;
 
   /*
-    画像のドラッグを防止
+    スマホのタップ時のハイライトを消す
   */
+  -webkit-tap-highlight-color:transparent;
+
   user-select:none;
   -webkit-user-select:none;
 }
@@ -163,20 +158,12 @@ header{
    DARUMA ANIMATION
 ========================= */
 
-/*
-  JavaScriptによって
-  .is-falling が付いたときだけ動く
-*/
-
 .mascot.is-falling{
-  animation:daruma-korori 1.65s cubic-bezier(.45,.05,.25,1);
+  animation:daruma-korori 1.55s cubic-bezier(.45,.05,.25,1);
 }
 
 @keyframes daruma-korori{
 
-  /*
-    いつもの状態
-  */
   0%{
     transform:
       translateX(0)
@@ -185,7 +172,7 @@ header{
   }
 
   /*
-    一瞬、左へ溜める
+    一度左へ少し溜める
   */
   12%{
     transform:
@@ -195,7 +182,7 @@ header{
   }
 
   /*
-    右へ傾き始める
+    右へ傾く
   */
   28%{
     transform:
@@ -210,17 +197,17 @@ header{
   43%{
     transform:
       translateX(18px)
-      translateY(8px)
+      translateY(7px)
       rotate(76deg);
   }
 
   /*
-    転んだ状態で少し止まる
+    少し転んだまま
   */
   58%{
     transform:
       translateX(18px)
-      translateY(8px)
+      translateY(7px)
       rotate(76deg);
   }
 
@@ -235,7 +222,7 @@ header{
   }
 
   /*
-    起き上がった反動
+    反動
   */
   86%{
     transform:
@@ -245,7 +232,7 @@ header{
   }
 
   /*
-    ちょっと揺れる
+    小さく揺れる
   */
   94%{
     transform:
@@ -255,7 +242,7 @@ header{
   }
 
   /*
-    元通り
+    元の位置
   */
   100%{
     transform:
@@ -285,7 +272,14 @@ header{
 }
 
 .tag{
-  margin:0 0 18px;
+  /*
+    PC版：
+    「深煎りの中の甘さを。」
+    ↓
+    beans
+    の空白を縮小
+  */
+  margin:0 0 6px;
   font-size:21px;
   letter-spacing:.1em;
 }
@@ -297,8 +291,12 @@ header{
 
 .links{
   width:min(520px,calc(100% - 44px));
+
+  /*
+    PC版ではtagのすぐ下から開始
+  */
   margin:0 auto 45px !important;
-  padding-top:0 !important;
+  padding:0 !important;
 }
 
 .links a{
@@ -365,6 +363,7 @@ footer{
 
 /* ==================================================
    SMARTPHONE
+   完成したスマホ版の配置を維持
 ================================================== */
 
 @media(max-width:650px){
@@ -395,11 +394,7 @@ footer{
 
     justify-content:flex-start !important;
 
-    /*
-      menu → タイトル
-    */
     padding:68px 18px 0 !important;
-
     margin:0 !important;
   }
 
@@ -451,6 +446,9 @@ footer{
   }
 
   .tag{
+    /*
+      ここは完成したスマホ版の値を維持
+    */
     margin:0 0 12px !important;
     font-size:15px;
   }
@@ -507,11 +505,6 @@ footer{
 /* =========================
    ACCESSIBILITY
 ========================= */
-
-/*
-  「アニメーションを減らす」を
-  OSで設定している人には動かさない
-*/
 
 @media(prefers-reduced-motion:reduce){
 
