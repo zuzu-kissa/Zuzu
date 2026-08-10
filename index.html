@@ -35,8 +35,13 @@
 
   <link
     rel="stylesheet"
-    href="style.css"
+    href="style.css?v=20260811-04"
   >
+
+  <script
+    src="site.js?v=20260811-04"
+    defer
+  ></script>
 
 </head>
 
@@ -50,21 +55,16 @@
 
 <header class="site-header">
 
-  <div class="site-nav">
+  <details class="site-menu">
 
-    <button
-      class="nav-trigger"
-      type="button"
-      aria-expanded="false"
-      aria-label="サイトメニュー"
-    >
+    <summary>
 
-      <span class="nav-word">
+      <span class="menu-word">
         menu
       </span>
 
       <span
-        class="nav-lines"
+        class="hamburger"
         aria-hidden="true"
       >
         <i></i>
@@ -72,11 +72,11 @@
         <i></i>
       </span>
 
-    </button>
+    </summary>
 
 
     <nav
-      class="nav-menu"
+      class="menu-dropdown"
       aria-label="メインメニュー"
     >
 
@@ -98,7 +98,7 @@
 
     </nav>
 
-  </div>
+  </details>
 
 </header>
 
@@ -160,13 +160,9 @@
 
 
 
-    <!-- LINE -->
-
     <span class="short-line"></span>
 
 
-
-    <!-- TAGLINE -->
 
     <p class="tag">
 
@@ -183,10 +179,11 @@
        LINKS
   ========================== -->
 
-  <nav class="links">
+  <nav
+    class="links"
+    aria-label="ページ一覧"
+  >
 
-
-    <!-- BEANS -->
 
     <a href="beans.html">
 
@@ -203,8 +200,6 @@
 
 
 
-    <!-- ABOUT -->
-
     <a href="about.html">
 
       <span>
@@ -219,8 +214,6 @@
     </a>
 
 
-
-    <!-- CONTACT -->
 
     <a href="contact.html">
 
@@ -248,152 +241,6 @@
   © 2026 zuzu coffee
 
 </footer>
-
-
-
-<script>
-
-  /* =========================
-     MENU
-  ========================== */
-
-  const siteNav =
-    document.querySelector(".site-nav");
-
-  const navTrigger =
-    document.querySelector(".nav-trigger");
-
-  if (siteNav && navTrigger) {
-
-    navTrigger.addEventListener(
-      "click",
-      function () {
-
-        const opened =
-          siteNav.classList.toggle("is-open");
-
-        navTrigger.setAttribute(
-          "aria-expanded",
-          opened ? "true" : "false"
-        );
-
-      }
-    );
-
-
-    document.addEventListener(
-      "click",
-      function (event) {
-
-        if (!siteNav.contains(event.target)) {
-
-          siteNav.classList.remove("is-open");
-
-          navTrigger.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-
-      }
-    );
-
-  }
-
-
-
-  /* =========================
-     DARUMA
-  ========================== */
-
-  const mascot =
-    document.querySelector(".mascot");
-
-
-  function rollDaruma() {
-
-    if (!mascot) {
-      return;
-    }
-
-
-    /*
-      連続動作でも必ず
-      アニメーションを再スタートできるようにする
-    */
-
-    mascot.classList.remove("is-falling");
-
-    void mascot.offsetWidth;
-
-    mascot.classList.add("is-falling");
-
-  }
-
-
-  if (mascot) {
-
-    /*
-      ページ読込時。
-
-      loadイベントを待つだけだと
-      キャッシュ状況によって実行確認が
-      分かりづらいためDOMContentLoaded後に実行。
-    */
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
-
-        setTimeout(
-          rollDaruma,
-          500
-        );
-
-      }
-    );
-
-
-    /* hover */
-
-    mascot.addEventListener(
-      "mouseenter",
-      rollDaruma
-    );
-
-
-    /* click / tap */
-
-    mascot.addEventListener(
-      "click",
-      rollDaruma
-    );
-
-
-    /* keyboard */
-
-    mascot.addEventListener(
-      "keydown",
-      function (event) {
-
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
-
-          event.preventDefault();
-
-          rollDaruma();
-
-        }
-
-      }
-    );
-
-  }
-
-</script>
 
 
 </body>
