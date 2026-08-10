@@ -1,351 +1,1264 @@
-<!DOCTYPE html>
-<html lang="ja">
+:root{
+  --bg:#0b0806;
+  --cream:#eadfce;
+  --icon:#d7bea1;
+  --line:rgba(215,190,161,.42);
+  --muted:#aa9884;
+}
 
-<head>
 
-  <meta charset="UTF-8">
+/* ==================================================
+   RESET
+================================================== */
 
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1"
-  >
+*{
+  box-sizing:border-box;
+}
 
-  <meta
-    name="description"
-    content="喫茶 豆豆の自家焙煎コーヒー豆。深煎りの中の甘さを。"
-  >
 
-  <title>beans | 喫茶 豆豆 ~zu-zu~</title>
+html{
+  scroll-behavior:smooth;
+}
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+body{
+  margin:0;
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Noto+Serif+JP:wght@400;500&display=swap"
-    rel="stylesheet"
-  >
+  color:var(--cream);
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  background:var(--bg);
 
-</head>
+  font-family:"Noto Serif JP",serif;
+}
 
 
-<body>
+body:before{
+  content:"";
 
+  position:fixed;
 
-<header>
+  inset:0;
 
-  <div class="menu-wrap">
+  pointer-events:none;
 
-    <button
-      class="menu"
-      type="button"
-      aria-label="メニューを開く"
-      aria-expanded="false"
-    >
+  opacity:.13;
 
-      <span>menu</span>
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #26170f 0,
+      #130d09 34%,
+      #0b0806 70%
+    );
 
-      <span class="menu-lines">
+  z-index:-1;
+}
 
-        <b></b>
-        <b></b>
-        <b></b>
 
-      </span>
 
-    </button>
+/* ==================================================
+   HEADER
+================================================== */
 
+header{
+  position:absolute;
 
-    <nav
-      class="menu-panel"
-      aria-label="サイトメニュー"
-    >
+  top:0;
+  left:0;
+  right:0;
 
-      <a href="index.html">
-        home
-      </a>
+  height:76px;
 
-      <a href="beans.html">
-        beans
-      </a>
+  padding:0 42px;
 
-      <a href="about.html">
-        about
-      </a>
+  display:flex;
 
-      <a href="contact.html">
-        contact
-      </a>
+  justify-content:flex-end;
+  align-items:center;
 
-    </nav>
+  z-index:1000;
+}
 
-  </div>
 
-</header>
 
+/* ==================================================
+   COMMON MENU
+================================================== */
 
+.site-menu{
+  position:relative;
+}
 
-<main class="beans-page">
 
+.site-menu summary{
+  list-style:none;
 
-  <!-- SMALL TITLE -->
+  display:flex;
 
-  <section class="beans-top">
+  align-items:center;
 
-    <a
-      class="beans-brand"
-      href="index.html"
-    >
-      喫茶 豆豆 ~zu-zu~
-    </a>
+  gap:18px;
 
-    <div class="beans-title-row">
+  padding:10px 0;
 
-      <h1>
-        beans
-      </h1>
+  color:var(--cream);
 
-      <span></span>
+  cursor:pointer;
 
-      <p>
-        深煎りの中の甘さを。
-      </p>
+  user-select:none;
 
-    </div>
+  font-family:"EB Garamond",serif;
 
-  </section>
+  font-size:17px;
 
+  letter-spacing:.16em;
+}
 
 
-  <!-- PRODUCTS -->
+.site-menu summary::-webkit-details-marker{
+  display:none;
+}
 
-  <section class="product-grid">
 
+.menu-word{
+  display:block;
+}
 
-    <!-- 01 -->
 
-    <article class="product-card">
+.hamburger{
+  width:40px;
 
+  display:flex;
 
-      <div class="product-photo">
+  flex-direction:column;
 
-        <span>
-          photo
-        </span>
+  gap:6px;
+}
 
-      </div>
 
+.hamburger i{
+  display:block;
 
-      <div class="product-info">
+  width:40px;
+  height:1px;
 
-        <div class="product-heading">
+  background:var(--cream);
+}
 
-          <p class="product-number">
-            01
-          </p>
 
-          <div>
+/* dropdown */
 
-            <h2>
-              たゆたいぶれんど
-            </h2>
+.menu-dropdown{
+  position:absolute;
 
-            <p class="product-en">
-              tayutai blend
-            </p>
+  top:44px;
+  right:0;
 
-          </div>
+  width:145px;
 
-        </div>
+  padding:8px 14px;
 
+  background:rgba(11,8,6,.98);
 
-        <p class="product-copy">
+  border:1px solid var(--line);
 
-          深く、まろやかに。<br>
-          苦みの奥にじんわり残る甘さ。
+  box-shadow:
+    0 12px 30px
+    rgba(0,0,0,.28);
+}
 
-        </p>
 
+.menu-dropdown a{
+  display:block;
 
-        <div class="product-data">
+  padding:7px 2px;
 
-          <p>
-            <span>roast</span>
-            dark
-          </p>
+  color:var(--cream);
 
-          <p>
-            <span>taste</span>
-            cacao / sweet / mellow
-          </p>
+  text-decoration:none;
 
-          <p>
-            <span>weight</span>
-            100g
-          </p>
+  text-align:right;
 
-        </div>
+  font-family:"EB Garamond",serif;
 
+  font-size:17px;
 
-        <p class="product-price">
-          ¥ --- / 100g
-        </p>
+  line-height:1.2;
 
-      </div>
+  letter-spacing:.14em;
+}
 
 
-    </article>
+.menu-dropdown a:hover{
+  opacity:.55;
+}
 
 
+/* PCではカーソルを置くだけでも表示 */
 
-    <!-- 02 -->
+@media(hover:hover){
 
-    <article class="product-card">
+  .site-menu:not([open]) .menu-dropdown{
+    display:none;
+  }
 
 
-      <div class="product-photo">
+  .site-menu:hover .menu-dropdown{
+    display:block;
+  }
 
-        <span>
-          photo
-        </span>
+}
 
-      </div>
 
 
-      <div class="product-info">
+/* ==================================================
+   HOME HERO
+================================================== */
 
-        <div class="product-heading">
+.hero{
+  height:auto !important;
+  min-height:0 !important;
 
-          <p class="product-number">
-            02
-          </p>
+  display:flex;
 
-          <div>
+  flex-direction:column;
 
-            <h2>
-              はじらいぶれんど
-            </h2>
+  justify-content:flex-start !important;
 
-            <p class="product-en">
-              hajirai blend
-            </p>
+  align-items:center;
 
-          </div>
+  text-align:center;
 
-        </div>
+  padding:105px 24px 0 !important;
+}
 
 
-        <p class="product-copy">
 
-          華やかな香りと、やわらかな酸味。<br>
-          果実のような甘い余韻。
+/* ==================================================
+   BRAND
+================================================== */
 
-        </p>
+.brand{
+  display:flex;
 
+  align-items:baseline;
 
-        <div class="product-data">
+  gap:18px;
 
-          <p>
-            <span>roast</span>
-            medium dark
-          </p>
+  white-space:nowrap;
 
-          <p>
-            <span>taste</span>
-            fruity / floral / sweet
-          </p>
+  margin-bottom:38px;
+}
 
-          <p>
-            <span>weight</span>
-            100g
-          </p>
 
-        </div>
+.kissa{
+  font-size:31px;
 
+  letter-spacing:.06em;
+}
 
-        <p class="product-price">
-          ¥ --- / 100g
-        </p>
 
-      </div>
+.mame{
+  font-size:70px;
 
+  letter-spacing:-.11em;
 
-    </article>
+  line-height:1;
+}
 
 
-  </section>
+.zuzu{
+  font-family:"EB Garamond",serif;
 
+  font-size:32px;
 
-</main>
+  letter-spacing:.13em;
+}
 
 
 
-<footer>
+/* ==================================================
+   DARUMA
+================================================== */
 
-  © 2026 zuzu coffee
+.mascot{
+  width:115px;
 
-</footer>
+  height:auto;
 
+  display:block;
 
+  margin:0 0 22px;
 
-<script>
+  transform-origin:50% 88%;
 
-  const menuWrap =
-    document.querySelector(".menu-wrap");
+  cursor:pointer;
 
-  const menuButton =
-    document.querySelector(".menu");
+  -webkit-tap-highlight-color:transparent;
 
+  user-select:none;
 
-  menuButton.addEventListener(
-    "click",
-    function () {
+  -webkit-user-select:none;
+}
 
-      const opened =
-        menuWrap.classList.toggle("is-open");
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        opened
-      );
+.mascot.is-falling{
+  animation:
+    daruma-korori
+    1.55s
+    cubic-bezier(.45,.05,.25,1);
+}
 
-    }
+
+@keyframes daruma-korori{
+
+  0%{
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(0deg);
+  }
+
+  12%{
+    transform:
+      translateX(-3px)
+      translateY(0)
+      rotate(-6deg);
+  }
+
+  28%{
+    transform:
+      translateX(4px)
+      translateY(1px)
+      rotate(18deg);
+  }
+
+  43%{
+    transform:
+      translateX(18px)
+      translateY(7px)
+      rotate(76deg);
+  }
+
+  58%{
+    transform:
+      translateX(18px)
+      translateY(7px)
+      rotate(76deg);
+  }
+
+  75%{
+    transform:
+      translateX(-2px)
+      translateY(0)
+      rotate(-13deg);
+  }
+
+  86%{
+    transform:
+      translateX(1px)
+      translateY(0)
+      rotate(6deg);
+  }
+
+  94%{
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(-2deg);
+  }
+
+  100%{
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(0deg);
+  }
+
+}
+
+
+
+/* ==================================================
+   HOME TEXT
+================================================== */
+
+.intro{
+  margin:0;
+
+  font-size:21px;
+
+  line-height:1.8;
+
+  letter-spacing:.08em;
+}
+
+
+.short-line{
+  display:block;
+
+  width:54px;
+
+  height:1px;
+
+  margin:15px auto;
+
+  background:var(--line);
+}
+
+
+.tag{
+  margin:0 0 6px;
+
+  font-size:21px;
+
+  letter-spacing:.1em;
+}
+
+
+
+/* ==================================================
+   HOME LINKS
+================================================== */
+
+.links{
+  width:min(
+    520px,
+    calc(100% - 44px)
   );
 
+  margin:0 auto 45px !important;
 
-  document.addEventListener(
-    "click",
-    function (event) {
+  padding:0 !important;
+}
 
-      if (!menuWrap.contains(event.target)) {
 
-        menuWrap.classList.remove("is-open");
+.links a{
+  min-height:72px;
 
-        menuButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+  border-bottom:1px solid var(--line);
 
-      }
+  display:flex;
 
-    }
+  align-items:center;
+
+  justify-content:space-between;
+
+  color:var(--cream);
+
+  text-decoration:none;
+}
+
+
+.links span{
+  font-family:"EB Garamond",serif;
+
+  font-size:31px;
+
+  letter-spacing:.22em;
+}
+
+
+.links img{
+  display:block;
+
+  width:42px !important;
+  height:42px !important;
+
+  max-width:42px !important;
+  max-height:42px !important;
+
+  object-fit:contain;
+}
+
+
+.links a:first-child img{
+  width:40px !important;
+  height:40px !important;
+}
+
+
+
+/* ==================================================
+   BEANS PAGE
+================================================== */
+
+.beans-page{
+  width:min(
+    1120px,
+    calc(100% - 70px)
   );
 
-</script>
+  margin:0 auto;
+
+  padding:
+    82px
+    0
+    20px;
+}
 
 
-</body>
 
-</html>
+/* small heading */
+
+.beans-head{
+  margin-bottom:18px;
+
+  padding-bottom:12px;
+
+  border-bottom:1px solid var(--line);
+}
+
+
+.beans-home{
+  display:block;
+
+  margin:0 0 6px;
+
+  color:var(--muted);
+
+  text-decoration:none;
+
+  font-size:10px;
+
+  letter-spacing:.13em;
+}
+
+
+.beans-heading{
+  display:flex;
+
+  align-items:center;
+
+  gap:14px;
+}
+
+
+.beans-heading h1{
+  margin:0;
+
+  font-family:"EB Garamond",serif;
+
+  font-size:26px;
+
+  font-weight:400;
+
+  line-height:1;
+
+  letter-spacing:.14em;
+}
+
+
+.beans-heading > span{
+  width:30px;
+
+  height:1px;
+
+  background:var(--line);
+}
+
+
+.beans-heading p{
+  margin:0;
+
+  font-size:10px;
+
+  letter-spacing:.09em;
+}
+
+
+
+/* ==================================================
+   PRODUCTS
+================================================== */
+
+.beans-products{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:18px;
+}
+
+
+.bean-product{
+  height:430px;
+
+  min-width:0;
+
+  display:grid;
+
+  grid-template-columns:
+    42%
+    58%;
+
+  border:1px solid var(--line);
+}
+
+
+.bean-photo{
+  min-width:0;
+
+  border-right:1px solid var(--line);
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  font-family:"EB Garamond",serif;
+
+  font-size:13px;
+
+  letter-spacing:.15em;
+
+  color:#756858;
+}
+
+
+.bean-info{
+  min-width:0;
+
+  padding:24px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+}
+
+
+.bean-no{
+  margin:0 0 10px;
+
+  color:var(--muted);
+
+  font-family:"EB Garamond",serif;
+
+  font-size:11px;
+
+  letter-spacing:.16em;
+}
+
+
+.bean-info h2{
+  margin:0;
+
+  font-size:22px;
+
+  font-weight:400;
+
+  line-height:1.3;
+
+  letter-spacing:.06em;
+}
+
+
+.bean-en{
+  margin:5px 0 0;
+
+  color:var(--muted);
+
+  font-family:"EB Garamond",serif;
+
+  font-size:14px;
+
+  letter-spacing:.11em;
+}
+
+
+.bean-description{
+  margin:20px 0;
+
+  font-size:12px;
+
+  line-height:1.8;
+
+  letter-spacing:.05em;
+}
+
+
+.bean-spec{
+  margin:0;
+
+  border-top:1px solid var(--line);
+}
+
+
+.bean-spec div{
+  display:grid;
+
+  grid-template-columns:
+    65px
+    minmax(0,1fr);
+
+  padding:6px 0;
+
+  border-bottom:1px solid var(--line);
+}
+
+
+.bean-spec dt,
+.bean-spec dd{
+  margin:0;
+
+  font-family:"EB Garamond",serif;
+
+  font-size:11px;
+
+  letter-spacing:.05em;
+}
+
+
+.bean-spec dt{
+  color:var(--muted);
+}
+
+
+.bean-price{
+  margin:15px 0 0;
+
+  font-family:"EB Garamond",serif;
+
+  font-size:13px;
+
+  letter-spacing:.1em;
+}
+
+
+
+/* ==================================================
+   ABOUT
+================================================== */
+
+.about-content,
+.about-compact{
+  width:min(540px,100%);
+
+  margin:0 auto 60px;
+
+  text-align:center;
+}
+
+
+.about-content p,
+.about-compact > p{
+  margin:0 0 22px;
+
+  font-size:13px;
+
+  line-height:2;
+
+  letter-spacing:.07em;
+}
+
+
+.instagram-guide{
+  width:min(360px,100%);
+
+  margin:25px auto 0;
+
+  padding:12px 14px;
+
+  border-top:1px solid var(--line);
+
+  border-bottom:1px solid var(--line);
+
+  display:grid;
+
+  grid-template-columns:
+    32px
+    1fr;
+
+  column-gap:14px;
+
+  align-items:center;
+
+  color:var(--cream);
+
+  text-decoration:none;
+
+  text-align:left;
+}
+
+
+.instagram-guide img{
+  grid-row:1 / 3;
+
+  width:30px !important;
+  height:30px !important;
+
+  max-width:30px !important;
+  max-height:30px !important;
+
+  object-fit:contain;
+}
+
+
+.instagram-guide span{
+  font-family:"EB Garamond",serif;
+
+  font-size:19px;
+
+  letter-spacing:.14em;
+}
+
+
+.instagram-guide small{
+  color:var(--muted);
+
+  font-size:9px;
+
+  letter-spacing:.07em;
+}
+
+
+
+/* ==================================================
+   CONTACT
+================================================== */
+
+.contact-content,
+.contact-compact{
+  width:min(430px,100%);
+
+  margin:0 auto 60px;
+
+  text-align:center;
+}
+
+
+.contact-row,
+.contact-link{
+  min-height:58px;
+
+  padding:0 10px;
+
+  border-top:1px solid var(--line);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  color:var(--cream);
+
+  text-decoration:none;
+}
+
+
+.contact-row:last-child,
+.contact-link:last-child{
+  border-bottom:1px solid var(--line);
+}
+
+
+.contact-row img,
+.contact-link img{
+  display:block !important;
+
+  width:30px !important;
+  height:30px !important;
+
+  min-width:30px !important;
+  min-height:30px !important;
+
+  max-width:30px !important;
+  max-height:30px !important;
+
+  object-fit:contain !important;
+}
+
+
+
+/* ==================================================
+   GENERIC SUB PAGE
+================================================== */
+
+.sub-page,
+.compact-page{
+  width:min(
+    900px,
+    calc(100% - 44px)
+  );
+
+  margin:0 auto;
+
+  padding:88px 0 30px;
+}
+
+
+.page-hero,
+.compact-hero{
+  text-align:center;
+
+  margin-bottom:32px;
+}
+
+
+.mini-brand{
+  display:inline-block;
+
+  margin-bottom:12px;
+
+  color:var(--muted);
+
+  text-decoration:none;
+
+  font-size:10px;
+
+  letter-spacing:.12em;
+}
+
+
+.page-hero h1,
+.compact-hero h1{
+  margin:0;
+
+  font-family:"EB Garamond",serif;
+
+  font-size:40px;
+
+  font-weight:400;
+
+  letter-spacing:.12em;
+}
+
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer{
+  text-align:center;
+
+  padding:0 20px 18px;
+
+  font-family:"EB Garamond",serif;
+
+  letter-spacing:.16em;
+
+  font-size:11px;
+
+  color:#cdbda8;
+}
+
+
+
+/* ==================================================
+   SMARTPHONE
+================================================== */
+
+@media(max-width:650px){
+
+
+  /* HEADER */
+
+  header{
+    height:54px;
+
+    padding:0 16px;
+  }
+
+
+  .site-menu summary{
+    gap:11px;
+
+    font-size:14px;
+  }
+
+
+  .hamburger{
+    width:29px;
+
+    gap:5px;
+  }
+
+
+  .hamburger i{
+    width:29px;
+  }
+
+
+  .menu-dropdown{
+    top:37px;
+
+    width:120px;
+
+    padding:7px 10px;
+  }
+
+
+  .menu-dropdown a{
+    padding:6px 1px;
+
+    font-size:15px;
+  }
+
+
+
+  /* HOME */
+
+  .hero{
+    padding:68px 18px 0 !important;
+  }
+
+
+  .brand{
+    gap:9px;
+
+    margin-bottom:24px;
+  }
+
+
+  .kissa{
+    font-size:19px;
+  }
+
+
+  .mame{
+    font-size:48px;
+  }
+
+
+  .zuzu{
+    font-size:19px;
+  }
+
+
+  .mascot{
+    width:88px;
+
+    margin-bottom:16px;
+  }
+
+
+  .intro{
+    font-size:15px;
+
+    line-height:1.7;
+  }
+
+
+  .tag{
+    font-size:15px;
+  }
+
+
+  .links{
+    width:calc(100% - 36px);
+
+    margin-bottom:25px !important;
+  }
+
+
+  .links a{
+    min-height:54px;
+  }
+
+
+  .links span{
+    font-size:21px;
+  }
+
+
+  .links img{
+    width:31px !important;
+    height:31px !important;
+
+    max-width:31px !important;
+    max-height:31px !important;
+  }
+
+
+
+  /* =========================
+     BEANS MOBILE
+  ========================= */
+
+  .beans-page{
+    width:calc(100% - 22px);
+
+    height:100svh;
+
+    padding:
+      57px
+      0
+      7px;
+
+    display:flex;
+
+    flex-direction:column;
+  }
+
+
+  .beans-head{
+    flex:0 0 auto;
+
+    margin-bottom:6px;
+
+    padding-bottom:6px;
+  }
+
+
+  .beans-home{
+    margin-bottom:2px;
+
+    font-size:7px;
+  }
+
+
+  .beans-heading{
+    gap:7px;
+  }
+
+
+  .beans-heading h1{
+    font-size:17px;
+  }
+
+
+  .beans-heading > span{
+    width:18px;
+  }
+
+
+  .beans-heading p{
+    font-size:7px;
+  }
+
+
+  .beans-products{
+    flex:1;
+
+    min-height:0;
+
+    grid-template-columns:1fr;
+
+    grid-template-rows:
+      repeat(2,minmax(0,1fr));
+
+    gap:6px;
+  }
+
+
+  .bean-product{
+    height:auto;
+
+    min-height:0;
+
+    grid-template-columns:
+      30%
+      70%;
+  }
+
+
+  .bean-info{
+    min-height:0;
+
+    padding:
+      7px
+      9px;
+  }
+
+
+  .bean-no{
+    margin-bottom:2px;
+
+    font-size:7px;
+  }
+
+
+  .bean-info h2{
+    font-size:13px;
+
+    line-height:1.2;
+  }
+
+
+  .bean-en{
+    margin-top:1px;
+
+    font-size:8px;
+  }
+
+
+  .bean-description{
+    margin:5px 0;
+
+    font-size:7.5px;
+
+    line-height:1.4;
+  }
+
+
+  .bean-spec div{
+    grid-template-columns:
+      37px
+      1fr;
+
+    padding:1.5px 0;
+  }
+
+
+  .bean-spec dt,
+  .bean-spec dd{
+    font-size:7px;
+  }
+
+
+  .bean-price{
+    margin-top:4px;
+
+    font-size:8px;
+  }
+
+
+  .bean-photo{
+    font-size:8px;
+  }
+
+
+
+  /* SUB */
+
+  .sub-page,
+  .compact-page{
+    width:calc(100% - 28px);
+
+    padding:60px 0 18px;
+  }
+
+
+  .page-hero h1,
+  .compact-hero h1{
+    font-size:30px;
+  }
+
+
+  footer{
+    padding-bottom:8px;
+
+    font-size:8px;
+  }
+
+}
+
+
+
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+  .mascot.is-falling{
+    animation:none;
+  }
+
+}
