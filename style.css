@@ -134,19 +134,10 @@ header{
   display:block;
   margin:0 0 22px;
 
-  /*
-    だるまの下側を支点にして転がす
-  */
   transform-origin:50% 88%;
 
-  /*
-    クリックできることをPCで示す
-  */
   cursor:pointer;
 
-  /*
-    スマホのタップ時のハイライトを消す
-  */
   -webkit-tap-highlight-color:transparent;
 
   user-select:none;
@@ -171,9 +162,6 @@ header{
       rotate(0deg);
   }
 
-  /*
-    一度左へ少し溜める
-  */
   12%{
     transform:
       translateX(-3px)
@@ -181,9 +169,6 @@ header{
       rotate(-6deg);
   }
 
-  /*
-    右へ傾く
-  */
   28%{
     transform:
       translateX(4px)
@@ -191,9 +176,6 @@ header{
       rotate(18deg);
   }
 
-  /*
-    コロン
-  */
   43%{
     transform:
       translateX(18px)
@@ -201,9 +183,6 @@ header{
       rotate(76deg);
   }
 
-  /*
-    少し転んだまま
-  */
   58%{
     transform:
       translateX(18px)
@@ -211,9 +190,6 @@ header{
       rotate(76deg);
   }
 
-  /*
-    起き上がる
-  */
   75%{
     transform:
       translateX(-2px)
@@ -221,9 +197,6 @@ header{
       rotate(-13deg);
   }
 
-  /*
-    反動
-  */
   86%{
     transform:
       translateX(1px)
@@ -231,9 +204,6 @@ header{
       rotate(6deg);
   }
 
-  /*
-    小さく揺れる
-  */
   94%{
     transform:
       translateX(0)
@@ -241,9 +211,6 @@ header{
       rotate(-2deg);
   }
 
-  /*
-    元の位置
-  */
   100%{
     transform:
       translateX(0)
@@ -272,13 +239,6 @@ header{
 }
 
 .tag{
-  /*
-    PC版：
-    「深煎りの中の甘さを。」
-    ↓
-    beans
-    の空白を縮小
-  */
   margin:0 0 6px;
   font-size:21px;
   letter-spacing:.1em;
@@ -291,10 +251,6 @@ header{
 
 .links{
   width:min(520px,calc(100% - 44px));
-
-  /*
-    PC版ではtagのすぐ下から開始
-  */
   margin:0 auto 45px !important;
   padding:0 !important;
 }
@@ -363,7 +319,6 @@ footer{
 
 /* ==================================================
    SMARTPHONE
-   完成したスマホ版の配置を維持
 ================================================== */
 
 @media(max-width:650px){
@@ -446,9 +401,6 @@ footer{
   }
 
   .tag{
-    /*
-      ここは完成したスマホ版の値を維持
-    */
     margin:0 0 12px !important;
     font-size:15px;
   }
