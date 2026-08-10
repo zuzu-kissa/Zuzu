@@ -35,8 +35,13 @@
 
   <link
     rel="stylesheet"
-    href="style.css"
+    href="style.css?v=20260811-04"
   >
+
+  <script
+    src="site.js?v=20260811-04"
+    defer
+  ></script>
 
 </head>
 
@@ -44,27 +49,18 @@
 <body>
 
 
-<!-- =========================
-     HEADER
-========================== -->
-
 <header class="site-header">
 
-  <div class="site-nav">
+  <details class="site-menu">
 
-    <button
-      class="nav-trigger"
-      type="button"
-      aria-expanded="false"
-      aria-label="サイトメニュー"
-    >
+    <summary>
 
-      <span class="nav-word">
+      <span class="menu-word">
         menu
       </span>
 
       <span
-        class="nav-lines"
+        class="hamburger"
         aria-hidden="true"
       >
         <i></i>
@@ -72,11 +68,11 @@
         <i></i>
       </span>
 
-    </button>
+    </summary>
 
 
     <nav
-      class="nav-menu"
+      class="menu-dropdown"
       aria-label="メインメニュー"
     >
 
@@ -98,7 +94,7 @@
 
     </nav>
 
-  </div>
+  </details>
 
 </header>
 
@@ -106,8 +102,6 @@
 
 <main class="sub-page">
 
-
-  <!-- PAGE HEADER -->
 
   <section class="sub-head">
 
@@ -118,11 +112,14 @@
       喫茶 豆豆 ~zu-zu~
     </a>
 
+
     <h1>
       about
     </h1>
 
+
     <span class="short-line"></span>
+
 
     <p>
       豆豆について。
@@ -132,9 +129,8 @@
 
 
 
-  <!-- ABOUT -->
-
   <section class="about-content">
+
 
     <p>
 
@@ -159,8 +155,6 @@
 
 
 
-    <!-- INSTAGRAM -->
-
     <a
       class="instagram-guide"
       href="https://www.instagram.com/"
@@ -183,6 +177,7 @@
 
     </a>
 
+
   </section>
 
 
@@ -195,72 +190,6 @@
   © 2026 zuzu coffee
 
 </footer>
-
-
-
-<script>
-
-  const siteNav =
-    document.querySelector(".site-nav");
-
-  const navTrigger =
-    document.querySelector(".nav-trigger");
-
-
-  navTrigger.addEventListener(
-    "click",
-    function () {
-
-      const opened =
-        siteNav.classList.toggle("is-open");
-
-      navTrigger.setAttribute(
-        "aria-expanded",
-        opened ? "true" : "false"
-      );
-
-    }
-  );
-
-
-  document.addEventListener(
-    "click",
-    function (event) {
-
-      if (!siteNav.contains(event.target)) {
-
-        siteNav.classList.remove("is-open");
-
-        navTrigger.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      }
-
-    }
-  );
-
-
-  document.addEventListener(
-    "keydown",
-    function (event) {
-
-      if (event.key === "Escape") {
-
-        siteNav.classList.remove("is-open");
-
-        navTrigger.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      }
-
-    }
-  );
-
-</script>
 
 
 </body>
