@@ -67,9 +67,7 @@
 <main>
 
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- HERO -->
 
   <section class="hero">
 
@@ -139,9 +137,7 @@
 
 
 
-  <!-- =========================
-       LINKS
-  ========================== -->
+  <!-- LINKS -->
 
   <nav
     id="links"
@@ -174,9 +170,10 @@
         about
       </span>
 
-      <span class="nav-arrow">
-        →
-      </span>
+      <img
+        src="assets/icon-instagram.svg"
+        alt=""
+      >
 
     </a>
 
@@ -190,9 +187,10 @@
         contact
       </span>
 
-      <span class="nav-arrow">
-        →
-      </span>
+      <img
+        src="assets/icon-contact.svg"
+        alt=""
+      >
 
     </a>
 
@@ -216,9 +214,9 @@
 
   const mascot = document.querySelector(".mascot");
 
-  function rollDaruma(){
+  function rollDaruma() {
 
-    if(mascot.classList.contains("is-falling")){
+    if (mascot.classList.contains("is-falling")) {
       return;
     }
 
@@ -226,19 +224,19 @@
 
     mascot.addEventListener(
       "animationend",
-      () => {
+      function () {
         mascot.classList.remove("is-falling");
       },
-      { once:true }
+      { once: true }
     );
 
   }
 
   mascot.addEventListener("click", rollDaruma);
 
-  mascot.addEventListener("keydown", (event) => {
+  mascot.addEventListener("keydown", function (event) {
 
-    if(event.key === "Enter" || event.key === " "){
+    if (event.key === "Enter" || event.key === " ") {
 
       event.preventDefault();
 
