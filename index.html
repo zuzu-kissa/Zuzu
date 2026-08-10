@@ -1,22 +1,21 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
 
   <meta
     name="viewport"
     content="width=device-width,initial-scale=1"
   >
 
-  <title>喫茶 豆豆 ~zu-zu~</title>
-
   <meta
     name="description"
     content="手廻しロースターによる自家焙煎コーヒー豆の通販です。深煎りの中の甘さを。"
   >
+
+  <title>喫茶 豆豆 ~zu-zu~</title>
 
   <link
     rel="preconnect"
@@ -30,7 +29,7 @@
   >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=EB+Garamond:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Noto+Serif+JP:wght@400;500&display=swap"
     rel="stylesheet"
   >
 
@@ -45,375 +44,211 @@
 <body>
 
 
-  <!-- HEADER -->
+<header>
 
-  <header>
+  <a
+    class="menu"
+    href="#links"
+    aria-label="メニューへ移動"
+  >
 
-    <a
-      class="menu"
-      href="#links"
-      aria-label="メニューへ移動"
+    <span>menu</span>
+
+    <b></b>
+    <b></b>
+    <b></b>
+
+  </a>
+
+</header>
+
+
+
+<main>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero">
+
+
+    <!-- BRAND -->
+
+    <div class="brand">
+
+      <span class="kissa">
+        喫茶
+      </span>
+
+      <span class="mame">
+        豆豆
+      </span>
+
+      <span class="zuzu">
+        ~zu-zu~
+      </span>
+
+    </div>
+
+
+
+    <!-- DARUMA -->
+
+    <img
+      class="mascot"
+      src="assets/zuzu-daruma-approved.png"
+      alt="豆豆だるま"
+      draggable="false"
+      role="button"
+      tabindex="0"
+      aria-label="豆豆だるまを転がす"
     >
 
-      <span>menu</span>
 
-      <b></b>
-      <b></b>
-      <b></b>
+
+    <!-- INTRO -->
+
+    <p class="intro">
+
+      手廻しロースターによる<br>
+
+      自家焙煎コーヒー豆の通販です。
+
+    </p>
+
+
+
+    <!-- LINE -->
+
+    <span class="short-line"></span>
+
+
+
+    <!-- TAGLINE -->
+
+    <p class="tag">
+
+      深煎りの中の甘さを。
+
+    </p>
+
+
+  </section>
+
+
+
+  <!-- =========================
+       LINKS
+  ========================== -->
+
+  <nav
+    id="links"
+    class="links"
+  >
+
+
+    <!-- BEANS -->
+
+    <a href="beans.html">
+
+      <span>
+        beans
+      </span>
+
+      <img
+        src="assets/icon-beans-approved.png"
+        alt=""
+      >
 
     </a>
 
-  </header>
 
 
+    <!-- ABOUT -->
 
-  <main>
+    <a href="about.html">
 
+      <span>
+        about
+      </span>
 
-    <!-- HERO -->
+      <span class="nav-arrow">
+        →
+      </span>
 
-    <section class="hero">
+    </a>
 
 
-      <!-- BRAND -->
 
-      <div class="brand">
+    <!-- CONTACT -->
 
-        <span class="kissa">
-          喫茶
-        </span>
+    <a href="contact.html">
 
-        <span class="mame">
-          豆豆
-        </span>
+      <span>
+        contact
+      </span>
 
-        <span class="zuzu">
-          ~zu-zu~
-        </span>
+      <span class="nav-arrow">
+        →
+      </span>
 
-      </div>
+    </a>
 
 
+  </nav>
 
-      <!-- DARUMA -->
 
-      <img
-        class="mascot"
-        src="assets/zuzu-daruma-approved.png"
-        alt="豆豆だるま"
-        draggable="false"
-        role="button"
-        tabindex="0"
-        aria-label="豆豆だるまを転がす"
-      >
+</main>
 
 
 
-      <!-- INTRO -->
+<footer>
 
-      <p class="intro">
+  © 2026 zuzu coffee
 
-        手廻しロースターによる<br>
+</footer>
 
-        自家焙煎コーヒー豆の通販です。
 
-      </p>
 
+<script>
 
+  const mascot = document.querySelector(".mascot");
 
-      <!-- LINE -->
+  function rollDaruma(){
 
-      <span class="short-line"></span>
+    if(mascot.classList.contains("is-falling")){
+      return;
+    }
 
+    mascot.classList.add("is-falling");
 
-
-      <!-- TAGLINE -->
-
-      <p class="tag">
-
-        深煎りの中の甘さを。
-
-      </p>
-
-
-    </section>
-
-
-
-    <!-- LINKS -->
-
-    <nav
-      id="links"
-      class="links"
-    >
-
-
-      <!-- BEANS -->
-
-      <a href="#beans">
-
-        <span>
-          beans
-        </span>
-
-        <img
-          src="assets/icon-beans-approved.png"
-          alt=""
-        >
-
-      </a>
-
-
-
-      <!-- ABOUT -->
-
-      <a
-        href="https://www.instagram.com/"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <span>
-          about
-        </span>
-
-        <img
-          src="assets/icon-instagram.svg"
-          alt=""
-        >
-
-      </a>
-
-
-
-      <!-- CONTACT -->
-
-      <a href="mailto:hello@example.com">
-
-        <span>
-          contact
-        </span>
-
-        <img
-          src="assets/icon-contact.svg"
-          alt=""
-        >
-
-      </a>
-
-
-    </nav>
-
-
-
-    <!-- BEANS PLACEHOLDER -->
-
-    <section
-      id="beans"
-      class="placeholder"
-    >
-
-      <p>
-        beans page coming soon.
-      </p>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    © 2026 zuzu coffee
-
-  </footer>
-
-
-
-  <!-- DARUMA SCRIPT -->
-
-  <script>
-
-    document.addEventListener(
-      'DOMContentLoaded',
-      function(){
-
-        const daruma =
-          document.querySelector('.mascot');
-
-
-        if(!daruma){
-          return;
-        }
-
-
-        /*
-          だるまを転がす
-        */
-
-        function rollDaruma(){
-
-          /*
-            動いている途中なら
-            一度リセット
-          */
-
-          daruma.classList.remove(
-            'is-falling'
-          );
-
-
-          /*
-            アニメーションを
-            最初から再生できるようにする
-          */
-
-          void daruma.offsetWidth;
-
-
-          /*
-            動かす
-          */
-
-          daruma.classList.add(
-            'is-falling'
-          );
-
-        }
-
-
-
-        /*
-          ==================================
-          サイトを開いた時
-
-          0.7秒後に自動で1回転ぶ
-          ==================================
-        */
-
-        setTimeout(
-          function(){
-
-            rollDaruma();
-
-          },
-          700
-        );
-
-
-
-        /*
-          ==================================
-          PC
-
-          カーソルがだるまに入ったら転ぶ
-          ==================================
-        */
-
-        daruma.addEventListener(
-          'mouseenter',
-          function(){
-
-            /*
-              アニメーション中は
-              連続発火させない
-            */
-
-            if(
-              !daruma.classList.contains(
-                'is-falling'
-              )
-            ){
-
-              rollDaruma();
-
-            }
-
-          }
-        );
-
-
-
-        /*
-          ==================================
-          スマホ
-
-          タップしたら転ぶ
-          ==================================
-        */
-
-        daruma.addEventListener(
-          'click',
-          function(){
-
-            if(
-              !daruma.classList.contains(
-                'is-falling'
-              )
-            ){
-
-              rollDaruma();
-
-            }
-
-          }
-        );
-
-
-
-        /*
-          ==================================
-          キーボード
-          ==================================
-        */
-
-        daruma.addEventListener(
-          'keydown',
-          function(event){
-
-            if(
-              event.key === 'Enter' ||
-              event.key === ' '
-            ){
-
-              event.preventDefault();
-
-              rollDaruma();
-
-            }
-
-          }
-        );
-
-
-
-        /*
-          ==================================
-          動き終わったら
-          次に備えてクラスを外す
-          ==================================
-        */
-
-        daruma.addEventListener(
-          'animationend',
-          function(){
-
-            daruma.classList.remove(
-              'is-falling'
-            );
-
-          }
-        );
-
-
-      }
+    mascot.addEventListener(
+      "animationend",
+      () => {
+        mascot.classList.remove("is-falling");
+      },
+      { once:true }
     );
 
-  </script>
+  }
+
+  mascot.addEventListener("click", rollDaruma);
+
+  mascot.addEventListener("keydown", (event) => {
+
+    if(event.key === "Enter" || event.key === " "){
+
+      event.preventDefault();
+
+      rollDaruma();
+
+    }
+
+  });
+
+</script>
 
 
 </body>
