@@ -46,36 +46,65 @@
 
 <header>
 
-  <a
-    class="menu"
-    href="#links"
-    aria-label="メニューへ移動"
-  >
+  <div class="menu-wrap">
 
-    <span>menu</span>
+    <button
+      class="menu"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+    >
 
-    <b></b>
-    <b></b>
-    <b></b>
+      <span>menu</span>
 
-  </a>
+      <i>
+        <b></b>
+        <b></b>
+        <b></b>
+      </i>
+
+    </button>
+
+
+    <nav
+      class="menu-panel"
+      aria-label="サイトメニュー"
+    >
+
+      <a href="index.html">
+        home
+      </a>
+
+      <a href="beans.html">
+        beans
+      </a>
+
+      <a href="about.html">
+        about
+      </a>
+
+      <a href="contact.html">
+        contact
+      </a>
+
+    </nav>
+
+  </div>
 
 </header>
 
 
 
-<main class="sub-page">
+<main class="compact-page">
 
 
-  <section class="page-hero">
+  <section class="compact-hero">
 
     <a
       class="mini-brand"
       href="index.html"
     >
-
       喫茶 豆豆 ~zu-zu~
-
     </a>
 
     <h1>
@@ -92,9 +121,10 @@
 
 
 
-  <section class="contact-content">
+  <section class="contact-compact">
 
-    <p>
+
+    <p class="contact-intro">
 
       商品や豆豆についてのお問い合わせは、<br>
 
@@ -103,8 +133,9 @@
     </p>
 
 
+
     <a
-      class="contact-link"
+      class="contact-row"
       href="https://www.instagram.com/"
       target="_blank"
       rel="noopener"
@@ -113,6 +144,8 @@
       <img
         src="assets/icon-instagram.svg"
         alt=""
+        width="34"
+        height="34"
       >
 
       <span>
@@ -122,14 +155,17 @@
     </a>
 
 
+
     <a
-      class="contact-link"
+      class="contact-row"
       href="mailto:hello@example.com"
     >
 
       <img
         src="assets/icon-contact.svg"
         alt=""
+        width="34"
+        height="34"
       >
 
       <span>
@@ -138,71 +174,8 @@
 
     </a>
 
+
   </section>
-
-
-
-  <nav
-    id="links"
-    class="links sub-links"
-  >
-
-    <a href="index.html">
-
-      <span>
-        home
-      </span>
-
-      <img
-        src="assets/zuzu-daruma-approved.png"
-        alt=""
-      >
-
-    </a>
-
-
-    <a href="beans.html">
-
-      <span>
-        beans
-      </span>
-
-      <img
-        src="assets/icon-beans-approved.png"
-        alt=""
-      >
-
-    </a>
-
-
-    <a href="about.html">
-
-      <span>
-        about
-      </span>
-
-      <img
-        src="assets/icon-instagram.svg"
-        alt=""
-      >
-
-    </a>
-
-
-    <a href="contact.html">
-
-      <span>
-        contact
-      </span>
-
-      <img
-        src="assets/icon-contact.svg"
-        alt=""
-      >
-
-    </a>
-
-  </nav>
 
 
 </main>
@@ -214,6 +187,55 @@
   © 2026 zuzu coffee
 
 </footer>
+
+
+
+<script>
+
+  const menuWrap =
+    document.querySelector(".menu-wrap");
+
+  const menuButton =
+    document.querySelector(".menu");
+
+
+  menuButton.addEventListener(
+    "click",
+    function () {
+
+      const isOpen =
+        menuWrap.classList.toggle("is-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+    }
+  );
+
+
+  document.addEventListener(
+    "click",
+    function (event) {
+
+      if (!menuWrap.contains(event.target)) {
+
+        menuWrap.classList.remove(
+          "is-open"
+        );
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
+
+</script>
 
 
 </body>
