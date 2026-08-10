@@ -44,26 +44,41 @@
 <body>
 
 
-<header>
+<!-- =========================
+     HEADER
+========================== -->
 
-  <details class="site-menu">
+<header class="site-header">
 
-    <summary>
+  <div class="site-nav">
 
-      <span class="menu-word">
+    <button
+      class="nav-trigger"
+      type="button"
+      aria-expanded="false"
+      aria-label="サイトメニュー"
+    >
+
+      <span class="nav-word">
         menu
       </span>
 
-      <span class="hamburger">
+      <span
+        class="nav-lines"
+        aria-hidden="true"
+      >
         <i></i>
         <i></i>
         <i></i>
       </span>
 
-    </summary>
+    </button>
 
 
-    <nav class="menu-dropdown">
+    <nav
+      class="nav-menu"
+      aria-label="メインメニュー"
+    >
 
       <a href="index.html">
         home
@@ -83,16 +98,18 @@
 
     </nav>
 
-  </details>
+  </div>
 
 </header>
 
 
 
-<main class="compact-page">
+<main class="sub-page">
 
 
-  <section class="compact-hero">
+  <!-- PAGE HEADER -->
+
+  <section class="sub-head">
 
     <a
       class="mini-brand"
@@ -115,8 +132,9 @@
 
 
 
-  <section class="contact-compact">
+  <!-- CONTACT -->
 
+  <section class="contact-content">
 
     <p class="contact-intro">
 
@@ -138,8 +156,6 @@
       <img
         src="assets/icon-instagram.svg"
         alt=""
-        width="34"
-        height="34"
       >
 
       <span>
@@ -158,8 +174,6 @@
       <img
         src="assets/icon-contact.svg"
         alt=""
-        width="34"
-        height="34"
       >
 
       <span>
@@ -167,7 +181,6 @@
       </span>
 
     </a>
-
 
   </section>
 
@@ -186,23 +199,23 @@
 
 <script>
 
-  const menuWrap =
-    document.querySelector(".menu-wrap");
+  const siteNav =
+    document.querySelector(".site-nav");
 
-  const menuButton =
-    document.querySelector(".menu");
+  const navTrigger =
+    document.querySelector(".nav-trigger");
 
 
-  menuButton.addEventListener(
+  navTrigger.addEventListener(
     "click",
     function () {
 
-      const isOpen =
-        menuWrap.classList.toggle("is-open");
+      const opened =
+        siteNav.classList.toggle("is-open");
 
-      menuButton.setAttribute(
+      navTrigger.setAttribute(
         "aria-expanded",
-        isOpen
+        opened ? "true" : "false"
       );
 
     }
@@ -213,13 +226,30 @@
     "click",
     function (event) {
 
-      if (!menuWrap.contains(event.target)) {
+      if (!siteNav.contains(event.target)) {
 
-        menuWrap.classList.remove(
-          "is-open"
+        siteNav.classList.remove("is-open");
+
+        navTrigger.setAttribute(
+          "aria-expanded",
+          "false"
         );
 
-        menuButton.setAttribute(
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    function (event) {
+
+      if (event.key === "Escape") {
+
+        siteNav.classList.remove("is-open");
+
+        navTrigger.setAttribute(
           "aria-expanded",
           "false"
         );
