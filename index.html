@@ -46,19 +46,50 @@
 
 <header>
 
-  <a
-    class="menu"
-    href="#links"
-    aria-label="メニューへ移動"
-  >
+  <div class="menu-wrap">
 
-    <span>menu</span>
+    <button
+      class="menu"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+    >
 
-    <b></b>
-    <b></b>
-    <b></b>
+      <span>menu</span>
 
-  </a>
+      <i>
+        <b></b>
+        <b></b>
+        <b></b>
+      </i>
+
+    </button>
+
+
+    <nav
+      class="menu-panel"
+      aria-label="サイトメニュー"
+    >
+
+      <a href="index.html">
+        home
+      </a>
+
+      <a href="beans.html">
+        beans
+      </a>
+
+      <a href="about.html">
+        about
+      </a>
+
+      <a href="contact.html">
+        contact
+      </a>
+
+    </nav>
+
+  </div>
 
 </header>
 
@@ -139,13 +170,8 @@
 
   <!-- LINKS -->
 
-  <nav
-    id="links"
-    class="links"
-  >
+  <nav class="links">
 
-
-    <!-- BEANS -->
 
     <a href="beans.html">
 
@@ -162,8 +188,6 @@
 
 
 
-    <!-- ABOUT -->
-
     <a href="about.html">
 
       <span>
@@ -178,8 +202,6 @@
     </a>
 
 
-
-    <!-- CONTACT -->
 
     <a href="contact.html">
 
@@ -212,11 +234,54 @@
 
 <script>
 
+  /* =========================
+     MENU
+  ========================== */
+
+  const menuWrap = document.querySelector(".menu-wrap");
+  const menuButton = document.querySelector(".menu");
+
+  menuButton.addEventListener("click", function () {
+
+    const isOpen =
+      menuWrap.classList.toggle("is-open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      isOpen
+    );
+
+  });
+
+
+  document.addEventListener("click", function (event) {
+
+    if (!menuWrap.contains(event.target)) {
+
+      menuWrap.classList.remove("is-open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+  });
+
+
+
+  /* =========================
+     DARUMA
+  ========================== */
+
   const mascot = document.querySelector(".mascot");
 
   function rollDaruma() {
 
-    if (mascot.classList.contains("is-falling")) {
+    if (
+      mascot.classList.contains("is-falling")
+    ) {
       return;
     }
 
@@ -225,26 +290,70 @@
     mascot.addEventListener(
       "animationend",
       function () {
-        mascot.classList.remove("is-falling");
+
+        mascot.classList.remove(
+          "is-falling"
+        );
+
       },
-      { once: true }
+      {
+        once:true
+      }
     );
 
   }
 
-  mascot.addEventListener("click", rollDaruma);
 
-  mascot.addEventListener("keydown", function (event) {
+  /* OPEN */
 
-    if (event.key === "Enter" || event.key === " ") {
+  window.addEventListener(
+    "load",
+    function () {
 
-      event.preventDefault();
-
-      rollDaruma();
+      setTimeout(
+        rollDaruma,
+        450
+      );
 
     }
+  );
 
-  });
+
+  /* HOVER */
+
+  mascot.addEventListener(
+    "mouseenter",
+    rollDaruma
+  );
+
+
+  /* CLICK / TAP */
+
+  mascot.addEventListener(
+    "click",
+    rollDaruma
+  );
+
+
+  /* KEYBOARD */
+
+  mascot.addEventListener(
+    "keydown",
+    function (event) {
+
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+
+        event.preventDefault();
+
+        rollDaruma();
+
+      }
+
+    }
+  );
 
 </script>
 
