@@ -57,11 +57,13 @@
 
       <span>menu</span>
 
-      <i>
+      <span class="menu-lines">
+
         <b></b>
         <b></b>
         <b></b>
-      </i>
+
+      </span>
 
     </button>
 
@@ -95,29 +97,33 @@
 
 
 
-<main class="compact-page">
+<main class="beans-page">
 
 
-  <!-- PAGE HEADER -->
+  <!-- SMALL TITLE -->
 
-  <section class="compact-hero">
+  <section class="beans-top">
 
     <a
-      class="mini-brand"
+      class="beans-brand"
       href="index.html"
     >
       喫茶 豆豆 ~zu-zu~
     </a>
 
-    <h1>
-      beans
-    </h1>
+    <div class="beans-title-row">
 
-    <span class="short-line"></span>
+      <h1>
+        beans
+      </h1>
 
-    <p>
-      深煎りの中の甘さを。
-    </p>
+      <span></span>
+
+      <p>
+        深煎りの中の甘さを。
+      </p>
+
+    </div>
 
   </section>
 
@@ -125,14 +131,15 @@
 
   <!-- PRODUCTS -->
 
-  <section class="beans-grid">
+  <section class="product-grid">
 
 
     <!-- 01 -->
 
-    <article class="bean-card">
+    <article class="product-card">
 
-      <div class="bean-card-photo">
+
+      <div class="product-photo">
 
         <span>
           photo
@@ -141,28 +148,38 @@
       </div>
 
 
-      <div class="bean-card-body">
+      <div class="product-info">
 
-        <p class="bean-number">
-          01
-        </p>
+        <div class="product-heading">
 
-        <h2>
-          たゆたいぶれんど
-        </h2>
+          <p class="product-number">
+            01
+          </p>
 
-        <p class="bean-en">
-          tayutai blend
-        </p>
+          <div>
+
+            <h2>
+              たゆたいぶれんど
+            </h2>
+
+            <p class="product-en">
+              tayutai blend
+            </p>
+
+          </div>
+
+        </div>
 
 
-        <p class="bean-short-copy">
+        <p class="product-copy">
+
           深く、まろやかに。<br>
-          苦みの奥に残る甘さ。
+          苦みの奥にじんわり残る甘さ。
+
         </p>
 
 
-        <div class="bean-mini-data">
+        <div class="product-data">
 
           <p>
             <span>roast</span>
@@ -171,17 +188,23 @@
 
           <p>
             <span>taste</span>
-            cacao / sweet
+            cacao / sweet / mellow
+          </p>
+
+          <p>
+            <span>weight</span>
+            100g
           </p>
 
         </div>
 
 
-        <p class="bean-price">
+        <p class="product-price">
           ¥ --- / 100g
         </p>
 
       </div>
+
 
     </article>
 
@@ -189,9 +212,10 @@
 
     <!-- 02 -->
 
-    <article class="bean-card">
+    <article class="product-card">
 
-      <div class="bean-card-photo">
+
+      <div class="product-photo">
 
         <span>
           photo
@@ -200,28 +224,38 @@
       </div>
 
 
-      <div class="bean-card-body">
+      <div class="product-info">
 
-        <p class="bean-number">
-          02
+        <div class="product-heading">
+
+          <p class="product-number">
+            02
+          </p>
+
+          <div>
+
+            <h2>
+              はじらいぶれんど
+            </h2>
+
+            <p class="product-en">
+              hajirai blend
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <p class="product-copy">
+
+          華やかな香りと、やわらかな酸味。<br>
+          果実のような甘い余韻。
+
         </p>
 
-        <h2>
-          はじらいぶれんど
-        </h2>
 
-        <p class="bean-en">
-          hajirai blend
-        </p>
-
-
-        <p class="bean-short-copy">
-          華やかな香りと、<br>
-          果実のような余韻。
-        </p>
-
-
-        <div class="bean-mini-data">
+        <div class="product-data">
 
           <p>
             <span>roast</span>
@@ -230,17 +264,23 @@
 
           <p>
             <span>taste</span>
-            fruity / sweet
+            fruity / floral / sweet
+          </p>
+
+          <p>
+            <span>weight</span>
+            100g
           </p>
 
         </div>
 
 
-        <p class="bean-price">
+        <p class="product-price">
           ¥ --- / 100g
         </p>
 
       </div>
+
 
     </article>
 
@@ -273,12 +313,12 @@
     "click",
     function () {
 
-      const isOpen =
+      const opened =
         menuWrap.classList.toggle("is-open");
 
       menuButton.setAttribute(
         "aria-expanded",
-        isOpen
+        opened
       );
 
     }
@@ -291,9 +331,7 @@
 
       if (!menuWrap.contains(event.target)) {
 
-        menuWrap.classList.remove(
-          "is-open"
-        );
+        menuWrap.classList.remove("is-open");
 
         menuButton.setAttribute(
           "aria-expanded",
