@@ -5,7 +5,9 @@
   --line:rgba(215,190,161,.42);
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 html{
   scroll-behavior:smooth;
@@ -24,13 +26,19 @@ body:before{
   inset:0;
   pointer-events:none;
   opacity:.13;
-  background:radial-gradient(circle at 50% 42%, #26170f 0, #130d09 34%, #0b0806 70%);
+  background:radial-gradient(
+    circle at 50% 42%,
+    #26170f 0,
+    #130d09 34%,
+    #0b0806 70%
+  );
   z-index:-1;
 }
 
-/* ===========================
-   Header
-=========================== */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   height:90px;
@@ -60,27 +68,36 @@ header{
 }
 
 .menu b{
+  display:block;
   width:40px;
   height:1px;
   background:var(--cream);
-  display:block;
+  font-weight:400;
 }
 
-/* ===========================
-   Hero
-=========================== */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:100svh;
+
   display:flex;
   flex-direction:column;
-  justify-content:center;
+
+  /* 縦中央ではなく上から配置 */
+  justify-content:flex-start;
+
   align-items:center;
   text-align:center;
 
-  /* ←ここだけかなり調整 */
+  /* PC版のタイトル開始位置 */
   padding:150px 24px 40px;
 }
+
+
+/* 喫茶 豆豆 ~zu-zu~ */
 
 .brand{
   display:flex;
@@ -88,6 +105,7 @@ header{
   gap:18px;
   white-space:nowrap;
 
+  /* タイトル → キャラ */
   margin-bottom:70px;
 }
 
@@ -108,13 +126,20 @@ header{
   letter-spacing:.13em;
 }
 
+
+/* 豆豆だるま */
+
 .mascot{
   width:125px;
   height:auto;
   display:block;
 
-  margin-bottom:34px;
+  /* キャラ → 文章 */
+  margin:0 0 34px;
 }
+
+
+/* メイン文章 */
 
 .intro{
   margin:0;
@@ -123,30 +148,43 @@ header{
   letter-spacing:.08em;
 }
 
+
+/* 短い横線 */
+
 .short-line{
   width:54px;
   height:1px;
   background:var(--line);
+
+  /* 文章周辺の余白 */
   margin:22px 0;
 }
 
+
+/* 深煎りの中の甘さを。 */
+
 .tag{
-  margin:0 0 36px;
+  margin:0 0 30px;
   font-size:21px;
   letter-spacing:.1em;
 }
 
-/* ===========================
-   Links
-=========================== */
+
+/* =========================
+   LINKS
+========================= */
 
 .links{
   width:min(520px,calc(100% - 44px));
+
+  /* heroとの余計な上余白は作らない */
   margin:0 auto 70px;
 }
 
 .links a{
   min-height:88px;
+
+  border-bottom:1px solid var(--line);
 
   display:flex;
   align-items:center;
@@ -155,13 +193,15 @@ header{
   color:var(--cream);
   text-decoration:none;
 
-  border-bottom:1px solid var(--line);
-
-  transition:.25s;
+  transition:opacity .25s;
 }
 
 .links a:hover{
   opacity:.75;
+}
+
+.links a:first-child{
+  border-top:0;
 }
 
 .links span{
@@ -181,9 +221,10 @@ header{
   height:44px;
 }
 
-/* ===========================
-   Placeholder
-=========================== */
+
+/* =========================
+   PLACEHOLDER
+========================= */
 
 .placeholder{
   width:min(520px,calc(100% - 44px));
@@ -194,6 +235,11 @@ header{
   letter-spacing:.1em;
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
   text-align:center;
   padding:0 20px 45px;
@@ -203,88 +249,116 @@ footer{
   color:#cdbda8;
 }
 
-/* ===========================
-   Mobile
-=========================== */
+
+/* ==================================================
+   SMARTPHONE
+   650px以下だけ、ここから下の設定に切り替わる
+================================================== */
 
 @media(max-width:650px){
 
-header{
-  height:78px;
-  padding:0 20px;
-}
+  header{
+    height:72px;
+    padding:0 20px;
+  }
 
-.menu{
-  grid-template-columns:auto 30px;
-  font-size:14px;
-}
+  .menu{
+    grid-template-columns:auto 30px;
+    font-size:14px;
+  }
 
-.menu b{
-  width:30px;
-}
+  .menu b{
+    width:30px;
+  }
 
-.hero{
-  min-height:100svh;
 
-  /* ここだけかなり詰めた */
-  padding:105px 24px 20px;
-}
+  /* スマホの上部余白を大幅に縮小 */
 
-.brand{
-  gap:10px;
-  margin-bottom:45px;
-}
+  .hero{
+    min-height:auto;
 
-.kissa{
-  font-size:21px;
-}
+    /* PC版の中央配置を完全に解除 */
+    justify-content:flex-start;
 
-.mame{
-  font-size:52px;
-}
+    /* タイトルを上から約90pxに配置 */
+    padding:90px 20px 20px;
+  }
 
-.zuzu{
-  font-size:21px;
-}
 
-.mascot{
-  width:108px;
-  margin-bottom:26px;
-}
+  /* タイトル */
 
-.intro{
-  font-size:16px;
-}
+  .brand{
+    gap:10px;
 
-.short-line{
-  margin:18px 0;
-}
+    /* タイトル → キャラ */
+    margin-bottom:38px;
+  }
 
-.tag{
-  font-size:16px;
-  margin-bottom:24px;
-}
+  .kissa{
+    font-size:21px;
+  }
 
-.links{
-  margin-bottom:45px;
-}
+  .mame{
+    font-size:52px;
+  }
 
-.links a{
-  min-height:70px;
-}
+  .zuzu{
+    font-size:21px;
+  }
 
-.links span{
-  font-size:23px;
-}
 
-.links img{
-  width:34px;
-  height:34px;
-}
+  /* キャラ */
 
-.links a:first-child img{
-  width:32px;
-  height:32px;
-}
+  .mascot{
+    width:105px;
+
+    /* キャラ → 文章 */
+    margin-bottom:24px;
+  }
+
+
+  /* 文章 */
+
+  .intro{
+    font-size:16px;
+    line-height:1.9;
+  }
+
+  .short-line{
+    margin:16px 0;
+  }
+
+  .tag{
+    font-size:16px;
+
+    /* 文章 → beans */
+    margin-bottom:18px;
+  }
+
+
+  /* タブ */
+
+  .links{
+    margin-top:0;
+    margin-bottom:40px;
+  }
+
+  .links a{
+    min-height:66px;
+  }
+
+  .links span{
+    font-size:23px;
+  }
+
+  .links img{
+    width:34px;
+    height:34px;
+  }
+
+  .links a:first-child img{
+    width:32px;
+    height:32px;
+  }
 
 }
