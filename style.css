@@ -1,1599 +1,351 @@
-:root{
-  --bg:#0b0806;
-  --cream:#eadfce;
-  --icon:#d7bea1;
-  --line:rgba(215,190,161,.42);
-  --muted:#a99680;
-}
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
 
-*{
-  box-sizing:border-box;
-}
+  <meta charset="UTF-8">
 
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
 
-html{
-  scroll-behavior:smooth;
-}
+  <meta
+    name="description"
+    content="喫茶 豆豆の自家焙煎コーヒー豆。深煎りの中の甘さを。"
+  >
 
+  <title>beans | 喫茶 豆豆 ~zu-zu~</title>
 
-body{
-  margin:0;
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-  color:var(--cream);
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-  background:var(--bg);
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Noto+Serif+JP:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
 
-  font-family:"Noto Serif JP",serif;
-}
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
+</head>
 
-body:before{
 
-  content:"";
+<body>
 
-  position:fixed;
 
-  inset:0;
+<header>
 
-  pointer-events:none;
+  <div class="menu-wrap">
 
-  opacity:.13;
+    <button
+      class="menu"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+    >
 
-  background:
-    radial-gradient(
-      circle at 50% 42%,
-      #26170f 0,
-      #130d09 34%,
-      #0b0806 70%
-    );
+      <span>menu</span>
 
-  z-index:-1;
+      <span class="menu-lines">
 
-}
+        <b></b>
+        <b></b>
+        <b></b>
 
+      </span>
 
+    </button>
 
-/* ==================================================
-   HEADER / MENU
-================================================== */
 
-header{
+    <nav
+      class="menu-panel"
+      aria-label="サイトメニュー"
+    >
 
-  height:76px;
+      <a href="index.html">
+        home
+      </a>
 
-  position:absolute;
+      <a href="beans.html">
+        beans
+      </a>
 
-  inset:0 0 auto 0;
+      <a href="about.html">
+        about
+      </a>
 
-  padding:0 42px;
+      <a href="contact.html">
+        contact
+      </a>
 
-  display:flex;
+    </nav>
 
-  justify-content:flex-end;
+  </div>
 
-  align-items:center;
+</header>
 
-  z-index:100;
 
-}
 
+<main class="beans-page">
 
-.menu-wrap{
 
-  position:relative;
+  <!-- SMALL TITLE -->
 
-  padding-bottom:8px;
+  <section class="beans-top">
 
-}
+    <a
+      class="beans-brand"
+      href="index.html"
+    >
+      喫茶 豆豆 ~zu-zu~
+    </a>
 
+    <div class="beans-title-row">
 
-.menu{
+      <h1>
+        beans
+      </h1>
 
-  border:0;
+      <span></span>
 
-  padding:0;
+      <p>
+        深煎りの中の甘さを。
+      </p>
 
-  margin:0;
+    </div>
 
-  background:none;
+  </section>
 
-  color:var(--cream);
 
-  cursor:pointer;
 
-  display:flex;
+  <!-- PRODUCTS -->
 
-  align-items:center;
+  <section class="product-grid">
 
-  gap:18px;
 
-  font-family:"EB Garamond",serif;
+    <!-- 01 -->
 
-  font-size:17px;
+    <article class="product-card">
 
-  letter-spacing:.16em;
 
-}
+      <div class="product-photo">
 
+        <span>
+          photo
+        </span>
 
-.menu i{
+      </div>
 
-  width:40px;
 
-  display:flex;
+      <div class="product-info">
 
-  flex-direction:column;
+        <div class="product-heading">
 
-  gap:6px;
+          <p class="product-number">
+            01
+          </p>
 
-  font-style:normal;
+          <div>
 
-}
+            <h2>
+              たゆたいぶれんど
+            </h2>
 
+            <p class="product-en">
+              tayutai blend
+            </p>
 
-.menu b{
+          </div>
 
-  display:block;
+        </div>
 
-  width:40px;
 
-  height:1px;
+        <p class="product-copy">
 
-  background:var(--cream);
+          深く、まろやかに。<br>
+          苦みの奥にじんわり残る甘さ。
 
-  font-weight:400;
+        </p>
 
-  transition:
-    transform .25s ease,
-    opacity .25s ease;
 
-}
+        <div class="product-data">
 
+          <p>
+            <span>roast</span>
+            dark
+          </p>
 
+          <p>
+            <span>taste</span>
+            cacao / sweet / mellow
+          </p>
 
-/* MENU PANEL */
+          <p>
+            <span>weight</span>
+            100g
+          </p>
 
-.menu-panel{
+        </div>
 
-  position:absolute;
 
-  top:38px;
+        <p class="product-price">
+          ¥ --- / 100g
+        </p>
 
-  right:0;
+      </div>
 
-  min-width:150px;
 
-  padding:12px 16px;
+    </article>
 
-  background:
-    rgba(11,8,6,.96);
 
-  border:
-    1px solid
-    var(--line);
 
-  opacity:0;
+    <!-- 02 -->
 
-  visibility:hidden;
+    <article class="product-card">
 
-  transform:
-    translateY(-6px);
 
-  transition:
-    opacity .2s ease,
-    transform .2s ease,
-    visibility .2s;
+      <div class="product-photo">
 
-}
+        <span>
+          photo
+        </span>
 
+      </div>
 
-.menu-panel a{
 
-  display:block;
+      <div class="product-info">
 
-  padding:8px 4px;
+        <div class="product-heading">
 
-  color:var(--cream);
+          <p class="product-number">
+            02
+          </p>
 
-  text-decoration:none;
+          <div>
 
-  text-align:right;
+            <h2>
+              はじらいぶれんど
+            </h2>
 
-  font-family:
-    "EB Garamond",
-    serif;
+            <p class="product-en">
+              hajirai blend
+            </p>
 
-  font-size:18px;
+          </div>
 
-  letter-spacing:.14em;
+        </div>
 
-}
 
+        <p class="product-copy">
 
-.menu-panel a:hover{
+          華やかな香りと、やわらかな酸味。<br>
+          果実のような甘い余韻。
 
-  opacity:.55;
+        </p>
 
-}
 
+        <div class="product-data">
 
-/* PC HOVER */
+          <p>
+            <span>roast</span>
+            medium dark
+          </p>
 
-.menu-wrap:hover .menu-panel,
-.menu-wrap:focus-within .menu-panel,
-.menu-wrap.is-open .menu-panel{
+          <p>
+            <span>taste</span>
+            fruity / floral / sweet
+          </p>
 
-  opacity:1;
+          <p>
+            <span>weight</span>
+            100g
+          </p>
 
-  visibility:visible;
+        </div>
 
-  transform:
-    translateY(0);
 
-}
+        <p class="product-price">
+          ¥ --- / 100g
+        </p>
 
+      </div>
 
 
-/* ==================================================
-   HOME HERO
-================================================== */
+    </article>
 
-.hero{
 
-  display:flex;
+  </section>
 
-  flex-direction:column;
 
-  justify-content:flex-start;
+</main>
 
-  align-items:center;
 
-  text-align:center;
 
-  padding:
-    105px
-    24px
-    0;
+<footer>
 
-}
+  © 2026 zuzu coffee
 
+</footer>
 
 
-/* BRAND */
 
-.brand{
+<script>
 
-  display:flex;
+  const menuWrap =
+    document.querySelector(".menu-wrap");
 
-  align-items:baseline;
+  const menuButton =
+    document.querySelector(".menu");
 
-  gap:18px;
 
-  white-space:nowrap;
+  menuButton.addEventListener(
+    "click",
+    function () {
 
-  margin-bottom:38px;
+      const opened =
+        menuWrap.classList.toggle("is-open");
 
-}
+      menuButton.setAttribute(
+        "aria-expanded",
+        opened
+      );
 
+    }
+  );
 
-.kissa{
 
-  font-size:31px;
+  document.addEventListener(
+    "click",
+    function (event) {
 
-  letter-spacing:.06em;
+      if (!menuWrap.contains(event.target)) {
 
-}
+        menuWrap.classList.remove("is-open");
 
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
 
-.mame{
+      }
 
-  font-size:70px;
+    }
+  );
 
-  letter-spacing:-.11em;
+</script>
 
-  line-height:1;
 
-}
+</body>
 
-
-.zuzu{
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:32px;
-
-  letter-spacing:.13em;
-
-}
-
-
-
-/* ==================================================
-   DARUMA
-================================================== */
-
-.mascot{
-
-  width:115px;
-
-  height:auto;
-
-  display:block;
-
-  margin:
-    0
-    0
-    22px;
-
-  transform-origin:
-    50%
-    88%;
-
-  cursor:pointer;
-
-  user-select:none;
-
-  -webkit-user-select:none;
-
-  -webkit-tap-highlight-color:
-    transparent;
-
-}
-
-
-.mascot.is-falling{
-
-  animation:
-    daruma-korori
-    1.55s
-    cubic-bezier(.45,.05,.25,1);
-
-}
-
-
-@keyframes daruma-korori{
-
-  0%{
-    transform:
-      translateX(0)
-      translateY(0)
-      rotate(0deg);
-  }
-
-  12%{
-    transform:
-      translateX(-3px)
-      rotate(-6deg);
-  }
-
-  28%{
-    transform:
-      translateX(4px)
-      translateY(1px)
-      rotate(18deg);
-  }
-
-  43%{
-    transform:
-      translateX(18px)
-      translateY(7px)
-      rotate(76deg);
-  }
-
-  58%{
-    transform:
-      translateX(18px)
-      translateY(7px)
-      rotate(76deg);
-  }
-
-  75%{
-    transform:
-      translateX(-2px)
-      rotate(-13deg);
-  }
-
-  86%{
-    transform:
-      translateX(1px)
-      rotate(6deg);
-  }
-
-  94%{
-    transform:
-      rotate(-2deg);
-  }
-
-  100%{
-    transform:
-      translateX(0)
-      translateY(0)
-      rotate(0deg);
-  }
-
-}
-
-
-
-/* ==================================================
-   HOME TEXT
-================================================== */
-
-.intro{
-
-  margin:0;
-
-  font-size:21px;
-
-  line-height:1.8;
-
-  letter-spacing:.08em;
-
-}
-
-
-.short-line{
-
-  display:block;
-
-  width:54px;
-
-  height:1px;
-
-  margin:
-    15px
-    auto;
-
-  background:
-    var(--line);
-
-}
-
-
-.tag{
-
-  margin:
-    0
-    0
-    6px;
-
-  font-size:21px;
-
-  letter-spacing:.1em;
-
-}
-
-
-
-/* ==================================================
-   HOME LINKS
-================================================== */
-
-.links{
-
-  width:
-    min(
-      520px,
-      calc(100% - 44px)
-    );
-
-  margin:
-    0
-    auto
-    45px;
-
-}
-
-
-.links a{
-
-  min-height:72px;
-
-  border-bottom:
-    1px solid
-    var(--line);
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:
-    space-between;
-
-  color:
-    var(--cream);
-
-  text-decoration:none;
-
-}
-
-
-.links span{
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:31px;
-
-  letter-spacing:.22em;
-
-}
-
-
-.links img{
-
-  display:block;
-
-  width:42px !important;
-
-  height:42px !important;
-
-  max-width:42px !important;
-
-  max-height:42px !important;
-
-  object-fit:contain;
-
-}
-
-
-.links a:first-child img{
-
-  width:40px !important;
-
-  height:40px !important;
-
-}
-
-
-
-/* ==================================================
-   FOOTER
-================================================== */
-
-footer{
-
-  text-align:center;
-
-  padding:
-    0
-    20px
-    22px;
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  letter-spacing:.16em;
-
-  font-size:12px;
-
-  color:#cdbda8;
-
-}
-
-
-
-/* ==================================================
-   COMPACT SUB PAGE
-================================================== */
-
-.compact-page{
-
-  width:
-    min(
-      980px,
-      calc(100% - 44px)
-    );
-
-  margin:
-    0
-    auto;
-
-  padding:
-    88px
-    0
-    22px;
-
-}
-
-
-.compact-hero{
-
-  text-align:center;
-
-  margin-bottom:28px;
-
-}
-
-
-.mini-brand{
-
-  display:inline-block;
-
-  margin-bottom:15px;
-
-  color:#b7a690;
-
-  text-decoration:none;
-
-  font-size:12px;
-
-  letter-spacing:.13em;
-
-}
-
-
-.compact-hero h1{
-
-  margin:0;
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:58px;
-
-  font-weight:400;
-
-  line-height:.95;
-
-  letter-spacing:.13em;
-
-}
-
-
-.compact-hero .short-line{
-
-  margin:
-    16px
-    auto
-    12px;
-
-}
-
-
-.compact-hero > p{
-
-  margin:0;
-
-  font-size:13px;
-
-  letter-spacing:.11em;
-
-}
-
-
-
-/* ==================================================
-   BEANS
-================================================== */
-
-.beans-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-  gap:20px;
-
-  border-top:
-    1px solid
-    var(--line);
-
-  padding-top:22px;
-
-}
-
-
-.bean-card{
-
-  min-width:0;
-
-  display:grid;
-
-  grid-template-columns:
-    38%
-    62%;
-
-  min-height:280px;
-
-  border:
-    1px solid
-    var(--line);
-
-}
-
-
-.bean-card-photo{
-
-  min-width:0;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border-right:
-    1px solid
-    var(--line);
-
-  color:#796c5e;
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:13px;
-
-  letter-spacing:.15em;
-
-}
-
-
-.bean-card-body{
-
-  min-width:0;
-
-  padding:20px;
-
-}
-
-
-.bean-number{
-
-  margin:
-    0
-    0
-    9px;
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:11px;
-
-  letter-spacing:.16em;
-
-  color:var(--muted);
-
-}
-
-
-.bean-card h2{
-
-  margin:0;
-
-  font-size:21px;
-
-  font-weight:400;
-
-  line-height:1.3;
-
-  letter-spacing:.06em;
-
-}
-
-
-.bean-en{
-
-  margin:
-    5px
-    0
-    0;
-
-  color:var(--muted);
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:14px;
-
-  letter-spacing:.1em;
-
-}
-
-
-.bean-short-copy{
-
-  margin:
-    18px
-    0
-    14px;
-
-  font-size:12px;
-
-  line-height:1.8;
-
-  letter-spacing:.05em;
-
-}
-
-
-.bean-mini-data{
-
-  border-top:
-    1px solid
-    var(--line);
-
-}
-
-
-.bean-mini-data p{
-
-  display:grid;
-
-  grid-template-columns:
-    58px
-    1fr;
-
-  margin:0;
-
-  padding:
-    5px
-    0;
-
-  border-bottom:
-    1px solid
-    var(--line);
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:11px;
-
-  letter-spacing:.05em;
-
-}
-
-
-.bean-mini-data span{
-
-  color:var(--muted);
-
-}
-
-
-.bean-price{
-
-  margin:
-    12px
-    0
-    0;
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:13px;
-
-  letter-spacing:.1em;
-
-}
-
-
-
-/* ==================================================
-   ABOUT
-================================================== */
-
-.about-compact{
-
-  width:
-    min(
-      540px,
-      100%
-    );
-
-  margin:
-    0
-    auto;
-
-  text-align:center;
-
-}
-
-
-.about-compact > p{
-
-  margin:
-    0
-    0
-    22px;
-
-  font-size:14px;
-
-  line-height:2;
-
-  letter-spacing:.07em;
-
-}
-
-
-.instagram-guide{
-
-  width:
-    min(
-      360px,
-      100%
-    );
-
-  margin:
-    28px
-    auto
-    0;
-
-  padding:
-    13px
-    16px;
-
-  border-top:
-    1px solid
-    var(--line);
-
-  border-bottom:
-    1px solid
-    var(--line);
-
-  display:grid;
-
-  grid-template-columns:
-    32px
-    1fr;
-
-  column-gap:15px;
-
-  align-items:center;
-
-  color:var(--cream);
-
-  text-decoration:none;
-
-  text-align:left;
-
-}
-
-
-.instagram-guide img{
-
-  grid-row:
-    1 / 3;
-
-  display:block;
-
-  width:30px !important;
-
-  height:30px !important;
-
-  max-width:30px !important;
-
-  max-height:30px !important;
-
-  object-fit:contain;
-
-}
-
-
-.instagram-guide span{
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:20px;
-
-  letter-spacing:.15em;
-
-}
-
-
-.instagram-guide small{
-
-  margin-top:2px;
-
-  color:var(--muted);
-
-  font-size:10px;
-
-  letter-spacing:.08em;
-
-}
-
-
-
-/* ==================================================
-   CONTACT
-================================================== */
-
-.contact-compact{
-
-  width:
-    min(
-      430px,
-      100%
-    );
-
-  margin:
-    0
-    auto;
-
-}
-
-
-.contact-intro{
-
-  margin:
-    0
-    0
-    20px;
-
-  text-align:center;
-
-  font-size:13px;
-
-  line-height:1.9;
-
-  letter-spacing:.06em;
-
-}
-
-
-.contact-row{
-
-  min-height:62px;
-
-  padding:
-    0
-    10px;
-
-  border-top:
-    1px solid
-    var(--line);
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:
-    space-between;
-
-  color:var(--cream);
-
-  text-decoration:none;
-
-}
-
-
-.contact-row:last-child{
-
-  border-bottom:
-    1px solid
-    var(--line);
-
-}
-
-
-.contact-row img{
-
-  display:block !important;
-
-  width:34px !important;
-
-  height:34px !important;
-
-  max-width:34px !important;
-
-  max-height:34px !important;
-
-  min-width:34px !important;
-
-  min-height:34px !important;
-
-  object-fit:contain !important;
-
-}
-
-
-.contact-row span{
-
-  font-family:
-    "EB Garamond",
-    serif;
-
-  font-size:21px;
-
-  letter-spacing:.18em;
-
-}
-
-
-
-/* ==================================================
-   SMARTPHONE
-================================================== */
-
-@media(max-width:650px){
-
-
-  header{
-
-    height:58px;
-
-    padding:
-      0
-      18px;
-
-  }
-
-
-  .menu-wrap{
-
-    padding-bottom:5px;
-
-  }
-
-
-  .menu{
-
-    gap:13px;
-
-    font-size:14px;
-
-  }
-
-
-  .menu i{
-
-    width:30px;
-
-    gap:5px;
-
-  }
-
-
-  .menu b{
-
-    width:30px;
-
-  }
-
-
-  .menu-panel{
-
-    top:31px;
-
-    min-width:125px;
-
-    padding:
-      8px
-      12px;
-
-  }
-
-
-  .menu-panel a{
-
-    padding:
-      7px
-      2px;
-
-    font-size:16px;
-
-  }
-
-
-
-  /* HOME */
-
-  .hero{
-
-    padding:
-      68px
-      18px
-      0;
-
-  }
-
-
-  .brand{
-
-    gap:9px;
-
-    margin-bottom:24px;
-
-  }
-
-
-  .kissa{
-
-    font-size:19px;
-
-  }
-
-
-  .mame{
-
-    font-size:48px;
-
-  }
-
-
-  .zuzu{
-
-    font-size:19px;
-
-  }
-
-
-  .mascot{
-
-    width:88px;
-
-    margin-bottom:16px;
-
-  }
-
-
-  .intro{
-
-    font-size:15px;
-
-    line-height:1.7;
-
-  }
-
-
-  .short-line{
-
-    margin:
-      10px
-      auto;
-
-  }
-
-
-  .tag{
-
-    margin-bottom:12px;
-
-    font-size:15px;
-
-  }
-
-
-  .links{
-
-    width:
-      calc(100% - 36px);
-
-    margin-bottom:25px;
-
-  }
-
-
-  .links a{
-
-    min-height:54px;
-
-  }
-
-
-  .links span{
-
-    font-size:21px;
-
-  }
-
-
-  .links img{
-
-    width:31px !important;
-
-    height:31px !important;
-
-    max-width:31px !important;
-
-    max-height:31px !important;
-
-  }
-
-
-  .links a:first-child img{
-
-    width:29px !important;
-
-    height:29px !important;
-
-  }
-
-
-
-  /* SUB PAGE */
-
-  .compact-page{
-
-    width:
-      calc(100% - 28px);
-
-    padding:
-      62px
-      0
-      12px;
-
-  }
-
-
-  .compact-hero{
-
-    margin-bottom:14px;
-
-  }
-
-
-  .mini-brand{
-
-    margin-bottom:8px;
-
-    font-size:9px;
-
-  }
-
-
-  .compact-hero h1{
-
-    font-size:38px;
-
-  }
-
-
-  .compact-hero .short-line{
-
-    width:36px;
-
-    margin:
-      10px
-      auto
-      8px;
-
-  }
-
-
-  .compact-hero > p{
-
-    font-size:10px;
-
-  }
-
-
-
-  /* BEANS */
-
-  .beans-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr;
-
-    gap:8px;
-
-    padding-top:10px;
-
-  }
-
-
-  .bean-card{
-
-    grid-template-columns:
-      28%
-      72%;
-
-    min-height:0;
-
-    height:auto;
-
-  }
-
-
-  .bean-card-body{
-
-    padding:
-      10px
-      12px;
-
-  }
-
-
-  .bean-number{
-
-    margin-bottom:3px;
-
-    font-size:8px;
-
-  }
-
-
-  .bean-card h2{
-
-    font-size:15px;
-
-    line-height:1.2;
-
-  }
-
-
-  .bean-en{
-
-    margin-top:2px;
-
-    font-size:10px;
-
-  }
-
-
-  .bean-short-copy{
-
-    margin:
-      7px
-      0;
-
-    font-size:9px;
-
-    line-height:1.45;
-
-  }
-
-
-  .bean-mini-data p{
-
-    grid-template-columns:
-      43px
-      1fr;
-
-    padding:
-      2px
-      0;
-
-    font-size:8px;
-
-  }
-
-
-  .bean-price{
-
-    margin-top:5px;
-
-    font-size:9px;
-
-  }
-
-
-
-  /* ABOUT */
-
-  .about-compact > p{
-
-    margin-bottom:14px;
-
-    font-size:11px;
-
-    line-height:1.8;
-
-  }
-
-
-  .instagram-guide{
-
-    margin-top:18px;
-
-    padding:
-      9px
-      10px;
-
-    grid-template-columns:
-      27px
-      1fr;
-
-  }
-
-
-  .instagram-guide img{
-
-    width:25px !important;
-
-    height:25px !important;
-
-  }
-
-
-  .instagram-guide span{
-
-    font-size:16px;
-
-  }
-
-
-  .instagram-guide small{
-
-    font-size:8px;
-
-  }
-
-
-
-  /* CONTACT */
-
-  .contact-intro{
-
-    margin-bottom:14px;
-
-    font-size:10px;
-
-    line-height:1.7;
-
-  }
-
-
-  .contact-row{
-
-    min-height:48px;
-
-  }
-
-
-  .contact-row img{
-
-    width:26px !important;
-
-    height:26px !important;
-
-    max-width:26px !important;
-
-    max-height:26px !important;
-
-    min-width:26px !important;
-
-    min-height:26px !important;
-
-  }
-
-
-  .contact-row span{
-
-    font-size:17px;
-
-  }
-
-
-  footer{
-
-    padding-bottom:12px;
-
-    font-size:10px;
-
-  }
-
-}
-
-
-
-/* ==================================================
-   ACCESSIBILITY
-================================================== */
-
-@media(prefers-reduced-motion:reduce){
-
-  .mascot.is-falling{
-
-    animation:none;
-
-  }
-
-}
+</html>
