@@ -81,23 +81,24 @@ header{
 ========================= */
 
 .hero{
-  min-height:100svh;
-
+  min-height:auto;
   display:flex;
   flex-direction:column;
-
-  /* 縦中央ではなく上から配置 */
   justify-content:flex-start;
-
   align-items:center;
   text-align:center;
 
-  /* PC版のタイトル開始位置 */
-  padding:150px 24px 40px;
+  /*
+    PC：
+    hero全体を上へ詰める
+  */
+  padding:100px 24px 20px;
 }
 
 
-/* 喫茶 豆豆 ~zu-zu~ */
+/* =========================
+   BRAND
+========================= */
 
 .brand{
   display:flex;
@@ -105,8 +106,10 @@ header{
   gap:18px;
   white-space:nowrap;
 
-  /* タイトル → キャラ */
-  margin-bottom:70px;
+  /*
+    タイトル → キャラ
+  */
+  margin-bottom:42px;
 }
 
 .kissa{
@@ -127,19 +130,25 @@ header{
 }
 
 
-/* 豆豆だるま */
+/* =========================
+   MASCOT
+========================= */
 
 .mascot{
-  width:125px;
+  width:115px;
   height:auto;
   display:block;
 
-  /* キャラ → 文章 */
-  margin:0 0 34px;
+  /*
+    キャラ → 文章
+  */
+  margin:0 0 24px;
 }
 
 
-/* メイン文章 */
+/* =========================
+   TEXT
+========================= */
 
 .intro{
   margin:0;
@@ -148,23 +157,19 @@ header{
   letter-spacing:.08em;
 }
 
-
-/* 短い横線 */
-
 .short-line{
   width:54px;
   height:1px;
   background:var(--line);
 
-  /* 文章周辺の余白 */
-  margin:22px 0;
+  /*
+    文章 → 横線 → キャッチコピー
+  */
+  margin:18px 0;
 }
 
-
-/* 深煎りの中の甘さを。 */
-
 .tag{
-  margin:0 0 30px;
+  margin:0 0 18px;
   font-size:21px;
   letter-spacing:.1em;
 }
@@ -177,13 +182,14 @@ header{
 .links{
   width:min(520px,calc(100% - 44px));
 
-  /* heroとの余計な上余白は作らない */
-  margin:0 auto 70px;
+  /*
+    上余白は0
+  */
+  margin:0 auto 55px;
 }
 
 .links a{
-  min-height:88px;
-
+  min-height:78px;
   border-bottom:1px solid var(--line);
 
   display:flex;
@@ -228,7 +234,7 @@ header{
 
 .placeholder{
   width:min(520px,calc(100% - 44px));
-  margin:70px auto 120px;
+  margin:60px auto 100px;
   text-align:center;
   color:#9c8e7e;
   font-family:"EB Garamond",serif;
@@ -242,7 +248,7 @@ header{
 
 footer{
   text-align:center;
-  padding:0 20px 45px;
+  padding:0 20px 35px;
   font-family:"EB Garamond",serif;
   letter-spacing:.16em;
   font-size:13px;
@@ -252,13 +258,13 @@ footer{
 
 /* ==================================================
    SMARTPHONE
-   650px以下だけ、ここから下の設定に切り替わる
+   650px以下
 ================================================== */
 
 @media(max-width:650px){
 
   header{
-    height:72px;
+    height:64px;
     padding:0 20px;
   }
 
@@ -272,26 +278,28 @@ footer{
   }
 
 
-  /* スマホの上部余白を大幅に縮小 */
+  /* =========================
+     HERO - MOBILE
+  ========================= */
 
   .hero{
     min-height:auto;
-
-    /* PC版の中央配置を完全に解除 */
     justify-content:flex-start;
 
-    /* タイトルを上から約90pxに配置 */
-    padding:90px 20px 20px;
+    /*
+      スマホではさらに上へ
+    */
+    padding:72px 20px 12px;
   }
 
 
-  /* タイトル */
+  /* =========================
+     BRAND - MOBILE
+  ========================= */
 
   .brand{
     gap:10px;
-
-    /* タイトル → キャラ */
-    margin-bottom:38px;
+    margin-bottom:28px;
   }
 
   .kissa{
@@ -307,44 +315,46 @@ footer{
   }
 
 
-  /* キャラ */
+  /* =========================
+     MASCOT - MOBILE
+  ========================= */
 
   .mascot{
-    width:105px;
-
-    /* キャラ → 文章 */
-    margin-bottom:24px;
+    width:92px;
+    margin:0 0 18px;
   }
 
 
-  /* 文章 */
+  /* =========================
+     TEXT - MOBILE
+  ========================= */
 
   .intro{
     font-size:16px;
-    line-height:1.9;
+    line-height:1.8;
   }
 
   .short-line{
-    margin:16px 0;
+    margin:12px 0;
   }
 
   .tag{
     font-size:16px;
-
-    /* 文章 → beans */
-    margin-bottom:18px;
+    margin-bottom:12px;
   }
 
 
-  /* タブ */
+  /* =========================
+     LINKS - MOBILE
+  ========================= */
 
   .links{
-    margin-top:0;
-    margin-bottom:40px;
+    width:calc(100% - 44px);
+    margin:0 auto 35px;
   }
 
   .links a{
-    min-height:66px;
+    min-height:58px;
   }
 
   .links span{
@@ -361,4 +371,12 @@ footer{
     height:32px;
   }
 
+
+  /* =========================
+     FOOTER - MOBILE
+  ========================= */
+
+  footer{
+    padding-bottom:25px;
+  }
 }
