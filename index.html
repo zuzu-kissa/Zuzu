@@ -254,7 +254,7 @@
 <script>
 
   /* =========================
-     COMMON MENU
+     MENU
   ========================== */
 
   const siteNav =
@@ -263,59 +263,43 @@
   const navTrigger =
     document.querySelector(".nav-trigger");
 
+  if (siteNav && navTrigger) {
 
-  navTrigger.addEventListener(
-    "click",
-    function () {
+    navTrigger.addEventListener(
+      "click",
+      function () {
 
-      const opened =
-        siteNav.classList.toggle("is-open");
-
-      navTrigger.setAttribute(
-        "aria-expanded",
-        opened ? "true" : "false"
-      );
-
-    }
-  );
-
-
-  document.addEventListener(
-    "click",
-    function (event) {
-
-      if (!siteNav.contains(event.target)) {
-
-        siteNav.classList.remove("is-open");
+        const opened =
+          siteNav.classList.toggle("is-open");
 
         navTrigger.setAttribute(
           "aria-expanded",
-          "false"
+          opened ? "true" : "false"
         );
 
       }
-
-    }
-  );
+    );
 
 
-  document.addEventListener(
-    "keydown",
-    function (event) {
+    document.addEventListener(
+      "click",
+      function (event) {
 
-      if (event.key === "Escape") {
+        if (!siteNav.contains(event.target)) {
 
-        siteNav.classList.remove("is-open");
+          siteNav.classList.remove("is-open");
 
-        navTrigger.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+          navTrigger.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
 
       }
+    );
 
-    }
-  );
+  }
 
 
 
@@ -329,87 +313,85 @@
 
   function rollDaruma() {
 
-    if (
-      mascot.classList.contains("is-falling")
-    ) {
+    if (!mascot) {
       return;
     }
 
 
+    /*
+      連続動作でも必ず
+      アニメーションを再スタートできるようにする
+    */
+
+    mascot.classList.remove("is-falling");
+
+    void mascot.offsetWidth;
+
     mascot.classList.add("is-falling");
-
-
-    mascot.addEventListener(
-      "animationend",
-      function () {
-
-        mascot.classList.remove(
-          "is-falling"
-        );
-
-      },
-      {
-        once:true
-      }
-    );
 
   }
 
 
+  if (mascot) {
 
-  /* サイトを開いた時 */
+    /*
+      ページ読込時。
 
-  window.addEventListener(
-    "load",
-    function () {
+      loadイベントを待つだけだと
+      キャッシュ状況によって実行確認が
+      分かりづらいためDOMContentLoaded後に実行。
+    */
 
-      setTimeout(
-        rollDaruma,
-        450
-      );
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
 
-    }
-  );
-
-
-
-  /* カーソルを乗せた時 */
-
-  mascot.addEventListener(
-    "mouseenter",
-    rollDaruma
-  );
-
-
-
-  /* click / tap */
-
-  mascot.addEventListener(
-    "click",
-    rollDaruma
-  );
-
-
-
-  /* keyboard */
-
-  mascot.addEventListener(
-    "keydown",
-    function (event) {
-
-      if (
-        event.key === "Enter" ||
-        event.key === " "
-      ) {
-
-        event.preventDefault();
-
-        rollDaruma();
+        setTimeout(
+          rollDaruma,
+          500
+        );
 
       }
+    );
 
-    }
-  );
+
+    /* hover */
+
+    mascot.addEventListener(
+      "mouseenter",
+      rollDaruma
+    );
+
+
+    /* click / tap */
+
+    mascot.addEventListener(
+      "click",
+      rollDaruma
+    );
+
+
+    /* keyboard */
+
+    mascot.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          rollDaruma();
+
+        }
+
+      }
+    );
+
+  }
 
 </script>
 
