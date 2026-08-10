@@ -42,5 +42,38 @@
 </main>
 
 <footer>© 2026 zuzu coffee</footer>
+  <script>
+  const daruma = document.querySelector('.mascot');
+
+  if (daruma) {
+
+    daruma.addEventListener('click', function () {
+
+      /*
+        連打してもアニメーションを
+        最初から再生できるようにする
+      */
+      daruma.classList.remove('is-falling');
+
+      void daruma.offsetWidth;
+
+      daruma.classList.add('is-falling');
+
+    });
+
+    daruma.addEventListener('animationend', function () {
+
+      /*
+        アニメーション終了後に
+        元の状態へ戻す
+      */
+      daruma.classList.remove('is-falling');
+
+    });
+
+  }
+</script>
+
+  
 </body>
 </html>
