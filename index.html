@@ -1,79 +1,365 @@
 <!doctype html>
+
 <html lang="ja">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>喫茶 豆豆 ~zu-zu~</title>
-<meta name="description" content="手廻しロースターによる自家焙煎コーヒー豆を販売。深煎りの中の甘さをご堪能ください。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>喫茶 豆豆 ~zu-zu~</title>
+
+  <meta
+    name="description"
+    content="手廻しロースターによる自家焙煎コーヒー豆の通販です。深煎りの中の甘さを。"
+  >
+
+
+  <!-- Google Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=EB+Garamond:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- CSS -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
+
 <body>
-<header>
-  <a class="menu" href="#links"><span>menu</span><b></b><b></b><b></b></a>
-</header>
 
-<main>
-<section class="hero">
-  <div class="brand">
-    <span class="kissa">喫茶</span>
-    <span class="mame">豆豆</span>
-    <span class="zuzu">~zu-zu~</span>
-  </div>
 
-  <img class="mascot" src="assets/zuzu-daruma-approved.png" alt="豆豆だるま">
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-  <p class="intro">手廻しロースターによる<br>自家焙煎コーヒー豆を販売。</p>
-  <span class="short-line"></span>
-  <p class="tag">深煎りの中の甘さをご堪能ください。</p>
-</section>
+  <header>
 
-<nav id="links" class="links">
-  <a href="#beans"><span>beans</span><img src="assets/icon-beans-approved.png" alt=""></a>
-  <a href="https://www.instagram.com/" target="_blank" rel="noopener"><span>about</span><img src="assets/icon-instagram.svg" alt=""></a>
-  <a href="mailto:hello@example.com"><span>contact</span><img src="assets/icon-contact.svg" alt=""></a>
-</nav>
+    <a
+      class="menu"
+      href="#links"
+      aria-label="メニューへ移動"
+    >
 
-<section id="beans" class="placeholder">
-  <p>beans page coming soon.</p>
-</section>
-</main>
+      <span>menu</span>
 
-<footer>© 2026 zuzu coffee</footer>
+      <b></b>
+      <b></b>
+      <b></b>
+
+    </a>
+
+  </header>
+
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+
+      <!-- BRAND -->
+
+      <div class="brand">
+
+        <span class="kissa">
+          喫茶
+        </span>
+
+        <span class="mame">
+          豆豆
+        </span>
+
+        <span class="zuzu">
+          ~zu-zu~
+        </span>
+
+      </div>
+
+
+
+      <!-- DARUMA -->
+
+      <img
+        class="mascot"
+        src="assets/zuzu-daruma-approved.png"
+        alt="豆豆だるま"
+        draggable="false"
+        role="button"
+        tabindex="0"
+        aria-label="豆豆だるまを転がす"
+      >
+
+
+
+      <!-- INTRO -->
+
+      <p class="intro">
+
+        手廻しロースターによる<br>
+
+        自家焙煎コーヒー豆の通販です。
+
+      </p>
+
+
+
+      <!-- LINE -->
+
+      <span class="short-line"></span>
+
+
+
+      <!-- TAGLINE -->
+
+      <p class="tag">
+
+        深煎りの中の甘さを。
+
+      </p>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         LINKS
+    ========================== -->
+
+    <nav
+      id="links"
+      class="links"
+    >
+
+
+      <!-- BEANS -->
+
+      <a href="#beans">
+
+        <span>
+          beans
+        </span>
+
+        <img
+          src="assets/icon-beans-approved.png"
+          alt=""
+        >
+
+      </a>
+
+
+
+      <!-- ABOUT -->
+
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <span>
+          about
+        </span>
+
+        <img
+          src="assets/icon-instagram.svg"
+          alt=""
+        >
+
+      </a>
+
+
+
+      <!-- CONTACT -->
+
+      <a href="mailto:hello@example.com">
+
+        <span>
+          contact
+        </span>
+
+        <img
+          src="assets/icon-contact.svg"
+          alt=""
+        >
+
+      </a>
+
+
+    </nav>
+
+
+
+    <!-- =========================
+         BEANS PLACEHOLDER
+    ========================== -->
+
+    <section
+      id="beans"
+      class="placeholder"
+    >
+
+      <p>
+        beans page coming soon.
+      </p>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    © 2026 zuzu coffee
+
+  </footer>
+
+
+
+  <!-- =========================
+       DARUMA SCRIPT
+  ========================== -->
+
   <script>
-  const daruma = document.querySelector('.mascot');
 
-  if (daruma) {
+    const daruma =
+      document.querySelector('.mascot');
 
-    daruma.addEventListener('click', function () {
+
+    function rollDaruma(){
+
+      if(!daruma){
+        return;
+      }
+
 
       /*
-        連打してもアニメーションを
-        最初から再生できるようにする
+        一度クラスを外すことで、
+        何回でもアニメーションを
+        最初から再生できる
       */
-      daruma.classList.remove('is-falling');
+
+      daruma.classList.remove(
+        'is-falling'
+      );
+
+
+      /*
+        ブラウザに一度状態を
+        読み込ませる
+      */
 
       void daruma.offsetWidth;
 
-      daruma.classList.add('is-falling');
 
-    });
+      /*
+        転がるアニメーション開始
+      */
 
-    daruma.addEventListener('animationend', function () {
+      daruma.classList.add(
+        'is-falling'
+      );
+
+    }
+
+
+
+    if(daruma){
+
+
+      /*
+        PC：クリック
+        スマホ：タップ
+      */
+
+      daruma.addEventListener(
+        'click',
+        rollDaruma
+      );
+
+
+      /*
+        キーボード操作にも対応
+      */
+
+      daruma.addEventListener(
+        'keydown',
+        function(event){
+
+          if(
+            event.key === 'Enter' ||
+            event.key === ' '
+          ){
+
+            event.preventDefault();
+
+            rollDaruma();
+
+          }
+
+        }
+      );
+
 
       /*
         アニメーション終了後に
-        元の状態へ戻す
+        クラスを削除
       */
-      daruma.classList.remove('is-falling');
 
-    });
+      daruma.addEventListener(
+        'animationend',
+        function(){
 
-  }
-</script>
+          daruma.classList.remove(
+            'is-falling'
+          );
 
-  
+        }
+      );
+
+    }
+
+  </script>
+
+
 </body>
+
 </html>
