@@ -6,43 +6,27 @@
   --muted:#aa9884;
 }
 
-
-/* ==================================================
-   RESET
-================================================== */
-
 *{
   box-sizing:border-box;
 }
-
 
 html{
   scroll-behavior:smooth;
 }
 
-
 body{
   margin:0;
-
   color:var(--cream);
-
   background:var(--bg);
-
   font-family:"Noto Serif JP",serif;
 }
 
-
 body:before{
   content:"";
-
   position:fixed;
-
   inset:0;
-
   pointer-events:none;
-
   opacity:.13;
-
   background:
     radial-gradient(
       circle at 50% 42%,
@@ -50,255 +34,232 @@ body:before{
       #130d09 34%,
       #0b0806 70%
     );
-
   z-index:-1;
 }
-
 
 
 /* ==================================================
    HEADER
 ================================================== */
 
+header,
 .site-header{
   position:absolute;
-
   top:0;
   left:0;
   right:0;
-
   height:76px;
-
   padding:0 42px;
 
   display:flex;
-
   justify-content:flex-end;
-
   align-items:center;
 
   z-index:1000;
 }
 
 
-
 /* ==================================================
-   GLOBAL MENU
+   MENU
+   新旧どちらのHTMLでも同じ表示
 ================================================== */
 
-.site-nav{
+.site-nav,
+.menu-wrap{
   position:relative;
 }
 
 
-/* trigger */
+/* BUTTON */
 
-.nav-trigger{
-  -webkit-appearance:none;
-  appearance:none;
+.nav-trigger,
+.menu-wrap button.menu{
+  -webkit-appearance:none !important;
+  appearance:none !important;
 
-  border:0;
+  border:0 !important;
+  border-radius:0 !important;
 
-  border-radius:0;
+  margin:0 !important;
+  padding:10px 0 !important;
 
-  margin:0;
+  background:transparent !important;
+  color:var(--cream) !important;
 
-  padding:10px 0;
-
-  background:transparent;
-
-  color:var(--cream);
-
-  display:flex;
-
-  align-items:center;
+  display:flex !important;
+  align-items:center !important;
 
   gap:18px;
 
   cursor:pointer;
 
-  font-family:"EB Garamond",serif;
+  font-family:"EB Garamond",serif !important;
+  font-size:17px !important;
+  line-height:1 !important;
+  letter-spacing:.16em !important;
 }
 
 
-.nav-word{
-  font-size:17px;
+/* MENU WORD */
 
-  line-height:1;
-
-  letter-spacing:.16em;
+.nav-word,
+.menu-wrap button.menu > span:first-child{
+  color:var(--cream) !important;
+  font-family:"EB Garamond",serif !important;
+  font-size:17px !important;
+  line-height:1 !important;
+  letter-spacing:.16em !important;
 }
 
 
-.nav-lines{
+/* HAMBURGER */
+
+.nav-lines,
+.menu-wrap button.menu > i,
+.menu-wrap button.menu .menu-lines{
   width:40px;
 
-  display:flex;
-
+  display:flex !important;
   flex-direction:column;
-
   gap:6px;
+
+  font-style:normal;
 }
 
 
-.nav-lines i{
-  display:block;
+.nav-lines i,
+.menu-wrap button.menu b{
+  display:block !important;
 
-  width:40px;
+  width:40px !important;
+  height:1px !important;
 
-  height:1px;
+  margin:0 !important;
+  padding:0 !important;
 
-  background:var(--cream);
+  border:0 !important;
 
-  transition:
-    transform .2s ease,
-    opacity .2s ease;
+  background:var(--cream) !important;
 }
 
 
+/* DROPDOWN */
 
-/* dropdown */
-
-.nav-menu{
+.nav-menu,
+.menu-panel{
   position:absolute;
 
   top:42px;
-
   right:0;
 
   width:145px;
 
-  padding:8px 14px;
+  margin:0 !important;
+  padding:8px 14px !important;
 
-  background:
-    rgba(11,8,6,.97);
+  background:rgba(11,8,6,.98);
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   box-shadow:
-    0 12px 28px
-    rgba(0,0,0,.24);
+    0 12px 28px rgba(0,0,0,.24);
 
   opacity:0;
-
   visibility:hidden;
-
   pointer-events:none;
 
-  transform:
-    translateY(-5px);
+  transform:translateY(-5px);
 
   transition:
     opacity .18s ease,
     visibility .18s ease,
     transform .18s ease;
+
+  z-index:2000;
 }
 
+
+/* 紫リンクを完全に防ぐ */
 
 .nav-menu a,
 .nav-menu a:link,
-.nav-menu a:visited{
-  display:block;
+.nav-menu a:visited,
+.menu-panel a,
+.menu-panel a:link,
+.menu-panel a:visited{
+  display:block !important;
 
-  margin:0;
+  margin:0 !important;
+  padding:7px 2px !important;
 
-  padding:7px 2px;
+  color:var(--cream) !important;
+  background:transparent !important;
 
-  color:var(--cream);
-
-  background:transparent;
-
-  text-decoration:none;
-
+  text-decoration:none !important;
   text-align:right;
 
-  font-family:"EB Garamond",serif;
-
-  font-size:17px;
-
-  line-height:1.2;
-
-  letter-spacing:.14em;
+  font-family:"EB Garamond",serif !important;
+  font-size:17px !important;
+  line-height:1.2 !important;
+  letter-spacing:.14em !important;
 }
 
 
-.nav-menu a:hover{
+.nav-menu a:hover,
+.menu-panel a:hover{
   opacity:.55;
 }
 
 
+/* JSで開いた場合 */
 
-/* click / tap */
-
-.site-nav.is-open .nav-menu{
+.site-nav.is-open .nav-menu,
+.menu-wrap.is-open .menu-panel{
   opacity:1;
-
   visibility:visible;
-
   pointer-events:auto;
-
-  transform:
-    translateY(0);
+  transform:translateY(0);
 }
 
 
-
-/* PC hover */
+/* PC：hover */
 
 @media(hover:hover){
 
   .site-nav:hover .nav-menu,
-  .site-nav:focus-within .nav-menu{
+  .site-nav:focus-within .nav-menu,
+  .menu-wrap:hover .menu-panel,
+  .menu-wrap:focus-within .menu-panel{
     opacity:1;
-
     visibility:visible;
-
     pointer-events:auto;
-
-    transform:
-      translateY(0);
+    transform:translateY(0);
   }
 
 }
 
 
-
 /* ==================================================
-   HOME HERO
+   HOME
 ================================================== */
 
 .hero{
   height:auto;
-
   min-height:0;
 
   display:flex;
-
   flex-direction:column;
-
   justify-content:flex-start;
-
   align-items:center;
 
   text-align:center;
 
-  padding:
-    105px
-    24px
-    0;
+  padding:105px 24px 0;
 }
 
 
-
-/* ==================================================
-   BRAND
-================================================== */
-
 .brand{
   display:flex;
-
   align-items:baseline;
 
   gap:18px;
@@ -311,28 +272,22 @@ body:before{
 
 .kissa{
   font-size:31px;
-
   letter-spacing:.06em;
 }
 
 
 .mame{
   font-size:70px;
-
   letter-spacing:-.11em;
-
   line-height:1;
 }
 
 
 .zuzu{
   font-family:"EB Garamond",serif;
-
   font-size:32px;
-
   letter-spacing:.13em;
 }
-
 
 
 /* ==================================================
@@ -341,28 +296,19 @@ body:before{
 
 .mascot{
   width:115px;
-
   height:auto;
 
   display:block;
 
-  margin:
-    0
-    0
-    22px;
+  margin:0 0 22px;
 
-  transform-origin:
-    50%
-    88%;
+  transform-origin:50% 88%;
 
   cursor:pointer;
 
-  -webkit-tap-highlight-color:
-    transparent;
-
   user-select:none;
-
   -webkit-user-select:none;
+  -webkit-tap-highlight-color:transparent;
 }
 
 
@@ -386,7 +332,6 @@ body:before{
   12%{
     transform:
       translateX(-3px)
-      translateY(0)
       rotate(-6deg);
   }
 
@@ -414,21 +359,17 @@ body:before{
   75%{
     transform:
       translateX(-2px)
-      translateY(0)
       rotate(-13deg);
   }
 
   86%{
     transform:
       translateX(1px)
-      translateY(0)
       rotate(6deg);
   }
 
   94%{
     transform:
-      translateX(0)
-      translateY(0)
       rotate(-2deg);
   }
 
@@ -442,67 +383,37 @@ body:before{
 }
 
 
-
-/* ==================================================
-   HOME TEXT
-================================================== */
+/* HOME TEXT */
 
 .intro{
   margin:0;
-
   font-size:21px;
-
   line-height:1.8;
-
   letter-spacing:.08em;
 }
 
 
 .short-line{
   display:block;
-
   width:54px;
-
   height:1px;
-
-  margin:
-    15px
-    auto;
-
-  background:
-    var(--line);
+  margin:15px auto;
+  background:var(--line);
 }
 
 
 .tag{
-  margin:
-    0
-    0
-    6px;
-
+  margin:0 0 6px;
   font-size:21px;
-
   letter-spacing:.1em;
 }
 
 
-
-/* ==================================================
-   HOME LINKS
-================================================== */
+/* HOME LINKS */
 
 .links{
-  width:
-    min(
-      520px,
-      calc(100% - 44px)
-    );
-
-  margin:
-    0
-    auto
-    45px;
-
+  width:min(520px,calc(100% - 44px));
+  margin:0 auto 45px;
   padding:0;
 }
 
@@ -510,173 +421,115 @@ body:before{
 .links a{
   min-height:72px;
 
-  border-bottom:
-    1px solid
-    var(--line);
+  border-bottom:1px solid var(--line);
 
   display:flex;
-
   align-items:center;
-
-  justify-content:
-    space-between;
+  justify-content:space-between;
 
   color:var(--cream);
-
   text-decoration:none;
 }
 
 
 .links span{
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:31px;
-
   letter-spacing:.22em;
 }
 
 
 .links img{
   display:block;
-
   width:42px;
-
   height:42px;
-
   object-fit:contain;
 }
 
 
 .links a:first-child img{
   width:40px;
-
   height:40px;
 }
 
 
-
 /* ==================================================
-   BEANS PAGE
+   BEANS
 ================================================== */
 
 .beans-page{
-  width:
-    min(
-      1080px,
-      calc(100% - 60px)
-    );
+  width:min(1080px,calc(100% - 60px));
 
-  height:
-    calc(100svh - 34px);
-
+  height:calc(100svh - 34px);
   min-height:560px;
 
-  margin:
-    0
-    auto;
+  margin:0 auto;
 
-  padding:
-    78px
-    0
-    14px;
+  padding:78px 0 14px;
 
   display:flex;
-
   flex-direction:column;
 }
 
-
-
-/* small heading */
 
 .beans-head{
   flex:0 0 auto;
 
   margin-bottom:12px;
-
   padding-bottom:10px;
 
-  border-bottom:
-    1px solid
-    var(--line);
+  border-bottom:1px solid var(--line);
 }
 
 
 .beans-home{
   display:block;
 
-  margin:
-    0
-    0
-    5px;
+  margin:0 0 5px;
 
   color:var(--muted);
-
   text-decoration:none;
 
   font-size:10px;
-
   letter-spacing:.13em;
 }
 
 
 .beans-heading{
   display:flex;
-
   align-items:center;
-
   gap:11px;
 }
 
 
 .beans-label{
   font-family:"EB Garamond",serif;
-
   font-size:20px;
-
   line-height:1;
-
   letter-spacing:.15em;
 }
 
 
 .beans-heading-line{
   width:26px;
-
   height:1px;
-
   background:var(--line);
 }
 
 
 .beans-heading p{
   margin:0;
-
   font-size:10px;
-
   letter-spacing:.09em;
 }
 
 
-
-/* ==================================================
-   BEAN PRODUCTS
-================================================== */
-
 .beans-products{
   flex:1;
-
   min-height:0;
 
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0,1fr)
-    );
+  grid-template-columns:repeat(2,minmax(0,1fr));
 
   gap:16px;
 }
@@ -684,42 +537,26 @@ body:before{
 
 .bean-product{
   min-width:0;
-
   min-height:0;
 
   display:grid;
+  grid-template-columns:38% 62%;
 
-  grid-template-columns:
-    38%
-    62%;
-
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 }
 
 
 .bean-photo{
-  min-width:0;
-
-  border-right:
-    1px solid
-    var(--line);
+  border-right:1px solid var(--line);
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   color:#756858;
 
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:12px;
-
   letter-spacing:.14em;
 }
 
@@ -730,20 +567,14 @@ body:before{
   padding:20px;
 
   display:flex;
-
   flex-direction:column;
-
   justify-content:center;
 }
 
 
 .bean-title-row{
   display:grid;
-
-  grid-template-columns:
-    26px
-    minmax(0,1fr);
-
+  grid-template-columns:26px minmax(0,1fr);
   gap:3px;
 }
 
@@ -753,83 +584,54 @@ body:before{
 
   color:var(--muted);
 
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:10px;
-
   letter-spacing:.14em;
 }
 
 
 .bean-info h2{
   margin:0;
-
   font-size:20px;
-
   font-weight:400;
-
   line-height:1.3;
-
   letter-spacing:.06em;
 }
 
 
 .bean-en{
-  margin:
-    4px
-    0
-    0;
+  margin:4px 0 0;
 
   color:var(--muted);
 
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:13px;
-
   letter-spacing:.1em;
 }
 
 
 .bean-description{
-  margin:
-    16px
-    0;
+  margin:16px 0;
 
   font-size:11px;
-
   line-height:1.7;
-
   letter-spacing:.05em;
 }
 
 
 .bean-spec{
   margin:0;
-
-  border-top:
-    1px solid
-    var(--line);
+  border-top:1px solid var(--line);
 }
 
 
 .bean-spec div{
   display:grid;
+  grid-template-columns:58px minmax(0,1fr);
 
-  grid-template-columns:
-    58px
-    minmax(0,1fr);
+  padding:5px 0;
 
-  padding:
-    5px
-    0;
-
-  border-bottom:
-    1px solid
-    var(--line);
+  border-bottom:1px solid var(--line);
 }
 
 
@@ -837,14 +639,9 @@ body:before{
 .bean-spec dd{
   margin:0;
 
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:10px;
-
   line-height:1.4;
-
   letter-spacing:.05em;
 }
 
@@ -855,50 +652,31 @@ body:before{
 
 
 .bean-price{
-  margin:
-    12px
-    0
-    0;
+  margin:12px 0 0;
 
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:12px;
-
   letter-spacing:.1em;
 }
 
 
-
 /* ==================================================
-   SUB PAGES
+   ABOUT / CONTACT
 ================================================== */
 
 .sub-page{
-  width:
-    min(
-      640px,
-      calc(100% - 44px)
-    );
+  width:min(640px,calc(100% - 44px));
 
-  min-height:
-    calc(100svh - 36px);
+  min-height:calc(100svh - 36px);
 
-  margin:
-    0
-    auto;
+  margin:0 auto;
 
-  padding:
-    78px
-    0
-    20px;
+  padding:78px 0 20px;
 }
 
 
 .sub-head{
   text-align:center;
-
   margin-bottom:28px;
 }
 
@@ -909,11 +687,9 @@ body:before{
   margin-bottom:12px;
 
   color:var(--muted);
-
   text-decoration:none;
 
   font-size:10px;
-
   letter-spacing:.12em;
 }
 
@@ -921,25 +697,16 @@ body:before{
 .sub-head h1{
   margin:0;
 
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:38px;
-
   font-weight:400;
-
   line-height:1;
-
   letter-spacing:.12em;
 }
 
 
 .sub-head .short-line{
-  margin:
-    14px
-    auto
-    10px;
+  margin:14px auto 10px;
 }
 
 
@@ -947,95 +714,54 @@ body:before{
   margin:0;
 
   font-size:11px;
-
   letter-spacing:.1em;
 }
 
 
-
-/* ==================================================
-   ABOUT
-================================================== */
+/* ABOUT */
 
 .about-content{
-  width:
-    min(
-      500px,
-      100%
-    );
-
-  margin:
-    0
-    auto;
-
+  width:min(500px,100%);
+  margin:0 auto;
   text-align:center;
 }
 
 
 .about-content > p{
-  margin:
-    0
-    0
-    20px;
+  margin:0 0 20px;
 
   font-size:13px;
-
   line-height:2;
-
   letter-spacing:.07em;
 }
 
 
 .instagram-guide{
-  width:
-    min(
-      340px,
-      100%
-    );
+  width:min(340px,100%);
 
-  margin:
-    24px
-    auto
-    0;
+  margin:24px auto 0;
+  padding:11px 13px;
 
-  padding:
-    11px
-    13px;
-
-  border-top:
-    1px solid
-    var(--line);
-
-  border-bottom:
-    1px solid
-    var(--line);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 
   display:grid;
-
-  grid-template-columns:
-    30px
-    1fr;
-
+  grid-template-columns:30px 1fr;
   column-gap:13px;
-
   align-items:center;
 
   color:var(--cream);
-
   text-decoration:none;
-
   text-align:left;
 }
 
 
 .instagram-guide img{
-  grid-row:
-    1 / 3;
+  grid-row:1 / 3;
 
   display:block;
 
   width:28px;
-
   height:28px;
 
   object-fit:contain;
@@ -1043,57 +769,34 @@ body:before{
 
 
 .instagram-guide span{
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:18px;
-
   letter-spacing:.14em;
 }
 
 
 .instagram-guide small{
-  margin-top:1px;
-
   color:var(--muted);
-
   font-size:9px;
-
   letter-spacing:.07em;
 }
 
 
-
-/* ==================================================
-   CONTACT
-================================================== */
+/* CONTACT */
 
 .contact-content{
-  width:
-    min(
-      420px,
-      100%
-    );
-
-  margin:
-    0
-    auto;
+  width:min(420px,100%);
+  margin:0 auto;
 }
 
 
 .contact-intro{
-  margin:
-    0
-    0
-    18px;
+  margin:0 0 18px;
 
   text-align:center;
 
   font-size:12px;
-
   line-height:1.9;
-
   letter-spacing:.06em;
 }
 
@@ -1101,31 +804,21 @@ body:before{
 .contact-row{
   min-height:56px;
 
-  padding:
-    0
-    9px;
+  padding:0 9px;
 
-  border-top:
-    1px solid
-    var(--line);
+  border-top:1px solid var(--line);
 
   display:flex;
-
   align-items:center;
-
-  justify-content:
-    space-between;
+  justify-content:space-between;
 
   color:var(--cream);
-
   text-decoration:none;
 }
 
 
 .contact-row:last-child{
-  border-bottom:
-    1px solid
-    var(--line);
+  border-bottom:1px solid var(--line);
 }
 
 
@@ -1133,11 +826,9 @@ body:before{
   display:block;
 
   width:30px;
-
   height:30px;
 
   max-width:30px;
-
   max-height:30px;
 
   object-fit:contain;
@@ -1145,15 +836,10 @@ body:before{
 
 
 .contact-row span{
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:19px;
-
   letter-spacing:.17em;
 }
-
 
 
 /* ==================================================
@@ -1163,104 +849,84 @@ body:before{
 footer{
   text-align:center;
 
-  padding:
-    0
-    20px
-    14px;
+  padding:0 20px 14px;
 
   color:#cdbda8;
 
-  font-family:
-    "EB Garamond",
-    serif;
-
+  font-family:"EB Garamond",serif;
   font-size:11px;
-
   letter-spacing:.16em;
 }
 
 
-
 /* ==================================================
-   SMARTPHONE
+   MOBILE
 ================================================== */
 
 @media(max-width:650px){
 
-
-  /* HEADER */
-
+  header,
   .site-header{
     height:56px;
-
-    padding:
-      0
-      17px;
+    padding:0 17px;
   }
 
 
-  .nav-trigger{
+  .nav-trigger,
+  .menu-wrap button.menu{
     gap:11px;
-
-    padding:
-      8px
-      0;
+    padding:8px 0 !important;
   }
 
 
-  .nav-word{
-    font-size:14px;
+  .nav-word,
+  .menu-wrap button.menu > span:first-child{
+    font-size:14px !important;
   }
 
 
-  .nav-lines{
+  .nav-lines,
+  .menu-wrap button.menu > i,
+  .menu-wrap button.menu .menu-lines{
     width:29px;
-
     gap:5px;
   }
 
 
-  .nav-lines i{
-    width:29px;
+  .nav-lines i,
+  .menu-wrap button.menu b{
+    width:29px !important;
   }
 
 
-  .nav-menu{
+  .nav-menu,
+  .menu-panel{
     top:35px;
-
     width:122px;
-
-    padding:
-      6px
-      10px;
+    padding:6px 10px !important;
   }
 
 
   .nav-menu a,
   .nav-menu a:link,
-  .nav-menu a:visited{
-    padding:
-      6px
-      1px;
-
-    font-size:15px;
+  .nav-menu a:visited,
+  .menu-panel a,
+  .menu-panel a:link,
+  .menu-panel a:visited{
+    padding:6px 1px !important;
+    font-size:15px !important;
   }
-
 
 
   /* HOME */
 
   .hero{
-    padding:
-      68px
-      18px
-      0;
+    padding:68px 18px 0;
   }
 
 
   .brand{
     gap:9px;
-
     margin-bottom:24px;
   }
 
@@ -1282,36 +948,29 @@ footer{
 
   .mascot{
     width:88px;
-
     margin-bottom:16px;
   }
 
 
   .intro{
     font-size:15px;
-
     line-height:1.7;
   }
 
 
   .short-line{
-    margin:
-      10px
-      auto;
+    margin:10px auto;
   }
 
 
   .tag{
     margin-bottom:12px;
-
     font-size:15px;
   }
 
 
   .links{
-    width:
-      calc(100% - 36px);
-
+    width:calc(100% - 36px);
     margin-bottom:25px;
   }
 
@@ -1328,48 +987,36 @@ footer{
 
   .links img{
     width:31px;
-
     height:31px;
   }
 
 
   .links a:first-child img{
     width:29px;
-
     height:29px;
   }
 
 
-
-  /* =========================
-     BEANS MOBILE
-  ========================= */
+  /* BEANS */
 
   .beans-page{
-    width:
-      calc(100% - 22px);
+    width:calc(100% - 22px);
 
     height:100svh;
-
     min-height:520px;
 
-    padding:
-      57px
-      0
-      8px;
+    padding:57px 0 8px;
   }
 
 
   .beans-head{
     margin-bottom:6px;
-
     padding-bottom:6px;
   }
 
 
   .beans-home{
     margin-bottom:2px;
-
     font-size:8px;
   }
 
@@ -1396,80 +1043,55 @@ footer{
 
   .beans-products{
     grid-template-columns:1fr;
-
-    grid-template-rows:
-      repeat(
-        2,
-        minmax(0,1fr)
-      );
-
+    grid-template-rows:repeat(2,minmax(0,1fr));
     gap:6px;
   }
 
 
   .bean-product{
-    grid-template-columns:
-      29%
-      71%;
+    grid-template-columns:29% 71%;
   }
 
 
   .bean-info{
-    padding:
-      8px
-      10px;
+    padding:8px 10px;
   }
 
 
   .bean-title-row{
-    grid-template-columns:
-      20px
-      minmax(0,1fr);
-
+    grid-template-columns:20px minmax(0,1fr);
     gap:1px;
   }
 
 
   .bean-no{
     padding-top:2px;
-
     font-size:9px;
   }
 
 
   .bean-info h2{
     font-size:14px;
-
     line-height:1.2;
   }
 
 
   .bean-en{
     margin-top:2px;
-
     font-size:10px;
   }
 
 
   .bean-description{
-    margin:
-      7px
-      0;
-
+    margin:7px 0;
     font-size:10px;
-
     line-height:1.45;
   }
 
 
   .bean-spec div{
-    grid-template-columns:
-      43px
-      1fr;
-
-    padding:
-      2px
-      0;
+    grid-template-columns:43px 1fr;
+    padding:2px 0;
   }
 
 
@@ -1481,7 +1103,6 @@ footer{
 
   .bean-price{
     margin-top:5px;
-
     font-size:10px;
   }
 
@@ -1491,22 +1112,14 @@ footer{
   }
 
 
-
-  /* =========================
-     ABOUT / CONTACT MOBILE
-  ========================= */
+  /* SUB */
 
   .sub-page{
-    width:
-      calc(100% - 28px);
+    width:calc(100% - 28px);
 
-    min-height:
-      calc(100svh - 25px);
+    min-height:calc(100svh - 25px);
 
-    padding:
-      60px
-      0
-      12px;
+    padding:60px 0 12px;
   }
 
 
@@ -1517,7 +1130,6 @@ footer{
 
   .mini-brand{
     margin-bottom:8px;
-
     font-size:9px;
   }
 
@@ -1529,11 +1141,7 @@ footer{
 
   .sub-head .short-line{
     width:38px;
-
-    margin:
-      10px
-      auto
-      8px;
+    margin:10px auto 8px;
   }
 
 
@@ -1544,29 +1152,20 @@ footer{
 
   .about-content > p{
     margin-bottom:14px;
-
     font-size:11px;
-
     line-height:1.8;
   }
 
 
   .instagram-guide{
     margin-top:17px;
-
-    padding:
-      8px
-      10px;
-
-    grid-template-columns:
-      27px
-      1fr;
+    padding:8px 10px;
+    grid-template-columns:27px 1fr;
   }
 
 
   .instagram-guide img{
     width:25px;
-
     height:25px;
   }
 
@@ -1583,9 +1182,7 @@ footer{
 
   .contact-intro{
     margin-bottom:13px;
-
     font-size:10px;
-
     line-height:1.7;
   }
 
@@ -1597,12 +1194,7 @@ footer{
 
   .contact-row img{
     width:26px;
-
     height:26px;
-
-    max-width:26px;
-
-    max-height:26px;
   }
 
 
@@ -1613,12 +1205,10 @@ footer{
 
   footer{
     padding-bottom:8px;
-
     font-size:9px;
   }
 
 }
-
 
 
 /* ==================================================
