@@ -44,26 +44,41 @@
 <body>
 
 
-<header>
+<!-- =========================
+     HEADER
+========================== -->
 
-  <details class="site-menu">
+<header class="site-header">
 
-    <summary>
+  <div class="site-nav">
 
-      <span class="menu-word">
+    <button
+      class="nav-trigger"
+      type="button"
+      aria-expanded="false"
+      aria-label="サイトメニュー"
+    >
+
+      <span class="nav-word">
         menu
       </span>
 
-      <span class="hamburger">
+      <span
+        class="nav-lines"
+        aria-hidden="true"
+      >
         <i></i>
         <i></i>
         <i></i>
       </span>
 
-    </summary>
+    </button>
 
 
-    <nav class="menu-dropdown">
+    <nav
+      class="nav-menu"
+      aria-label="メインメニュー"
+    >
 
       <a href="index.html">
         home
@@ -83,7 +98,7 @@
 
     </nav>
 
-  </details>
+  </div>
 
 </header>
 
@@ -92,7 +107,9 @@
 <main>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================== -->
 
   <section class="hero">
 
@@ -162,10 +179,14 @@
 
 
 
-  <!-- LINKS -->
+  <!-- =========================
+       LINKS
+  ========================== -->
 
   <nav class="links">
 
+
+    <!-- BEANS -->
 
     <a href="beans.html">
 
@@ -182,6 +203,8 @@
 
 
 
+    <!-- ABOUT -->
+
     <a href="about.html">
 
       <span>
@@ -196,6 +219,8 @@
     </a>
 
 
+
+    <!-- CONTACT -->
 
     <a href="contact.html">
 
@@ -229,39 +254,68 @@
 <script>
 
   /* =========================
-     MENU
+     COMMON MENU
   ========================== */
 
-  const menuWrap = document.querySelector(".menu-wrap");
-  const menuButton = document.querySelector(".menu");
+  const siteNav =
+    document.querySelector(".site-nav");
 
-  menuButton.addEventListener("click", function () {
-
-    const isOpen =
-      menuWrap.classList.toggle("is-open");
-
-    menuButton.setAttribute(
-      "aria-expanded",
-      isOpen
-    );
-
-  });
+  const navTrigger =
+    document.querySelector(".nav-trigger");
 
 
-  document.addEventListener("click", function (event) {
+  navTrigger.addEventListener(
+    "click",
+    function () {
 
-    if (!menuWrap.contains(event.target)) {
+      const opened =
+        siteNav.classList.toggle("is-open");
 
-      menuWrap.classList.remove("is-open");
-
-      menuButton.setAttribute(
+      navTrigger.setAttribute(
         "aria-expanded",
-        "false"
+        opened ? "true" : "false"
       );
 
     }
+  );
 
-  });
+
+  document.addEventListener(
+    "click",
+    function (event) {
+
+      if (!siteNav.contains(event.target)) {
+
+        siteNav.classList.remove("is-open");
+
+        navTrigger.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    function (event) {
+
+      if (event.key === "Escape") {
+
+        siteNav.classList.remove("is-open");
+
+        navTrigger.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
 
 
 
@@ -269,7 +323,9 @@
      DARUMA
   ========================== */
 
-  const mascot = document.querySelector(".mascot");
+  const mascot =
+    document.querySelector(".mascot");
+
 
   function rollDaruma() {
 
@@ -279,7 +335,9 @@
       return;
     }
 
+
     mascot.classList.add("is-falling");
+
 
     mascot.addEventListener(
       "animationend",
@@ -298,7 +356,8 @@
   }
 
 
-  /* OPEN */
+
+  /* サイトを開いた時 */
 
   window.addEventListener(
     "load",
@@ -313,7 +372,8 @@
   );
 
 
-  /* HOVER */
+
+  /* カーソルを乗せた時 */
 
   mascot.addEventListener(
     "mouseenter",
@@ -321,7 +381,8 @@
   );
 
 
-  /* CLICK / TAP */
+
+  /* click / tap */
 
   mascot.addEventListener(
     "click",
@@ -329,7 +390,8 @@
   );
 
 
-  /* KEYBOARD */
+
+  /* keyboard */
 
   mascot.addEventListener(
     "keydown",
