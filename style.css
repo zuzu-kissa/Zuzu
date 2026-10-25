@@ -501,7 +501,11 @@ body:before{
   letter-spacing:.1em;
 }
 
-
+tag ruby rt{
+  font-size:.55em;
+  color:var(--muted);
+  letter-spacing:0;
+}
 
 /* ==================================================
    HOME LINKS
