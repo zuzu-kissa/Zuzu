@@ -816,6 +816,13 @@ tag ruby rt{
   letter-spacing:.05em;
 }
 
+bean-description ruby rt{
+  font-size:.6em;
+
+  color:var(--muted);
+
+  letter-spacing:0;
+}
 
 .bean-spec{
   margin:0;
@@ -1392,15 +1399,10 @@ footer{
   .beans-products{
     grid-template-columns:1fr;
 
-    grid-template-rows:
-      repeat(
-        2,
-        minmax(0,1fr)
-      );
+    grid-template-rows:none;
 
     gap:5px;
   }
-
 
   .bean-product{
     grid-template-columns:
